@@ -1,0 +1,296 @@
+---
+---
+<h1 class="wemake-dsign" >DSIGN</h1>
+<h2 style="height: 20vh;">Diseñamos sitios web</h2>
+
+<style>
+    body { 
+        background: linear-gradient(135deg, #de53f8, #bf51f8, #556df9, #7460f9); 
+        background-size: 300% 300%; 
+        animation: moverFondo 10s infinite linear; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;     /* Centra el contenido horizontalmente */
+        min-height: 100vh;       /* Asegura que el body ocupe al menos toda la altura */
+        font-family: 'Ubuntu', cursive;
+    } 
+    @keyframes moverFondo { 
+        0% { 
+            background-position: 0% 50%; 
+        } 
+        50% { 
+            background-position: 100% 50%; 
+        } 
+        100% { 
+            background-position: 0% 50%; 
+        } 
+    }
+    .container1 {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .card1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .card1:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .info {
+      max-width: 70%;
+    }
+
+    .info h3 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .info p {
+      margin: 0;
+    }
+
+    .icon img {
+      width: 50px;
+      height: 50px;
+    }
+    .h31{
+        color: white
+    }
+    .bodysection1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.2em;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .card-title {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .icon {
+            float: right;
+        }
+        .project-card {
+            background-color: #ffffff00; /* Fondo negro (igual que el body) */
+            border: 1px solid #ffffff;  
+        }
+        .card-icon-img-dsign {
+            max-width: 105%;  /* Ajusta el tamaño según tu imagen */
+            max-height: 100%; /* Ajusta el tamaño según tu imagen */
+            object-fit: contain; /* Asegura que la imagen se vea bien */
+        }
+    
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        .project-card {
+            width: 100%;
+            max-width: 350px;
+        }
+    
+
+    
+  </style>
+</head>
+<body>
+<h2 style="font-size: 300%;">Lo que ofrecemos</h2>
+<div class="container1">
+  <div class="card1">
+    <div class="info">
+      <h3 class="h31">Diseño web</h3>
+      <p>Diseñamos sitios web modernos con las últimas tecnologías</p>
+    </div>
+    <div class="icon">
+      <img src="https://img.icons8.com/fluency/48/design.png" alt="Icono diseño">
+    </div>
+  </div>
+
+  <div class="card1">
+    <div class="info">
+      <h3 class="h31">Indexación</h3>
+      <p>Indexamos tu sitio web en Google y Bing</p>
+    </div>
+    <div class="icon">
+      <img src="https://img.icons8.com/ios-filled/50/b.png" alt="Icono indexación">
+    </div>
+  </div>
+
+  <div class="card1">
+    <div class="info">
+      <h3 class="h31">Perfil social</h3>
+      <p>Te ayudamos a diseñar tus perfiles en redes sociales para que seas una estrella</p>
+    </div>
+    <div class="icon">
+      <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Icono social">
+    </div>
+  </div>
+
+  <div class="card1">
+    <div class="info">
+      <h3 class="h31">Mantenimiento web</h3>
+      <p>Mantenemos tu página web si tú no tienes tiempo</p>
+    </div>
+    <div class="icon">
+      <img src="https://img.icons8.com/ios-filled/50/settings.png" alt="Icono mantenimiento">
+    </div>
+  </div>
+
+  <div class="card1">
+    <div class="info">
+      <h3 class="h31">Servicios en la red</h3>
+      <p>Te ayudamos con la puesta en marcha de formularios, PWA...</p>
+    </div>
+    <div class="icon">
+      <img src="https://img.icons8.com/ios-filled/50/network.png" alt="Icono red">
+    </div>
+  </div>
+</div>
+<h2 style="font-size: 300%;">Características</h2>
+<div class="bodysection1">
+    <div class="container">
+        <div class="card">
+            <h3 class="card-title">Diseño moderno <span class="icon">✨</span></h3>
+            <p>Di adiós a los sitios que parecen de cuando se creó internet</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Seguridad <span class="icon">🛡️</span></h3>
+            <p>Intentamos tener la máxima seguridad en los sitios que administramos</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Actualizado <span class="icon">🔄</span></h3>
+            <p>Todas las tecnologías que usamos están actualizadas y son seguras</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Legal <span class="icon">⚖️</span></h3>
+            <p>Siempre procuramos que tu sitio web cumpla con los requisitos</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Diferentes tecnologías <span class="icon">⚙️</span></h3>
+            <p>Wordpress, Wix, Github Pages.</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Satisfacción <span class="icon">❤️</span></h3>
+            <p>Buscamos la máxima satisfacción por parte del cliente</p>
+        </div>
+    </div>
+    </div>
+    <h2 style="font-size: 300%;">Ya hemos diseñado estas otras páginas</h2>
+    <div class="container">
+        <div class="projects-grid">
+
+            <!-- Proyecto 1: Inled en Wordpress v1.0 -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2024/12/inled.es-en-dsign.gif" alt="Inled.es imagen del wordpress" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">inled.es v1.0</h2>
+                <p class="card-description">
+                    Página de Inled hecha en Wordpress con modificaciones ligeras del tema
+                </p>
+                <a href="/ltl" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 2: Launch the launcher en Wix -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2024/11/launchthelauncher.gif" alt="Launch the laucnher imagen de la página de wix" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">Launch the launcher en Wix</h2>
+                <p class="card-description">
+                    La primera página diseñada por Inled. Alojada de forma gratuita en Wix.
+                </p>
+                <a href="/dsign" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 3: Gra-B -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2024/12/gra-b-en-dsign-inled.gif" alt="Imagen de la página en Wix de Gra-b" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">Gra-b</h2>
+                <p class="card-description">
+                    Página diseñada para una agrupación de contrabajo sin animo de lucro y con coste cero, indexada en sólo 2 días.
+                </p>
+                <a href="http://teafriendly.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 4: Fundación Conrado Blanco -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2025/01/fundacionwebinled.es_.gif" alt="Imagen de la página-concepto de la Fundación Conrado Blanco" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">Fundación Conrado Blanco</h2>
+                <p class="card-description">
+                    Rediseñamos el sitio web de la Fundación Conrado Blanco, una fundación sin ánimo de lucro.
+                    Mantenemos el sitio y actualizamos detalles.
+                </p>
+                <a href="http://teafriendly.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 5: TEA Friendly -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2025/01/teafriendlyinled.es_.gif" alt="TEA Friendly Imagen de la web" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">TEA Friendly</h2>
+                <p class="card-description">
+                    Certificación para centros educativos que atienden las
+                    necesidades de las personas con autismo
+                </p>
+                <a href="http://teafriendly.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 6: Orientación Puga -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://inled.es/wp-content/uploads/2025/02/ies-rafael-puga-ramon-orientacion-puga-website-%E2%80%90-Inled-Group.gif" alt="Página de Orientación del IES Rafael Puga Ramón" class="card-icon-img-dsign">
+                </div>
+                <h2 class="card-title">Orientación Puga</h2>
+                <p class="card-description">
+                    Doble propósito: enseñar a crear un sitio web y actualizar el antiguo sitio del centro.
+                    Todo con cero coste.
+                </p>
+                <a href="http://teafriendly.es" class="card-link">></a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
