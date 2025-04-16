@@ -25,7 +25,7 @@ jobs:
         uses: withastro/action@v0
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site-build
           path: ./dist # Asegúrate de que este directorio exista después de la construcción
