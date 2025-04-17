@@ -291,9 +291,10 @@ background-size: 300% 100%;
 transition: background-position 1s ease-in-out;
 }
 
-.wemake:hover, .wemake-dsign:hover {
-background-position: 100% 0;
+.wemake:hover, .wemake-dsign:hover, .wemake-ltl:hover {
+    background-position: 0 0;
 }
+
 
 .wemake-dsign {
     font-family: 'Ubuntu', cursive;
@@ -305,6 +306,15 @@ background-position: 100% 0;
     -webkit-text-fill-color: transparent;
     transition: background-position 1s ease-in-out;
 }
+.wemake-ltl {
+    font-size: 80px;
+    text-align: center;
+    background: linear-gradient(90deg,#FFFFFF, #6bedf6, #64e4f2, #FFFFFF);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 1s ease-in-out;
+    }
 
 h2 {
 text-align: center;
@@ -448,3 +458,53 @@ font-weight: 200;
 .h1init{
     text-align: center;
 }
+.card-container-ltl {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .card-ltl {
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    border: 1px solid #888;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-ltl:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+  }
+
+  .card-img-ltl {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px 0 0 20px;
+    flex-shrink: 0;
+  }
+
+  .card-content-ltl {
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-title-ltl {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .card-description-ltl {
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  .arrow-ltl {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+  }
