@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+<div class="welcome-container">
+    <h1 class="wemake">Yway</h1>
+    <h2>Gestión de IT centralizada</h2>
+    <div style="height: 20vh;"></div>
+
+    <div class="container-carousel">
+        <div class="carousel">
+          <div class="carousel__face"><span>Migrar a Windows 11</span></div>
+          <div class="carousel__face"><span>Puesta a punto pantallas grupo CVTE</span></div>
+          <div class="carousel__face"><span>Pásate a Linux</span></div>
+        </div>
+      </div>
+      <div style="height: 50vh;"></div>
+
+    <div class="container">
+        <div class="projects-grid">
+
+            <!-- Gestión 1: Ordenadores -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M70-120q-12.75 0-21.37-8.68-8.63-8.67-8.63-21.5 0-12.82 8.63-21.32Q57.25-180 70-180h820q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32-8.63 8.5-21.38 8.5H70Zm70-120q-24 0-42-18t-18-42v-480q0-24 18-42t42-18h680q24 0 42 18t18 42v480q0 24-18 42t-42 18H140Zm0-60h680v-480H140v480Zm0 0v-480 480Z"/></svg>
+                </div>
+                <h2 class="card-title">Ordenadores</h2>
+                <p class="card-description">
+                    Gestión de ordenadores, adaptación a las necesidades de cada usuario.
+                </p>
+            </div>
+
+            <!-- Gestión 2:  -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M480-142q106-35 175.5-128.5T737-480H480v-335l-260 97v196q0 12 .5 20.5T223-480h257v338Zm0 58q-5 0-9.5-1t-9.5-3q-139-47-220-168.5T160-523v-196q0-19 11-34.5t28-22.5l260-97q11-4 21-4t21 4l260 97q17 7 28 22.5t11 34.5v196q0 145-81 266.5T499-88q-5 2-9.5 3t-9.5 1Z"/></svg>
+                </div>
+                <h2 class="card-title">Seguridad</h2>
+                <p class="card-description">
+                    Hacemos una revisión de seguridad de tu ordenador
+                </p>
+            </div>
+
+            <!-- Gestión 3:  -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M140-160q-24 0-42-18.5T80-220v-520q0-23 18-41.5t42-18.5h256q12.44 0 23.72 5t19.37 13.09L481-740h339q23 0 41.5 18.5T880-680v460q0 23-18.5 41.5T820-160H140Zm0-60h680v-460H456l-60-60H140v520Zm0 0v-520 520Zm386-190-54 54q-9 9-9 21t9 21q9 9 21 9t21-9l105-105q9-9 9-21t-9-21L514-566q-9-9-21-9t-21 9q-9 9-9 21t9 21l54 54H350q-12.75 0-21.37 8.68-8.63 8.67-8.63 21.5 0 12.82 8.63 21.32 8.62 8.5 21.37 8.5h176Z"/></svg>
+                </div>
+                <h2 class="card-title">Migración</h2>
+                <p class="card-description">
+                    Migramos tus dispositivos a nuevas versiones de software, o a nuevos dispositivos.
+                </p>
+            </div>
+
+            <!-- Gestión 4: -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M484.03-247Q500-247 511-258.03q11-11.03 11-27T510.97-312q-11.03-11-27-11T457-311.97q-11 11.03-11 27T457.03-258q11.03 11 27 11Zm-3.76 167q-82.74 0-155.5-31.5Q252-143 197.5-197.5t-86-127.34Q80-397.68 80-480.5t31.5-155.66Q143-709 197.5-763t127.34-85.5Q397.68-880 480.5-880t155.66 31.5Q709-817 763-763t85.5 127Q880-563 880-480.27q0 82.74-31.5 155.5Q817-252 763-197.68q-54 54.31-127 86Q563-80 480.27-80Zm.23-60Q622-140 721-239.5t99-241Q820-622 721.19-721T480-820q-141 0-240.5 98.81T140-480q0 141 99.5 240.5t241 99.5Zm-.5-340Zm2.77-180Q513-660 536-641.5q23 18.5 23 47.2 0 26.3-15.65 45.73Q527.7-529.14 508-512q-23 19-40 42.38-17 23.39-17 52.62 0 11 8.4 17.5T479-393q12 0 19.88-8 7.87-8 10.12-20 3-21 16-38t30.23-30.78Q580-510 596-537q16-27 16-58.61 0-50.39-37.5-83.89T485.55-713Q450-713 417-698t-54 44q-7 10-6.5 21.5t9.47 18.5q11.41 8 23.65 5 12.23-3 20.38-14 12.75-17.9 31.88-27.45Q461-660 482.77-660Z"/></svg>
+                </div>
+                <h2 class="card-title">Ayuda</h2>
+                <p class="card-description">
+                    Te ayudamos con tu ordenador/dispositivo
+                </p>
+            </div>
+
+            <!-- Gestión 5: Personalización -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="m105-565 149-268q5-8 11.52-11.5 6.53-3.5 14.5-3.5 7.98 0 14.48 3.5T306-833l149 268q5 7.69 4.5 15.38-.5 7.7-4.5 14.62-3.82 6.75-10.71 10.87Q437.41-520 429-520H131q-8.46 0-15.38-4.17-6.93-4.17-10.77-11-3.85-6.83-4.35-14.5-.5-7.66 4.5-15.33Zm176 445q-66 0-113-47t-47-113q0-67 47-113.5T281-440q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-60q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-99-400h196l-98-176-98 176Zm338 430v-260q0-12.75 8.63-21.38Q537.25-440 550-440h260q12.75 0 21.38 8.62Q840-422.75 840-410v260q0 12.75-8.62 21.37Q822.75-120 810-120H550q-12.75 0-21.37-8.63Q520-137.25 520-150Zm60-30h200v-200H580v200Zm81-356-60-51q-69-58-95-91.5T480-753q0-45 31.5-76t78.5-31q26 0 50 12t40 35q16-23 40-35t50-12q47 0 78.5 31t31.5 76q0 41-26 74.5T759-587l-60 51q-8.05 7-19.02 7-10.98 0-18.98-7Zm19-63q85-70 112.5-100t27.5-52q0-21.97-12.86-35.48Q794.29-800 772-800q-13.1 0-25.55 7Q734-786 715-769l-35 33-35-33q-18.67-17.36-31.33-24.18Q601-800 588-800q-22.29 0-35.14 13.52Q540-772.97 540-751q0 22 27.5 52T680-599Zm0-101Zm-400 32Zm1 388Zm399 0Z"/></svg>
+                </div>
+                <h2 class="card-title">Personalización</h2>
+                <p class="card-description">
+                    BHaz que tu experiencia con los ordenadores sea más agradable
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .container-carousel {
+    position: relative;
+    width: 320px;
+    margin: 100px auto 0 auto;
+    perspective: 1000px;
+  }
+  
+  .carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; 
+    animation: rotate360 20s infinite forwards linear;
+  }
+ .carousel__face { 
+    position: absolute;
+    width: 300px;
+    height: 187px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+    display: flex;
+  } 
+  
+  span {
+    margin: auto;
+    font-size: 2rem;
+  }
+  
+  
+  .carousel__face:nth-child(1) {
+    background-image: url("https://inled.es/wp-content/uploads/2025/03/windows-11-image-microsoft.png");
+    transform: rotateY(  0deg) translateZ(430px); }
+  .carousel__face:nth-child(2) { 
+    background-image: url("https://inled.es/wp-content/uploads/2025/03/maxhub-synetech-cvte-brands.png");
+      transform: rotateY( 120deg) translateZ(430px); }
+  .carousel__face:nth-child(3) {
+    background-image: url("https://inled.es/wp-content/uploads/2025/03/linux-distros.png");
+    transform: rotateY( 240deg) translateZ(430px); } 
+  @keyframes rotate360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
+</style>
+
+</Layout>
