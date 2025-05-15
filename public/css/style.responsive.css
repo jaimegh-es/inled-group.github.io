@@ -311,10 +311,14 @@ img {
     #menu-toggle:checked ~ .mobile-menu {
       display: block;
     }
+    #menu-toggle:checked ~ .mobile-menu a {
+      display: block;
+    }
+ 
  
     
     .mobile-menu a {
-      display: block;
+      display: none;
       color: white;
       text-decoration: none;
       padding: 1.5rem;
