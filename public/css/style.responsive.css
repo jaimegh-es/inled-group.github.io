@@ -1,0 +1,380 @@
+/* Variables CSS para facilitar el mantenimiento */
+:root {
+  --primary-color: #ffffff;
+  --background-color: #000000;
+  --accent-color: #3bb4fc;
+  --padding-mobile: 15px;
+  --border-radius: 20px;
+}
+
+/* Base responsiva */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+
+/* Pequeños dispositivos (teléfonos móviles en vertical, menos de 576px) */
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    padding: 0 var(--padding-mobile);
+  }
+     
+.encabezado,  .header {
+      transform: translateY(-100%);
+}
+  
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  .wemake, .wemake-dsign, .wemake-ltl, .wemake-swiftinstall, .wemake-start, .wemake-warp {
+    font-size: 40px;
+  }
+  
+  .h1-descargar {
+    font-size: 2rem;
+  }
+  
+  .p-descargar, .ol-descargar {
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-descargar, .btn-codigo {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .descargar {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .content-descargar, .image-container {
+    max-width: 100%;
+  }
+  
+  .card-section-instalables {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-instalables {
+    max-width: 100%;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+  }
+  
+  .footer-nav {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .footer-logo {
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .dropdown-container {
+    position: relative;
+    left: 0;
+    padding-left: 15px;
+    width: 100%;
+  }
+  
+  .dropdown-btn {
+    width: 100%;
+  }
+}
+
+/* Dispositivos medianos (tablets en vertical, 576px y más) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  
+  .wemake, .wemake-dsign, .wemake-ltl, .wemake-swiftinstall, .wemake-start, .wemake-warp {
+    font-size: 60px;
+  }
+  
+  .project-card {
+    width: 45%;
+  }
+  
+  .descargar {
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .content-descargar, .image-container {
+    max-width: 100%;
+  }
+  
+  .footer-container {
+    flex-wrap: wrap;
+  }
+  
+  .footer-nav {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-col {
+    width: 45%;
+  }
+}
+
+/* Dispositivos grandes (laptops/desktops, 769px y más) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .encabezado,  .header {
+      transform: translateY(-100%);
+    }
+    .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  .project-card {
+    width: 30%;
+  }
+  
+  .descargar {
+    padding: 40px;
+  }
+  
+  .content-descargar {
+    max-width: 55%;
+  }
+  
+  .image-container {
+    max-width: 40%;
+  }
+}
+
+/* Dispositivos extra grandes (desktops grandes, 992px y más) */
+@media (min-width: 993px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* Dispositivos extra extra grandes (desktops muy grandes, 1200px y más) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Mejoras específicas para elementos */
+
+/* Card LTL responsivo */
+@media (max-width: 768px) {
+  .card-ltl {
+    flex-direction: column;
+  }
+  
+  .card-img-ltl {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .arrow-ltl {
+    margin: 10px auto;
+  }
+}
+
+
+
+/* Ajustes para elementos de FAQ */
+@media (max-width: 768px) {
+  .faq-question {
+    font-size: 16px;
+    padding: 15px 0;
+  }
+  
+  .faq-answer {
+    max-width: 100%;
+  }
+}
+
+/* Ajustes para footer en dispositivos móviles */
+@media (max-width: 768px) {
+  .footer {
+    min-height: auto;
+    padding: 40px 15px;
+  }
+  
+  .footer-title {
+    font-size: 2rem;
+  }
+  
+  .dropdown-container {
+    display: none;
+  }
+  
+  .footer-col:hover .dropdown-container {
+    display: none;
+  }
+  
+  .footer-nav {
+    flex-direction: column;
+  }
+  
+  .btn, .dropdown-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* Mejora de accesibilidad: asegúrate de que los elementos interactivos tengan un estado de foco visible */
+a:focus, button:focus, .btn:focus, .dropdown-btn:focus, .card-link:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 35px;
+}
+
+/* Mejora para elementos interactivos en dispositivos táctiles */
+@media (hover: none) {
+  .btn:active, .dropdown-btn:active, .card-link:active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+}
+
+/* Asegúrate de que las imágenes sean responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+ 
+    
+    .menu-container {
+      position: relative;
+      z-index: 1000;
+    }
+    
+    /* Ocultamos el checkbox pero mantenemos su funcionalidad */
+    #menu-toggle {
+      display: none;
+    }
+    
+    /* Estilizamos la etiqueta para que parezca un botón de menú */
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+    
+    /* El menú mobile inicialmente está oculto */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      padding-top: 80px;
+      z-index: 999;
+      text-align: center;
+    }
+    
+    /* Cuando el checkbox está marcado, mostramos el menú y ocultamos los encabezados */
+    #menu-toggle:checked ~ .mobile-menu {
+      display: block;
+    }
+ 
+    
+    .mobile-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1.5rem;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #333;
+    }
+    
+    .mobile-menu a:hover {
+      background-color: #222;
+    }
+    
+    /* Contenido principal para demostración */
+    main {
+      padding: 2rem;
+      transition: margin-top 0.3s ease-in-out;
+    }
+    
+    #menu-toggle:checked ~ main {
+      margin-top: -100px;
+    }
+    
+    @media (min-width: 768px) {
+      /* Para pantallas más grandes podemos mostrar un menú horizontal */
+      .menu-icon {
+        display: none;
+      }
+         
+
+
+      
+      .mobile-menu {
+        display: flex;
+        position: static;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        justify-content: center;
+      }
+      
+      .mobile-menu a {
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 4px;
+        border-bottom: none;
+        font-size: 1rem;
+      }
+      
+      #menu-toggle:checked ~ .encabezado,
+      #menu-toggle:checked ~ .header {
+        transform: none;
+      }
+      
+      #menu-toggle:checked ~ main {
+        margin-top: 0;
+      }
+    }
+@media (max-width: 600px) {
+    .logo {
+        position: static;
+        display: block;
+         margin: 1rem auto;
+    }
+        }

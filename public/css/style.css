@@ -116,6 +116,13 @@ body {
     display: block;
     color: white;
 }
+.logo {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            max-width: 100px;
+}
+
 @media (max-width: 768px) {
     .header {
         display: none;
@@ -135,18 +142,20 @@ body {
     }
 }
 .encabezado {
-    margin: 0;
-    padding: 0;
-    background-color: black; /* Fondo negro como en la imagen */
-    text-align: center;
-}
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
 .header a {
     margin: 0 20px;
     text-decoration: none;
@@ -825,4 +834,5 @@ font-weight: 200;
     text-align: center;       /* Centra el texto dentro de los elementos */
     height: 100%;            /* Opcional: ocupa toda la altura de la pantalla */
   }
+
   
