@@ -1,0 +1,18 @@
+---
+interface Props {
+  htmlContent: string;
+  title?: string;
+}
+
+const { htmlContent, title } = Astro.props;
+---
+
+    <main class="markdown-content">
+        <div class="container">
+            <div class="content-wrapper" set:html={htmlContent}>
+            </div>
+            <div class="navigation-buttons">
+                <a href="/blog" class="btn btn-secondary">← Volver al blog</a>
+            </div>
+        </div>
+    </main>
