@@ -835,4 +835,169 @@ font-weight: 200;
     height: 100%;            /* Opcional: ocupa toda la altura de la pantalla */
   }
 
-  
+          .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 25px;
+            background-color: #111;
+            border: 2px solid #444;
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 18px;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: #888;
+            font-weight: 300;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            font-size: 20px;
+            color: #888;
+            pointer-events: none;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #111;
+            border: 1px solid #444;
+            border-radius: 20px;
+            margin-top: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background-color: #222;
+            transform: translateX(5px);
+        }
+
+        .result-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .result-url {
+            font-size: 14px;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .result-description {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        .no-results {
+            padding: 30px 25px;
+            text-align: center;
+            color: #888;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .loading {
+            padding: 30px 25px;
+            text-align: center;
+            color: #888;
+            font-weight: 300;
+        }
+
+        /* Scrollbar personalizado */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                padding-top: 50px;
+            }
+
+            .search-input {
+                padding: 18px 50px 18px 20px;
+                font-size: 16px;
+            }
+
+            .search-icon {
+                right: 20px;
+                font-size: 18px;
+            }
+
+            .search-result-item {
+                padding: 15px 20px;
+            }
+
+            .result-title {
+                font-size: 15px;
+            }
+
+            .result-url, .result-description {
+                font-size: 13px;
+            }
+        }
