@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
 <div class="welcome-container">
-  <img src="https://inled.es/wp-content/uploads/2025/05/2.png" width="20%" height="auto" alt="logo yway blanco completo">
+  <img src={import.meta.env.BASE_URL + "/upload/2.png"} width="20%" height="auto" alt="logo yway blanco completo">
     <h2>Gestión de IT centralizada</h2>
     <div style="height: 20vh;"></div>
 
@@ -112,13 +112,13 @@ import Layout from "../layouts/Layout.astro";
   
   
   .carousel__face:nth-child(1) {
-    background-image: url("https://inled.es/wp-content/uploads/2025/03/windows-11-image-microsoft.png");
+    background-image: url("windows-11-image-microsoft.png");
     transform: rotateY(  0deg) translateZ(430px); }
   .carousel__face:nth-child(2) { 
-    background-image: url("https://inled.es/wp-content/uploads/2025/03/maxhub-synetech-cvte-brands.png");
+    background-image: url("maxhub-synetech-cvte-brands.png");
       transform: rotateY( 120deg) translateZ(430px); }
   .carousel__face:nth-child(3) {
-    background-image: url("https://inled.es/wp-content/uploads/2025/03/linux-distros.png");
+    background-image: url("linux-distros.png");
     transform: rotateY( 240deg) translateZ(430px); } 
   @keyframes rotate360 {
     from {

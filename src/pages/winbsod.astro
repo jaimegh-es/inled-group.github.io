@@ -20,7 +20,7 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <div class="image-container">
-    <img src="https://inled.es/wp-content/uploads/2025/06/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png" alt="Imagen WinBSOD">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png"} alt="Imagen WinBSOD">
   </div>
 </div>
 
@@ -28,12 +28,12 @@ import Footer from '../components/Footer.astro';
 
 <div class="card-section-instalables">
   <div class="card-instalables">
-    <img src="https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/privacy/Apple-WWDC23-privacy-logo-230605.jpg.news_app_ed.jpg" alt="Security">
+    <img src={import.meta.env.BASE_URL + "/upload/https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/privacy/Apple-WWDC23-privacy-logo-230605.jpg.news_app_ed.jpg"} alt="Security">
     <h2>Seguro</h2>
     <p>WinBSOD ha sido diseñado para no dañar su Mac y simular un error completamente ficticio <br>Puede acceder al <a href="https://www.virustotal.com/gui/file/2aa3869c9d5feb0378192a2ac3a61bcb7ad04f73640dc6dcc6279eef115e4399">reporte de seguridad</a></p>
   </div>
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png" alt="Apariencia realista">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png"} alt="Apariencia realista">
     <h2>Parece real</h2>
     <p>100% realista: igualita a la de verdad</p>
   </div>

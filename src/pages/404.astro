@@ -10,7 +10,7 @@ import Footer from '../components/Footer.astro';
     <title>404 | Inled Group</title>
     <meta name="description" content="Ups! Aquí no hay na'. Esto está empty a full.">
     <Header />
-    <img src="https://inled.es/wp-content/uploads/2025/06/404.png" alt="404" style="width: auto; height: 100vh;" />
+    <img src={import.meta.env.BASE_URL + "/upload/404.png"} alt="404" style="width: auto; height: 100vh;" />
     <p>Vaya, parece que lo que buscas no se encuentra.</p>
     <p>A lo mejor te has equivocado al escribir la URL o es que la página ya no existe.</p>
     <p>También puede ser que la página aún no haya sido creada.</p>

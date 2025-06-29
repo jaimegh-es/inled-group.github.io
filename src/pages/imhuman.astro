@@ -29,15 +29,15 @@ import { Image } from 'astro:assets';
 
 <div class="card-section-instalables">
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/imhumanprotects.gif" alt="Contact">
+    <img src={import.meta.env.BASE_URL + "/upload/imhumanprotects.gif"} alt="Contact">
     <h2>Direcciones de contacto</h2>
     <p>Los scrapers no se pararán a ver un base64</p>
   </div>
-  <!--<div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/mdpdf.functions-2.gif" alt="Redirect">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/mdpdf.functions-2.gif"} alt="Redirect">
     <h2>Redirecciones</h2>
     <p>Autoriza una redirección solo si es humano</p>
-  </div> -->
+  </div>
 </div>
 
 <h1 class="h1init">imhuman es 100% libre</h1>

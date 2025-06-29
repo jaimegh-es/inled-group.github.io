@@ -20,7 +20,7 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <div class="image-container">
-    <img src="https://inled.es/wp-content/uploads/2025/06/Captura-de-pantalla-2025-06-23-a-las-9.16.06.png" alt="Imagen inDOC">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.16.06.png"} alt="Imagen inDOC">
   </div>
 </div>
 
@@ -28,17 +28,17 @@ import Footer from '../components/Footer.astro';
 
 <div class="card-section-instalables">
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/mdpdf.functions-3.gif" alt="Privacidad 100%">
+    <img src={import.meta.env.BASE_URL + "/upload/mdpdf.functions-3.gif"} alt="Privacidad 100%">
     <h2>No eres el producto</h2>
     <p>A diferencia de otras suites de ofimática, en inDOC tú no eres el producto.</p>
   </div>
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/potente.gif" alt="Rápido">
+    <img src={import.meta.env.BASE_URL + "/upload/potente.gif"} alt="Rápido">
     <h2>Rápido</h2>
     <p>Tarda menos de 1 segundo en cargar.</p>
   </div>
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/login-form.gif" alt="Sin iniciar sesión">
+    <img src={import.meta.env.BASE_URL + "/upload/login-form.gif"} alt="Sin iniciar sesión">
     <h2>Sin registros</h2>
     <p>No tienes que iniciar sesión en ningún lado: todo queda en tu ordenador</p>
   </div>

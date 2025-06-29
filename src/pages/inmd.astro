@@ -21,7 +21,7 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
   <div class="image-container">
-    <img src="https://inled.es/wp-content/uploads/2025/06/Captura-de-pantalla-2025-06-21-a-las-14.39.46.png" alt="Imagen inMD">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-21-a-las-14.39.46.png"} alt="Imagen inMD">
   </div>
 </div>
 
@@ -29,17 +29,17 @@ import Footer from '../components/Footer.astro';
 
 <div class="card-section-instalables">
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/0-codigo-md.gif" alt="0 código">
+    <img src={import.meta.env.BASE_URL + "/upload/0-codigo-md.gif"} alt="0 código">
     <h2>0 código</h2>
     <p>No tienes que saber editar en Markdown para hacer un documento Markdown</p>
   </div>
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/texto-a-html.gif" alt="TXT -> HTML">
+    <img src={import.meta.env.BASE_URL + "/upload/texto-a-html.gif"} alt="TXT -> HTML">
     <h2>Texto a HTML</h2>
     <p>No tienes que saber escribir en HTML para obtener una página preciosa</p>
   </div>
   <div class="card-instalables">
-    <img src="https://inled.es/wp-content/uploads/2025/06/mdpdf.functions-3.gif" alt="Privado">
+    <img src={import.meta.env.BASE_URL + "/upload/mdpdf.functions-3.gif"} alt="Privado">
     <h2>Privado</h2>
     <p>No cotilleamos lo que escribes</p>
   </div>
