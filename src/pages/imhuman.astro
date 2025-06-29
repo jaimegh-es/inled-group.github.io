@@ -21,7 +21,7 @@ import { Image } from 'astro:assets';
     </div>
   </div>
   <div class="image-container">
-    <img src="/assets/imhuman.png" alt="Imagen imhuman" />
+    <img src={import.meta.env.BASE_URL + "/upload/imhuman.png"} alt="Imagen imhuman" />
   </div>
 </div>
 
