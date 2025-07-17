@@ -1,0 +1,353 @@
+---
+// BannerCountdown.astro
+---
+
+<div class="banner-container">
+    <canvas id="bannerParticleCanvas"></canvas>
+    <div class="banner-content">
+      <h2 class="banner-title">Descubre lo que se viene</h2>
+      <div class="banner-countdown" id="bannerCountdown">
+        <div class="banner-time-unit">
+          <span id="bannerDays">00</span>
+          <label>Días</label>
+        </div>
+        <div class="banner-time-unit">
+          <span id="bannerHours">00</span>
+          <label>Horas</label>
+        </div>
+        <div class="banner-time-unit">
+          <span id="bannerMinutes">00</span>
+          <label>Min</label>
+        </div>
+        <div class="banner-time-unit">
+          <span id="bannerSeconds">00</span>
+          <label>Seg</label>
+        </div>
+      </div>
+      <div id="bannerLoading" class="banner-loading">Sincronizando...</div>
+    </div>
+  </div>
+  
+  <style>
+    .banner-container {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    #bannerParticleCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+      color: white;
+    }
+  
+    .banner-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      animation: bannerGlow 2s ease-in-out infinite alternate;
+      flex-shrink: 0;
+    }
+  
+    @keyframes bannerGlow {
+      from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+      to { text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+    }
+  
+    .banner-countdown {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  
+    .banner-time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-width: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .banner-time-unit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+  
+    .banner-time-unit span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+  
+    .banner-time-unit label {
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+  
+    .banner-loading {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+  
+    .hidden {
+      display: none;
+    }
+  
+    @media (max-width: 768px) {
+      .banner-container {
+        height: 70px;
+      }
+      
+      .banner-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+      
+      .banner-title {
+        font-size: 1rem;
+      }
+      
+      .banner-countdown {
+        gap: 0.5rem;
+      }
+      
+      .banner-time-unit {
+        padding: 0.3rem 0.5rem;
+        min-width: 40px;
+      }
+      
+      .banner-time-unit span {
+        font-size: 1rem;
+      }
+      
+      .banner-time-unit label {
+        font-size: 0.5rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .banner-container {
+        height: 60px;
+      }
+      
+      .banner-title {
+        font-size: 0.9rem;
+      }
+      
+      .banner-time-unit {
+        padding: 0.2rem 0.4rem;
+        min-width: 35px;
+      }
+      
+      .banner-time-unit span {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+  
+  <script>
+    class BannerParticleSystem {
+      constructor() {
+        this.canvas = document.getElementById('bannerParticleCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.mouse = { x: 0, y: 0 };
+        
+        this.init();
+        this.animate();
+        this.setupEventListeners();
+      }
+  
+      init() {
+        this.resize();
+        this.createParticles();
+      }
+  
+      resize() {
+        this.canvas.width = this.canvas.offsetWidth;
+        this.canvas.height = this.canvas.offsetHeight;
+      }
+  
+      createParticles() {
+        const particleCount = Math.floor((this.canvas.width * this.canvas.height) / 3000);
+        
+        for (let i = 0; i < particleCount; i++) {
+          this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            size: Math.random() * 2 + 0.5,
+            alpha: Math.random() * 0.4 + 0.4,
+            originalX: 0,
+            originalY: 0
+          });
+        }
+  
+        this.particles.forEach(particle => {
+          particle.originalX = particle.x;
+          particle.originalY = particle.y;
+        });
+      }
+  
+      setupEventListeners() {
+        window.addEventListener('resize', () => this.resize());
+        
+        this.canvas.addEventListener('mousemove', (e) => {
+          const rect = this.canvas.getBoundingClientRect();
+          this.mouse.x = e.clientX - rect.left;
+          this.mouse.y = e.clientY - rect.top;
+        });
+      }
+  
+      animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        this.particles.forEach(particle => {
+          // Movimiento natural
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          
+          // Rebote en bordes
+          if (particle.x < 0 || particle.x > this.canvas.width) {
+            particle.vx *= -1;
+          }
+          if (particle.y < 0 || particle.y > this.canvas.height) {
+            particle.vy *= -1;
+          }
+          
+          // Efecto del ratón (reducido para el banner)
+          const dx = this.mouse.x - particle.x;
+          const dy = this.mouse.y - particle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 80) {
+            const force = (80 - distance) / 80;
+            particle.x -= (dx / distance) * force * 2;
+            particle.y -= (dy / distance) * force * 2;
+          }
+          
+          // Volver suavemente a la posición original
+          const returnForce = 0.02;
+          particle.x += (particle.originalX - particle.x) * returnForce;
+          particle.y += (particle.originalY - particle.y) * returnForce;
+          
+          // Dibujar partícula
+          this.ctx.save();
+          this.ctx.globalAlpha = particle.alpha;
+          this.ctx.fillStyle = '#ffffff';
+          this.ctx.beginPath();
+          this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          this.ctx.fill();
+          this.ctx.restore();
+        });
+        
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+  
+    class BannerCountdownTimer {
+      constructor() {
+        this.targetDate = new Date('2025-08-30T00:00:00');
+        this.elements = {
+          days: document.getElementById('bannerDays'),
+          hours: document.getElementById('bannerHours'),
+          minutes: document.getElementById('bannerMinutes'),
+          seconds: document.getElementById('bannerSeconds'),
+          loading: document.getElementById('bannerLoading'),
+          countdown: document.getElementById('bannerCountdown')
+        };
+        
+        this.init();
+      }
+  
+      async init() {
+        try {
+          // Sincronizar con API de tiempo
+          const currentTime = await this.getCurrentTime();
+          this.startCountdown(currentTime);
+        } catch (error) {
+          console.warn('Error al sincronizar tiempo, usando tiempo local:', error);
+          this.startCountdown(new Date());
+        }
+      }
+  
+      async getCurrentTime() {
+        const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/Madrid');
+        const data = await response.json();
+        return new Date(data.datetime);
+      }
+  
+      startCountdown(currentTime) {
+        this.elements.loading.classList.add('hidden');
+        this.elements.countdown.style.display = 'flex';
+        
+        const updateTimer = () => {
+          const now = new Date();
+          const timeDiff = this.targetDate.getTime() - now.getTime();
+          
+          if (timeDiff <= 0) {
+            this.showCompleted();
+            return;
+          }
+          
+          const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+          
+          this.elements.days.textContent = days.toString().padStart(2, '0');
+          this.elements.hours.textContent = hours.toString().padStart(2, '0');
+          this.elements.minutes.textContent = minutes.toString().padStart(2, '0');
+          this.elements.seconds.textContent = seconds.toString().padStart(2, '0');
+        };
+        
+        updateTimer();
+        setInterval(updateTimer, 1000);
+      }
+  
+      showCompleted() {
+        this.elements.countdown.innerHTML = '<div class="completed">¡El momento ha llegado!</div>';
+      }
+    }
+  
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      new BannerParticleSystem();
+      new BannerCountdownTimer();
+    });
+  </script>
