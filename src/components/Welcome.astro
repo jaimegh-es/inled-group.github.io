@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from 'astro:assets';
 ---
 
+
 <Layout>
 <div class="welcome-container">
     <h1 class="wemake">We make a better world.</h1>
@@ -275,77 +276,64 @@ import { Image } from 'astro:assets';
 
     <h1 class="h1init">Próximamente...</h1>
 
-    <div class="container">
+    <div class="container" style="position: relative;">
+        <div class="blurry-overlay"></div>
         <div class="projects-grid">
 
            
-            <!-- Proyecto 5: imhuman -->
+            <!-- Proyecto 5: insuite -->
              <div class="project-card">
                 <div class="card-icon-container">
-                    <img src={import.meta.env.BASE_URL + "/upload/imhuman.png"} alt="imhuman Logo" class="card-icon-img">
+                    <img src={import.meta.env.BASE_URL + "/upload/insuite.svg"} alt="insuite Logo" class="card-icon-img">
                 </div>
-                <h2 class="card-title">imhuman</h2>
+                <h2 class="card-title">InSuite</h2>
                 <p class="card-description">
-                    Captcha open-source. Protege lo más preciado.
+                    Suite de ofimática libre y con IA
                 </p>
             </div>
 
-            <!-- Inled con Bootstrap -->
+            <!-- Inled AI -->
             <div class="project-card">
                 <div class="card-icon-container">
-                    <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="logo bootstrap" class="card-icon-img">
+                    <img src={import.meta.env.BASE_URL + "/upload/inledai.svg"} alt="inledai Logo" class="card-icon-img">
                 </div>
-                <h2 class="card-title">Inled con Bootstrap</h2>
+                <h2 class="card-title">Inled AI</h2>
                 <p class="card-description">
-                    La página inicial con Bootstrap
+                    Integra IA en tu web sin pagar servidores de super computación
                 </p>
             </div>
 
-            <!-- Inled con Supabase -->
+            <!-- iccount -->
             <div class="project-card">
                 <div class="card-icon-container">
-                    <img src="https://supabase.com/dashboard/_next/image?url=%2Fdashboard%2Fimg%2Fsupabase-logo.svg&w=32&q=75" alt="logo bootstrap" class="card-icon-img">
-                </div>
-                <h2 class="card-title">Inled con Supabase</h2>
-                <p class="card-description">
-                    La lista de proyectos será obtenida de una API de Supabase
-                </p>
-            </div>
-
-            <!-- Proyecto 6: iccount -->
-             <div class="project-card">
-                <div class="card-icon-container">
-                    <!--<img src={import.meta.env.BASE_URL + "/upload/imhuman.png"} alt="imhuman Logo" class="card-icon-img"> -->
+                    <img src={import.meta.env.BASE_URL + "/upload/iccount.png"} alt="iccount Logo" class="card-icon-img">
                 </div>
                 <h2 class="card-title">iccount</h2>
                 <p class="card-description">
-                    Acceso para usuarios de los servicios de inled.
+                    Tu cuenta de Inled. Gestiona todo en uno
                 </p>
             </div>
 
-             <!-- Proyecto 1: Inled Learn -->
+
+             <!-- pulsar os -->
             <div class="project-card">
                 <div class="card-icon-container">
-                    <img src={import.meta.env.BASE_URL + "/upload/INLED-LEARN-COMPLETO-SF-blanco.png"} alt="Logo Inled Learn" class="card-icon-img">
+                    <img src={import.meta.env.BASE_URL + "/upload/pulsar-logo-simple-sf.png"} alt="Logo pulsar os" class="card-icon-img">
                 </div>
-                <h2 class="card-title">Inled Learn</h2>
+                <h2 class="card-title">Pulsar OS</h2>
                 <p class="card-description">
-                    Campus virtual para cursos de Inled.<br>
-
-                    Aprende en línea, a tu ritmo y con recursos modernos.
+                    Distribución linux para la gente.
                 </p>
             </div>
 
             <!-- Proyecto 2: MatrixCV -->
             <div class="project-card">
                 <div class="card-icon-container">
-                    <img src={import.meta.env.BASE_URL + "/upload/MatrixCV.png"} alt="logo MatrixCV" class="card-icon-img">
+                    <img src={import.meta.env.BASE_URL + "/upload/matrixwww.ico"} alt="logo matrix www" class="card-icon-img">
                 </div>
-                <h2 class="card-title">MatrixCV</h2>
+                <h2 class="card-title">Matrix WWW</h2>
                 <p class="card-description">
-                    Plantilla de CV estilo Matrix en Astro.<br>
-
-                    Para los amantes de Matrix
+                   Sitio web con simulaciones de software de Matrix
                 </p>
             </div>
 
