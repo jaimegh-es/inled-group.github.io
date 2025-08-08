@@ -32,10 +32,12 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "rkxkde17af");
         </script>
-        <div id="google_translate_element"></div>
         <script is:inline type="text/javascript">
             function googleTranslateElementInit() {
               new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+              if (typeof window.setupGoogleTranslateSwitch === 'function') {
+                window.setupGoogleTranslateSwitch();
+              }
             }
             </script>
             
