@@ -1,0 +1,808 @@
+/* ===== DISEÑO MÓVIL SIMPLIFICADO Y FUNCIONAL ===== */
+
+/* Variables móviles simplificadas */
+:root {
+  --mobile-padding: 1rem;
+  --mobile-gap: 1rem;
+  --touch-target: 44px;
+}
+
+/* ===== BASE RESPONSIVE SETUP ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== IMÁGENES RESPONSIVAS CON ASPECTO MANTENIDO ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Divs responsivos */
+div {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Contenedores responsivos */
+.container,
+.container1,
+.welcome-container,
+.dsign-container,
+.projects-grid,
+.card-container-ltl,
+.footer-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Media responsivos con aspecto mantenido */
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Tablas responsivas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  td {
+    padding: 0.5rem;
+    text-align: right;
+  }
+  
+  td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    float: left;
+  }
+}
+
+/* Prevenir zoom horizontal en iOS */
+@media screen and (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===== HEADER MÓVIL SIMPLIFICADO ===== */
+@media (max-width: 768px) {
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0.8rem 1rem !important;
+    height: 70px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .header-content {
+    display: none !important;
+  }
+  
+  /* Logo móvil */
+  .logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    max-width: 50px !important;
+    height: auto !important;
+  }
+  
+  /* Menú hamburguesa centrado original */
+  .menu-container {
+    display: block !important;
+    position: fixed !important;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1001 !important;
+  }
+  
+  .menu-icon {
+    display: block !important;
+    font-size: 2rem !important;
+    color: white !important;
+    cursor: pointer !important;
+    padding: 0.5rem !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  
+  /* Menú móvil original centrado */
+  .mobile-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 1000 !important;
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  
+  #menu-toggle:checked + .menu-icon + .mobile-menu {
+    display: flex !important;
+  }
+  
+  .mobile-menu a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.5rem 2rem !important;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1.8rem !important;
+    text-align: center !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 15px !important;
+    width: 80% !important;
+    max-width: 350px !important;
+    margin: 0.5rem 0 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+  
+  .mobile-menu a:hover {
+    background: #3bb4fc !important;
+    border-color: #3bb4fc !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(59, 180, 252, 0.3) !important;
+  }
+  
+  .mobile-menu a img {
+    width: 28px !important;
+    height: 28px !important;
+    margin-right: 1rem !important;
+    filter: brightness(1.2) !important;
+  }
+  
+  
+  /* Ajustar padding del body para header móvil y banner */
+  body {
+    padding-top: 80px !important;
+  }
+  
+  body.body-with-banner {
+    padding-top: 140px !important; /* Header + Banner */
+  }
+}
+
+
+/* ===== TARJETAS DE PROYECTO MÓVIL ===== */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: var(--mobile-padding);
+  }
+  
+  .main-title,
+  .wemake {
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    padding: 0 var(--mobile-padding) !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .welcome-container h2 {
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 var(--mobile-padding) !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 var(--mobile-padding);
+    width: 100%;
+    max-width: none;
+  }
+  
+  .project-card {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 1rem !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    min-height: auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card-icon-container {
+    height: 60px;
+    margin-bottom: 1rem;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .card-icon-img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain !important;
+    object-position: center !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .card-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .card-description {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  .card-link {
+    width: var(--touch-target) !important;
+    height: var(--touch-target) !important;
+    font-size: 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    text-decoration: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    color: white !important;
+  }
+}
+
+/* ===== PÁGINA DSIGN MÓVIL ===== */
+@media (max-width: 768px) {
+  .dsign-container {
+    padding: var(--mobile-padding) !important;
+    padding-top: 90px !important;
+    min-height: auto !important;
+  }
+  
+  .wemake-dsign {
+    font-size: 2rem !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .container1 {
+    gap: 1rem;
+    padding: 0 var(--mobile-padding);
+  }
+  
+  .card1 {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  
+  .card1 .info {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .card1 .icon {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  
+  .bodysection1 {
+    height: auto;
+    padding: 2rem 0;
+  }
+  
+  .container {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding: 0 var(--mobile-padding) !important;
+    box-sizing: border-box !important;
+  }
+  
+  .card {
+    padding: 1rem !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+  }
+  
+  .card-title {
+    font-size: 1.1rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+}
+
+/* ===== FOOTER MÓVIL ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem var(--mobile-padding);
+    min-height: auto;
+    text-align: center;
+  }
+  
+  .footer-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .footer-nav {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .footer-col {
+    margin: 0.5rem 0;
+  }
+  
+  .btn {
+    min-height: var(--touch-target);
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .dropdown-container {
+    position: static;
+    display: block !important;
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .dropdown {
+    gap: 0.5rem;
+  }
+  
+  .dropdown-btn {
+    min-height: var(--touch-target);
+    margin: 0.3rem 0;
+    min-width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-logo {
+    align-items: center;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-logo img {
+    height: 40px;
+  }
+  
+  .footer-logo-text {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+/* ===== MEJORAS BÁSICAS TOUCH ===== */
+@media (max-width: 768px) {
+  /* Áreas de toque más grandes */
+  button, .btn, .card-link, a {
+    min-height: var(--touch-target) !important;
+    touch-action: manipulation !important;
+  }
+}
+
+/* ===== PANTALLAS PEQUEÑAS ===== */
+@media (max-width: 375px) {
+  :root {
+    --mobile-padding: 0.8rem;
+  }
+  
+  .wemake {
+    font-size: 1.8rem !important;
+  }
+  
+  .project-card {
+    padding: 0.8rem !important;
+  }
+  
+  .card-title {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ===== REGLAS DE EMERGENCIA PARA MÓVIL ===== */
+@media (max-width: 768px) {
+  /* Asegurar que nada se desborde */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Texto siempre legible */
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  /* Contenedores principales */
+  .welcome-container, .dsign-container, .container, .container1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Grids responsivos */
+  .projects-grid, .card-container-ltl {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+  
+  /* Menú de hamburguesa funcional */
+  .menu-container {
+    display: block !important;
+  }
+  
+  .header-content {
+    display: none !important;
+  }
+}
+
+/* ===== ADAPTACIÓN INTELIGENTE DE LETRA AL TAMAÑO DE PANTALLA ===== */
+@media (max-width: 768px) {
+  /* Tamaños de letra adaptativos usando vw (viewport width) */
+  html {
+    font-size: clamp(14px, 4vw, 18px) !important; /* Base adaptativa */
+  }
+  
+  body {
+    font-size: 1rem !important; /* Relativo a la base adaptativa */
+    line-height: 1.5 !important;
+  }
+  
+  /* Títulos principales adaptativos */
+  h1 {
+    font-size: clamp(1.5rem, 8vw, 3rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.2rem, 6vw, 2rem) !important;
+    line-height: 1.3 !important;
+  }
+  
+  h3 {
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Texto de contenido adaptativo */
+  p, span, div {
+    font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ===== CARDS INSTALABLES - FORZAR UNA DEBAJO DE OTRA ===== */
+@media (max-width: 768px) {
+  .card-section-instalables {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  .card-instalables {
+    width: 100% !important;
+    max-width: 350px !important;
+    flex: none !important;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  .card-instalables img {
+    width: auto !important;
+    max-width: 200px !important;
+    max-height: 150px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  .card-instalables h2 {
+    font-size: clamp(1rem, 5vw, 1.3rem) !important;
+    margin: 1rem 0 0.5rem 0 !important;
+  }
+  
+  .card-instalables p {
+    font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+}
+
+/* ===== H1 WEMAKE ADAPTATIVO AL ANCHO DE PANTALLA ===== */
+@media (max-width: 768px) {
+  .wemake, .wemake-dsign, .wemake-ltl, .wemake-swiftinstall, .wemake-start, .wemake-warp {
+    font-size: clamp(2rem, 12vw, 4rem) !important;
+    line-height: 1.1 !important;
+    padding: 0 0.5rem !important;
+    margin: 1rem 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    text-align: center !important;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .wemake, .wemake-dsign, .wemake-ltl, .wemake-swiftinstall, .wemake-start, .wemake-warp {
+    font-size: clamp(1.5rem, 10vw, 2.5rem) !important;
+  }
+}
+
+/* ===== H1 DENTRO DE CONTENT-DESCARGAR ADAPTATIVO ===== */
+@media (max-width: 768px) {
+  .content-descargar {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  .content-descargar h1, .h1-descargar {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    margin: 1rem 0 !important;
+    padding: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    text-align: center !important;
+  }
+  
+  /* Asegurar que la sección descargar sea responsiva */
+  .descargar {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+  
+  .image-container {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem !important;
+  }
+  
+  .image-container img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  /* Botones adaptativos */
+  .buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  
+  .btn-descargar, .btn-codigo {
+    width: 100% !important;
+    max-width: 250px !important;
+    padding: 1rem !important;
+    font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Lista adaptativa */
+  .ol-descargar {
+    font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+    line-height: 1.5 !important;
+    padding-left: 1.5rem !important;
+    margin: 1rem 0 !important;
+  }
+  
+  .ol-descargar li {
+    margin-bottom: 0.5rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+/* ===== BANNER SUPERIOR MÓVIL SIMPLE ===== */
+.mobile-banner {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #35f2ff, #1e83f7) !important;
+  z-index: 100000000000!important;
+  transform: translateY(-100%) !important;
+  transition: transform 0.3s ease !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mobile-banner.show {
+  transform: translateY(0) !important;
+}
+
+.mobile-banner.hide {
+  transform: translateY(-100%) !important;
+}
+
+.mobile-banner-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1rem !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.mobile-banner-icon {
+  font-size: 1.2rem !important;
+  margin-right: 0.5rem !important;
+  flex-shrink: 0 !important;
+}
+
+.mobile-banner-text {
+  color: white !important;
+  font-size: clamp(0.85rem, 3.5vw, 0.95rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  flex: 1 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  word-wrap: break-word !important;
+}
+
+.mobile-banner-close {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 50% !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  color: white !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-weight: bold !important;
+  flex-shrink: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+.mobile-banner-close:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Ajustar body para el banner */
+.body-with-banner {
+  padding-top: 60px !important;
+  transition: padding-top 0.3s ease !important;
+}
+
+/* Banner responsive */
+@media (max-width: 375px) {
+  .mobile-banner-content {
+    padding: 0.8rem !important;
+  }
+  
+  .mobile-banner-text {
+    font-size: clamp(0.8rem, 3vw, 0.9rem) !important;
+  }
+  
+  .mobile-banner-close {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 16px !important;
+  }
+}
+
+
+
+
+

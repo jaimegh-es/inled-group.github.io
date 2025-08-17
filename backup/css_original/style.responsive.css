@@ -12,6 +12,8 @@
         width: 100%;
         background-color: black;
         height: auto;
+        max-height: 100vh;
+        overflow-y: auto;
     }
 }
 

@@ -1,29 +1,18 @@
 ---
 ---
+<div class="dsign-container">
 <h1 class="wemake-dsign" >DSIGN</h1>
 <h2 style="height: 20vh;">Diseñamos sitios web</h2>
 
 <style>
-    body { 
-        background: linear-gradient(135deg, #de53f8, #bf51f8, #556df9, #7460f9); 
-        background-size: 300% 300%; 
-        animation: moverFondo 10s infinite linear; 
+    /* Estilos específicos del componente Dsign - el fondo se maneja globalmente */
+    .dsign-container {
         display: flex;
         flex-direction: column;
-        align-items: center;     /* Centra el contenido horizontalmente */
-        min-height: 100vh;       /* Asegura que el body ocupe al menos toda la altura */
+        align-items: center;
+        min-height: 100vh;
         font-family: 'Ubuntu', cursive;
-    } 
-    @keyframes moverFondo { 
-        0% { 
-            background-position: 0% 50%; 
-        } 
-        50% { 
-            background-position: 100% 50%; 
-        } 
-        100% { 
-            background-position: 0% 50%; 
-        } 
+        padding-top: 100px; /* Espacio para el header sticky */
     }
     .container1 {
       display: grid;
@@ -128,8 +117,7 @@
 
     
   </style>
-</head>
-<body>
+
 <h2 style="font-size: 300%;">Lo que ofrecemos</h2>
 <div class="container1">
   <div class="card1">
@@ -290,5 +278,5 @@
 
         </div>
     </div>
-</body>
+</div>
 

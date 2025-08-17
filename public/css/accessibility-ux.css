@@ -1,0 +1,450 @@
+/* ===== MEJORAS DE ACCESIBILIDAD Y UX ===== */
+
+/* Variables para accesibilidad */
+:root {
+  --focus-color: #3bb4fc;
+  --focus-outline: 2px solid var(--focus-color);
+  --focus-offset: 2px;
+}
+
+/* ===== NAVEGACIÓN POR TECLADO ===== */
+
+/* Indicadores de foco mejorados */
+*:focus {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  border-radius: 4px;
+  transition: outline 0.2s ease;
+}
+
+/* Foco específico para tarjetas de proyecto */
+.project-card:focus {
+  outline: var(--focus-outline);
+  outline-offset: 4px;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(59, 180, 252, 0.3);
+}
+
+/* Foco para enlaces de tarjetas */
+.card-link:focus {
+  outline: var(--focus-outline);
+  outline-offset: 3px;
+  transform: scale(1.1);
+}
+
+/* Foco para elementos del header */
+.header a:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  background: rgba(59, 180, 252, 0.1);
+}
+
+/* ===== SKIP LINKS ===== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--focus-color);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ===== MEJORAS DE LEGIBILIDAD ===== */
+
+/* Mejor contraste para texto */
+.card-description {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+/* Espaciado mejorado para lectura */
+.project-card {
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.projects-grid {
+  gap: 2rem;
+}
+
+/* ===== RESPONSIVE Y TÁCTIL ===== */
+
+/* Áreas de toque más grandes en móvil */
+@media (max-width: 768px) {
+  .card-link {
+    width: 60px;
+    height: 60px;
+    font-size: 2.2rem;
+  }
+  
+  .header a {
+    padding: 1rem 1.5rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    min-height: 48px;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* ===== INDICADORES DE ESTADO ===== */
+
+/* Estados de carga */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #3bb4fc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estados de error */
+.error {
+  border: 2px solid #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+.error::before {
+  content: '⚠️';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+}
+
+/* ===== MODO ALTO CONTRASTE ===== */
+@media (prefers-contrast: high) {
+  .project-card {
+    background: var(--high-contrast-bg);
+    border: 2px solid var(--high-contrast-border);
+  }
+  
+  .card-title {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  .card-description {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .card-link {
+    border: 2px solid white;
+  }
+}
+
+/* ===== PREFERENCIAS DE MOVIMIENTO ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .project-card:hover {
+    transform: none;
+  }
+  
+  .card-link:hover {
+    transform: none;
+  }
+  
+  .header a:hover {
+    transform: none;
+  }
+}
+
+/* ===== TOOLTIPS ACCESIBLES ===== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:focus::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== NOTIFICACIONES Y FEEDBACK ===== */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: white;
+  max-width: 300px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 10000;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  border-color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.notification.error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.notification.info {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== BREADCRUMBS ===== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  opacity: 0.5;
+}
+
+/* ===== MEJORAS EN FORMULARIOS ===== */
+input, textarea, select {
+  font-size: 16px; /* Previene zoom en iOS */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  outline: none;
+}
+
+.form-input:invalid {
+  border-color: #ef4444;
+}
+
+.form-input:valid {
+  border-color: #4ade80;
+}
+
+/* ===== INDICADORES DE PROGRESO ===== */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+/* ===== MEJORAS EN NAVEGACIÓN ===== */
+.nav-item {
+  position: relative;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--focus-color);
+}
+
+/* ===== LIVE REGIONS PARA SCREEN READERS ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ===== MEJORAS DE PERFORMANCE ===== */
+.will-change {
+  will-change: transform;
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: light) {
+  /* Ajustes para usuarios que prefieren modo claro */
+  body {
+    background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #dee2e6, #e9ecef);
+  }
+  
+  .project-card {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  
+  .card-title {
+    color: #333;
+  }
+  
+  .card-description {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .header,
+  .footer,
+  .particle-canvas,
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  .project-card {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ===== UTILIDADES DE ACCESIBILIDAD ===== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.focus-visible:focus {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* Mejorar la selección de texto */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: white;
+}

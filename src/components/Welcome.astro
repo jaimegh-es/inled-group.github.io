@@ -18,7 +18,16 @@ import { Image } from 'astro:assets';
 </style>
 
 <Layout>
-<div class="welcome-container">
+<!-- Banner superior para avisar de errores en móvil -->
+<div id="mobile-warning-banner" class="mobile-banner" style="display: none;">
+  <div class="mobile-banner-content">
+    <span class="mobile-banner-icon">📱</span>
+    <span class="mobile-banner-text">Versión móvil en desarrollo - pueden haber pequeños errores</span>
+    <button class="mobile-banner-close" id="close-banner-btn">&times;</button>
+  </div>
+</div>
+
+<div class="welcome-container" id="main-content">
     <h1 class="wemake">We make a better world.</h1>
     <h2>En Inled creamos proyectos que hacen del mundo y tu día a día un lugar mejor</h2>
     <div style="height: 20vh;"></div>

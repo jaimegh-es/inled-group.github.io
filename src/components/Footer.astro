@@ -1,48 +1,97 @@
 ---
 ---
-<div style="height: 20vh;"></div>
-<div class="divider"></div>
-<div class="footer-container">
+
+<style>
+  .simple-footer {
+    background: #111;
+    border-top: 1px solid #333;
+    padding: 2rem 1rem;
+    margin: 4rem 0 0 0;
+    text-align: center;
+    color: #ccc;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .footer-logo {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-logo img {
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+  
+  .footer-text a {
+    color: #3bb4fc;
+    text-decoration: none;
+  }
+  
+  .footer-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-license {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+  }
+  
+  @media (max-width: 768px) {
+    .simple-footer {
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-logo img {
+      height: 35px;
+    }
+    
+    .footer-text {
+      font-size: 0.85rem;
+    }
+    
+    .footer-license {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<footer class="simple-footer">
+  <div class="footer-content">
     <div class="footer-logo">
-        <a href="/">
-          <img src={import.meta.env.BASE_URL + "/upload/inled-logo-full.png"} alt="Inled" />
-        </a>
-        <p class="footer-logo-text">(c) Inled 2025. Todos los derechos reservados</p>
-      </div>
-      
-    <div class="footer-nav">
-        <div class="footer-col">
-            <a href="#" class="btn">Proyectos <span class="arrow">›</span></a>
-            <div class="dropdown-container">
-                <div class="dropdown">
-                    <a href="/ltl" class="dropdown-btn">Launch the launcher <span class="arrow">›</span></a>
-                    <a href="/dsign" class="dropdown-btn">DSIGN <span class="arrow">›</span></a>
-                    <a href="http://teafriendly.es" class="dropdown-btn">TEA Friendly <span class="arrow">›</span></a>
-                    <a href="/swiftinstall" class="dropdown-btn">Swiftinstall <span class="arrow">›</span></a>
-                    <a href="https://inled.es/about-start" class="dropdown-btn">Start <span class="arrow">›</span></a>
-                    <a href="/warp" class="dropdown-btn">Warp VPN GUI <span class="arrow">›</span></a>
-                    <a href="/startomnibox" class="dropdown-btn">Start Omnibox<span class="arrow">›</span></a>
-                    <a href="https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/" class="dropdown-btn">Cruz Cristiana GNOME<span class="arrow">›</span></a>
-                    <a href="/memorywarn" class="dropdown-btn">Memory Warn<span class="arrow">›</span></a>
-                    <a href="https://suno.com/@songbird_music" class="dropdown-btn">Songbird<span class="arrow">›</span></a>
-                    <a href="/yway" class="dropdown-btn">Yway<span class="arrow">›</span></a>
-                    <a href="/startntp" class="dropdown-btn">Start NTP<span class="arrow">›</span></a>
-                    <a href="https://status.inled.es/ipcheck.html" class="dropdown-btn">Domain Info<span class="arrow">›</span></a>
-                    <a href="/index.lynx/" class="dropdown-btn">Página para Lynx<span class="arrow">›</span></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-col">
-            <a href="#" class="btn">Legal<span class="arrow">›</span></a>
-            <div class="dropdown-container">
-                <div class="dropdown">
-                    <a href="/cookie-policy" class="dropdown-btn">Política de cookies<span class="arrow">›</span></a>
-                    <a href="/privacy-policy" class="dropdown-btn">Política de privacidad<span class="arrow">›</span></a>
-                    <a href="https://status.inled.es" class="dropdown-btn">Estado servicios<span class="arrow">›</span></a>
-                </div>
-            </div>
-        </div>
+      <a href="/">
+        <img src={import.meta.env.BASE_URL + "/upload/inled-logo-full.png"} alt="Inled Logo" />
+      </a>
     </div>
-</div>
+    
+    <div class="footer-text">
+      <p>&copy; 2025 Inled®. Todos los derechos reservados.</p>
+    </div>
+    
+    <div class="footer-license">
+      <p>
+        Este sitio web está licenciado bajo 
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL 3.0</a>
+        | Inled Group® es una marca registrada
+      </p>
+    </div>
+  </div>
 </footer>

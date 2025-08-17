@@ -1,10 +1,10 @@
 ---
 ---
-<header>
-    <a href="/"><img src={import.meta.env.BASE_URL +"/upload/inled-logo-full.png"} alt="Inled Logo" class="logo"></a>
-    <div class="encabezado">
-    <div class="header">
-        <div style="display: flex;">
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<a href="/"><img src={import.meta.env.BASE_URL +"/upload/inled-logo-full.png"} alt="Inled Logo" class="logo"></a>
+
+<header class="header">
+    <div class="header-content">
         <a href="/ltl">
             <img src={import.meta.env.BASE_URL +"/upload/Launchthelauncher-ytlogo__1_-removebg-preview.png"} alt="Launch the Launcher"> Launch the launcher
         </a>
@@ -14,10 +14,11 @@
         <a href="http://teafriendly.es">
             <img src={import.meta.env.BASE_URL +"/upload/tea-friendly.png"} alt="TEA Friendly"> TEA Friendly
         </a>
-        <div id="google_translate_element" style="margin-left: 1em;"></div>
-        </div>
     </div>
-</div>
+    <div class="header-right">
+        <div id="google_translate_element" style="display: none;"></div>
+    </div>
+</header>
 
 <div class="menu-container">
       <!-- Usamos un checkbox real pero oculto -->
