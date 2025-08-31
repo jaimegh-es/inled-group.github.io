@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+    <title>Windows BSOD for MacOS | Inled Group</title>
+    <meta name="description" content="Aplicación de chiste que simula un error crítico de Windows XP en Mac">
+    <Header />
+    <h1 class="wemake-start">WinBSOD for MacOS</h1>
+<div class="descargar">
+  <div class="content-descargar">
+    <h1 class="h1-descargar">¿Impaciente de que tu Mac se parezca a un Windows?</h1>
+    <p class="p-descargar">Esta aplicación simula una pantalla azul de la muerte (BSOD) en tu MacOS
+    </p>
+    <div class="buttons">
+      <a href="https://github.com/Inled-Group/winbsod/releases/download/v1.0/BSOD.app.zip" class="btn-descargar">Descargar</a>
+      <a href="https://github.com/Inled-Group/winbsod" class="btn-codigo">Código</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png"} alt="Imagen WinBSOD">
+  </div>
+</div>
+
+<h1 class="h1init">Seguro y divertido</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/privacy/Apple-WWDC23-privacy-logo-230605.jpg.news_app_ed.jpg"} alt="Security">
+    <h2>Seguro</h2>
+    <p>WinBSOD ha sido diseñado para no dañar su Mac y simular un error completamente ficticio <br>Puede acceder al <a href="https://www.virustotal.com/gui/file/2aa3869c9d5feb0378192a2ac3a61bcb7ad04f73640dc6dcc6279eef115e4399">reporte de seguridad</a></p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.05.56.png"} alt="Apariencia realista">
+    <h2>Parece real</h2>
+    <p>100% realista: igualita a la de verdad</p>
+  </div>
+</div>
+
+<h1 class="h1init">Instalación</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <h2>Descomprima el .zip</h2>
+    <p>Descomprima el fichero .zip para extraer el .app</p>
+  </div>
+  <div class="card-instalables">
+    <h2>Mueva el .app a Aplicaciones</h2>
+    <p>Mueva el fichero .app a Aplicaciones</p>
+  </div>
+  <div class="card-instalables">
+
+    <h2>Ejecute y disfrute</h2>
+    <p>Su Mac se parecerá a Windows como lo conocemos todos.</p>
+  </div>
+</div>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<Layout>
+  <title>inDOC | Inled Group</title>
+    <meta name="description" content="Edita texto enriquecido privadamente, gratuitamente y al instante.">
+  <Header />
+<h1 class="wemake-start">inDOC</h1>
+<div class="descargar">
+  <div class="content-descargar">
+    <h1 class="h1-descargar">Edita texto enriquecido gratuitamente</h1>
+    <p class="p-descargar">Un editor de texto enriquecido sin registro, 100% privado y sin publicidad.
+    </p>
+    <div class="buttons">
+      <a href="https://indoc.inled.es" class="btn-descargar">Editar ya</a>
+      <a href="https://github.com/Inled-Group/indoc" class="btn-codigo">Código</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-23-a-las-9.16.06.png"} alt="Imagen inDOC">
+  </div>
+</div>
+
+<h1 class="h1init">Diferente</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/mdpdf.functions-3.gif"} alt="Privacidad 100%">
+    <h2>No eres el producto</h2>
+    <p>A diferencia de otras suites de ofimática, en inDOC tú no eres el producto.</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/potente.gif"} alt="Rápido">
+    <h2>Rápido</h2>
+    <p>Tarda menos de 1 segundo en cargar.</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/login-form.gif"} alt="Sin iniciar sesión">
+    <h2>Sin registros</h2>
+    <p>No tienes que iniciar sesión en ningún lado: todo queda en tu ordenador</p>
+  </div>
+</div>
+
+<Footer />
+</Layout>

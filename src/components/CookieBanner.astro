@@ -1,0 +1,156 @@
+---
+// CookieBanner.astro
+---
+
+<div id="cookieBanner" class="cookie-banner hidden">
+  <div class="cookie-content">
+    <div class="cookie-message">
+      <span class="cookie-title">Utilizamos galletitas</span>
+      <p>Las galletas están muy ricas si además nos sirven para analizar el uso de nuestra web. Si sigues en navegando estás aceptando nuestras preciosas galletitas. ¿Quieres ver de qué están hechas?</p>
+    </div>
+    <div class="cookie-buttons">
+      <button id="acceptCookies" class="accept-button">Aceptar</button>
+      <button id="learnMore" class="learn-more-button">Saber más</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f2f2f2;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    z-index: 100000000 !important;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-content {
+      flex-direction: column;
+    }
+    
+    .cookie-buttons {
+      margin-top: 16px;
+      align-self: flex-end;
+    }
+  }
+
+  .cookie-message {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+  .cookie-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #0078d4;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .cookie-message p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .cookie-buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .accept-button {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+  }
+
+  .accept-button:hover {
+    background-color: #006cbe;
+  }
+
+  .learn-more-button {
+    background-color: transparent;
+    color: #0078d4;
+    border: 1px solid #0078d4;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+  }
+
+  .learn-more-button:hover {
+    background-color: rgba(0, 120, 212, 0.1);
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Script que se ejecuta en el lado del cliente
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptButton = document.getElementById('acceptCookies');
+    const learnMoreButton = document.getElementById('learnMore');
+    
+    // Verificar que todos los elementos existen
+    if (!cookieBanner || !acceptButton || !learnMoreButton) {
+      console.error('No se pudieron encontrar los elementos del banner de cookies');
+      return;
+    }
+    
+    // Comprobar si ya se han aceptado las cookies
+    const cookiesAccepted = localStorage.getItem('clarityConsentAccepted');
+    
+    if (!cookiesAccepted) {
+      // Mostrar el banner si no se han aceptado las cookies
+      cookieBanner.classList.remove('hidden');
+    }
+    
+    // Función para aceptar cookies
+    const acceptCookies = () => {
+      localStorage.setItem('clarityConsentAccepted', 'true');
+      cookieBanner.classList.add('hidden');
+      
+      // Aquí puedes inicializar Microsoft Clarity si lo necesito pero por ahora ya está en el head
+      // Por ejemplo:
+      // if (typeof clarity === 'function') {
+      //   clarity('consent');
+      // }
+    };
+    
+    // Función para redirigir a la página de política de cookies
+    const learnMoreAboutCookies = () => {
+      // Cambia esto por la URL de tu política de cookies
+      window.location.href = 'https://new.inled.es/cookie-policy/';
+    };
+    
+    // Eventos
+    acceptButton.addEventListener('click', acceptCookies);
+    learnMoreButton.addEventListener('click', learnMoreAboutCookies);
+  });
+</script>

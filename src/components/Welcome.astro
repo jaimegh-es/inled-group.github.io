@@ -1,0 +1,371 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+---
+<style>
+        .blurry-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 1;
+        border-radius: 15px;
+    }
+</style>
+
+<Layout>
+<!-- Banner superior para avisar de errores en móvil -->
+<div id="mobile-warning-banner" class="mobile-banner" style="display: none;">
+  <div class="mobile-banner-content">
+    <span class="mobile-banner-icon">📱</span>
+    <span class="mobile-banner-text">Versión móvil en desarrollo - pueden haber pequeños errores</span>
+    <button class="mobile-banner-close" id="close-banner-btn">&times;</button>
+  </div>
+</div>
+
+<div class="welcome-container" id="main-content">
+    <h1 class="wemake">We make a better world.</h1>
+    <h2>En Inled creamos proyectos que hacen del mundo y tu día a día un lugar mejor</h2>
+    <div style="height: 20vh;"></div>
+    <div class="container">
+        <div class="projects-grid">
+
+            <!-- Proyecto 1: Launch the launcher -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/Launchthelauncher-ytlogo__1_-removebg-preview.png"} alt="Launch the launcher" class="card-icon-img" />
+                </div>
+                <h2 class="card-title">Launch the launcher</h2>
+                <p class="card-description">
+                    Tutoriales sobre nuevas tecnologías para profesores.
+                    Los primeros tutoriales en español acerca de Bytello
+                </p>
+                <a href="/ltl" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 2: DSIGN -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/DSIGN-SIMPLE-WHITE-removebg-preview.png"} alt="DSIGN" class="card-icon-img">
+                </div>
+                <h2 class="card-title">DSIGN</h2>
+                <p class="card-description">
+                    Diseño web
+                </p>
+                <a href="/dsign" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 3: TEA Friendly -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/tea-friendly.png"} alt="TEA Friendly Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">TEA Friendly</h2>
+                <p class="card-description">
+                    Certificación para centros educativos que atienden las
+                    necesidades de las personas con autismo
+                </p>
+                <a href="https://teafriendly.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 4: SwiftInstall -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/swiftinstall-logo.png"} alt="Swiftinstall Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Swiftinstall</h2>
+                <p class="card-description">
+                    Instala y elimina aplicaciones fuera de la Store de Linux
+                </p>
+                <a href="/swiftinstall" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 5: Start -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/start-simple-blanco-sinfondo.png"} alt="Start Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Start</h2>
+                <p class="card-description">
+                    Busca más rápido, accede al instante. Tu multibuscador y página de inicio
+                </p>
+                <a href="/about-start" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 6: Warp VPN GUI -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/warpupscale.png"} alt="Logo 1.1.1.1 Warp VPN" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Warp VPN GUI</h2>
+                <p class="card-description">
+                    Interfaz gráfica para la VPN de Cloudflare
+                </p>
+                <a href="/warp" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 7: Start Omnibox -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/icon128.png"} alt="Logo Start Omnibox" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Start Omnibox</h2>
+                <p class="card-description">
+                    Escoja el motor de búsqueda que desea desde una ventana junto a la barra de Chrome. <br>
+
+                    Ya no tendrá que navegar a cada motor de búsqueda para comenzar a buscar.
+                </p>
+                <a href="/startomnibox" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 8: Inled en Astro -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/cropped-INLED_simple-removebg-preview.png"} alt="Logo Inled" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Inled hecho en Astro</h2>
+                <p class="card-description">
+                    Estamos preparando la nueva web de Inled, que dejará WordPress para pasarse a Astro.<br>
+                    Actualmente está disponible una vista previa en Github mientras dure su construcción
+                </p>
+            </div>
+
+            <!-- Proyecto 9: Cruz Cristiana en GNOME -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/cruzcristiana-gnome-logo.png"} alt="Logo Cruz Cristiana GNOME" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Cruz Cristiana GNOME</h2>
+                <p class="card-description">
+                    Esta extensión de GNOME muestra la cruz de Cristo en la barra superior de GNOME para que Dios nos acompañe durante el uso del ordenador.
+                </p>
+                <a href="https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/" class="card-link">></a>
+            </div>
+            <!-- Proyecto 10: Memory Warn -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/memory-warn-logo.png"} alt="Logo Memory Warn" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Memory Warn</h2>
+                <p class="card-description">
+                    Aplicación para Linux basados en Debian que avisa cuando el uso de memoria supera un límite establecido.
+                </p>
+                <a href="/memorywarn" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 11: SongBird -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/pajaro-tomando-el-nectar-de-una-flor-que-resulta-ser-arena.jpeg"} alt="Songbird profile image" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Songbird</h2>
+                <p class="card-description">
+                    Música creada con IA, títulos hechos por humanos
+
+                Let’s see what AI comes up with for me today.
+                </p>
+                <a href="https://suno.com/@songbird_music" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 12: Yway -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/2-1.png"} alt="Yway Logo Simple" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Yway</h2>
+                <p class="card-description">
+                    Gestión de dispositivos informáticos
+                </p>
+                <a href="/yway" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 13: Start NTP -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/start.newtabpage.png"} alt="Start NTP Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Start New Tab Page</h2>
+                <p class="card-description">
+                    Experimenta la productividad en estado puro con Start como página de inicio
+                </p>
+                <a href="/startntp" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 14: Domain Info -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/favicon.png"} alt="Inled Cloud" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Domain Info</h2>
+                <p class="card-description">
+                    Obtén información sobre un dominio o dirección IP
+                </p>
+                <a href="https://status.inled.es/ipcheck.html" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 15: Server Status -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/favicon.png"} alt="Inled Cloud" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Server Status</h2>
+                <p class="card-description">
+                    Comprueba el estado de los servicios de Inled en el cloud
+                </p>
+                <a href="https://status.inled.es/index.html" class="card-link">></a>
+            </div>
+
+             <!-- Proyecto 16: MDPDF -->
+             <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/MDPDF.png"} alt="MDPDF Logo Simple" class="card-icon-img">
+                </div>
+                <h2 class="card-title">MDPDF</h2>
+                <p class="card-description">
+                    Free Markdown Editor and MD to PDF converter
+                </p>
+                <a href="/mdpdf" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 17: inLinked -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/INLINKED.png"} alt="inLinked Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">inLinked</h2>
+                <p class="card-description">
+                    Formateador de texto para LinkedIN
+                </p>
+                <a href="/inlinked" class="card-link">></a>
+            </div>
+
+             <!-- Proyecto 19: inMD -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/inMD.png"} alt="Win Error Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">inMD</h2>
+                <p class="card-description">
+                    El primer editor visual de markdown de Github
+                </p>
+                <a href="/inmd" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 21: inDOC -->
+             <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/INDOC.png"} alt="inDOC Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">inDOC</h2>
+                <p class="card-description">
+                    Edita texto enriquecido online, privado y gratuitamente
+                </p>
+                <a href="/indoc" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 18: Windows Error -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/winerror.png"} alt="Win Error Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Windows Error</h2>
+                <p class="card-description">
+                    Disfruta de la ventana de error de Windows XP en tu Mac
+                </p>
+                <a href="/winerror" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 20: Win BSOD -->
+             <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/winbsod.png"} alt="WinBSOD Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Win BSOD</h2>
+                <p class="card-description">
+                    La BSOD de Windows en tu Mac
+                </p>
+                <a href="/winbsod" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 21: InSuite -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/insuite.svg"} alt="insuite Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">InSuite</h2>
+                <p class="card-description">
+                    Suite de ofimática libre y con IA
+                </p>
+                 <a href="https://insuite.inled.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 22: Inled AI -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/inledai.svg"} alt="inledai Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Inled AI</h2>
+                <p class="card-description">
+                    Integra IA en tu web sin pagar servidores de super computación
+                </p>
+                 <a href="https://ai.inled.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 23: Devreka -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src="https://devreka.inled.es/favicon.ico" alt="devreka Logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Devreka</h2>
+                <p class="card-description">
+                    Generador de ideas de negocio para devs
+                </p>
+                 <a href="https://devreka.inled.es" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 24: Tabstacker -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/tabstacker.png"} alt="tabstacker logo" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Tabstacker</h2>
+                <p class="card-description">
+                    Gestor de pestañas guardadas
+                </p>
+                <a href="/tabstacker" class="card-link">></a>
+            </div>
+
+            <!-- Proyecto 25: Matrix WWW -->
+            <div class="project-card">
+                <div class="card-icon-container">
+                    <img src={import.meta.env.BASE_URL + "/upload/matrixwww.ico"} alt="logo matrix www" class="card-icon-img">
+                </div>
+                <h2 class="card-title">Matrix WWW</h2>
+                <p class="card-description">
+                   Sitio web con simulaciones de software de Matrix
+                </p>
+                 <a href="https://matrix-www.inled.es" class="card-link">></a>
+            </div>
+
+           
+
+        </div>
+    </div>
+
+    <h1 class="h1init">Próximamente...</h1>
+
+    <div class="container" style="position: relative;">
+        <div class="blurry-overlay"></div>
+        <div class="projects-grid">
+
+           
+            
+            
+        </div>
+    </div>
+</div>
+</Layout>

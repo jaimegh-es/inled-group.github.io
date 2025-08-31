@@ -1,0 +1,99 @@
+---
+const isVisible = true;
+---
+
+<div class="nexus-toast" data-visible={isVisible}>
+  <div class="toast-content">
+    <span>Novedades de la Nexus25</span>
+    <button class="toast-close">&times;</button>
+  </div>
+  <a class="toast-arrow" href="https://nexus.inled.es" style="text-decoration: none; color: white;">→</a>
+</div>
+
+<style>
+@keyframes slide-glow {
+    0% {
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.3), 0 -5px 8px -2px white;
+    }
+    25% {
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.3), 5px 0 8px -2px white;
+    }
+    50% {
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.3), 0 5px 8px -2px white;
+    }
+    75% {
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.3), -5px 0 8px -2px white;
+    }
+    100% {
+        box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.3), 0 -5px 8px -2px white;
+    }
+}
+  .nexus-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slide-glow 4s linear infinite;
+  }
+
+  .nexus-toast[data-visible="false"] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .toast-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .toast-arrow {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toast = document.querySelector('.nexus-toast');
+    const closeButton = document.querySelector('.toast-close');
+
+    if (toast && closeButton) {
+      closeButton.addEventListener('click', () => {
+        toast.setAttribute('data-visible', 'false');
+      });
+    }
+  });
+</script>

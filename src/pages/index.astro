@@ -1,0 +1,23 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import BannerCountDown from '../components/BannerCountDown.astro';
+import Countdown from '../components/Countdown.astro';
+import NexusToast from '../components/NexusToast.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+    <title>Inled Group | We make a better World</title>
+    <meta name="description" content="We make a better world · Hacemos un mundo mejor | Descubre nuestros proyectos">
+	<Header />
+	<Welcome />
+	<Footer />
+	<CookieBanner />
+	<NexusToast />
+</Layout>

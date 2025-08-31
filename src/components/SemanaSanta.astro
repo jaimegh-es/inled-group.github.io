@@ -1,0 +1,96 @@
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .timeline {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 100px auto;
+    }
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: white;
+      z-index: 1;
+    }
+
+    .event {
+      position: absolute;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .event img {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event a:hover img {
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Posiciones específicas para los eventos */
+    .event:nth-child(2) { left: 5%; top: calc(50% - 100px); }
+    .event:nth-child(3) { left: 20%; top: calc(50% + 80px); }
+    .event:nth-child(4) { left: 35%; top: calc(50% - 100px); }
+    .event:nth-child(5) { left: 50%; top: calc(50% + 80px); }
+    .event:nth-child(6) { left: 65%; top: calc(50% - 100px); }
+    .event:nth-child(7) { left: 80%; top: calc(50% + 80px); }
+    .event:nth-child(8) { left: 95%; top: calc(50% - 100px); }
+  </style>
+</head>
+<body>
+  <h1 style="color: white; text-align: center; padding-top: 40px;">Una Semana Santa de deploys</h1>
+  <div class="timeline">
+    <div class="line"></div>
+
+    <div class="event">
+      <a href="https://inled.es/about-start/" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/start-simple-blanco-sinfondo.png"} alt="Start">
+      </a>
+    </div>
+    <div class="event">
+      <a href="https://inled.es/warp-gui/" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_96,h_96//12/warpupscale.png"} alt="Warp VPN GUI">
+      </a>
+    </div>
+    <div class="event">
+      <a href="https://inled.es/start-omnibox/" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_128,h_128/icon128.png"} alt="Start Omnibox">
+      </a>
+    </div>
+    <div class="event">
+      <a href="/" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/https://astro.build/assets/press/astro-icon-light-gradient.png"} alt="Inled en Astro">
+      </a>
+    </div>
+    <div class="event">
+      <a href="https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_500/cruzcristiana-gnome-logo.png"} alt="Cruz Cristiana GNOME">
+      </a>
+    </div>
+    <div class="event">
+      <a href="https://github.com/Inled-Group/start.newtab.chrome" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/start-simple-blanco-sinfondo.png"} alt="Start New Tab Chrome">
+      </a>
+    </div>
+    <div class="event">
+      <a href="https://github.com/Inled-Group/memory-warn" target="_blank">
+        <img src={import.meta.env.BASE_URL + "/upload/https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_500/memory-warn-logo.png"} alt="MemoryWarn">
+      </a>
+    </div>
+  </div>

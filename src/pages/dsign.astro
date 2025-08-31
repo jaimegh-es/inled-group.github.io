@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import DsignComponent from '../components/Dsign.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<Layout>
+    <title>DSIGN | Inled Group</title>
+    <meta name="description" content="Diseñamos sitios web adaptados a tus necesidades. Calidad, seguridad y posicionamiento.">
+    <Header />
+    <DsignComponent />
+    <Footer />
+</Layout>
+
+<script>
+    // Añadir clase específica para la página dsign
+    document.body.classList.add('dsign-page');
+</script>

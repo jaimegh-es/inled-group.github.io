@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<Layout>
+  <title>inMD | Inled Group</title>
+    <meta name="description" content="El primer editor visual markdown en Github">
+  <Header />
+  
+<h1 class="wemake-start">inMD</h1>
+<div class="descargar">
+  <div class="content-descargar">
+    <h1 class="h1-descargar">El primer editor markdown visual de Github</h1>
+    <p class="p-descargar">Edita como en Word sin mirar el código Markdown
+    </p>
+    <div class="buttons">
+      <a href="https://inmd.inled.es" class="btn-descargar">Editar ya</a>
+      <a href="https://github.com/Inled-Group/inmd" class="btn-codigo">Código</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-de-pantalla-2025-06-21-a-las-14.39.46.png"} alt="Imagen inMD">
+  </div>
+</div>
+
+<h1 class="h1init">Una revolución</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/0-codigo-md.gif"} alt="0 código">
+    <h2>0 código</h2>
+    <p>No tienes que saber editar en Markdown para hacer un documento Markdown</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/texto-a-html.gif"} alt="TXT -> HTML">
+    <h2>Texto a HTML</h2>
+    <p>No tienes que saber escribir en HTML para obtener una página preciosa</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/mdpdf.functions-3.gif"} alt="Privado">
+    <h2>Privado</h2>
+    <p>No cotilleamos lo que escribes</p>
+  </div>
+</div>
+
+<Footer />
+</Layout>

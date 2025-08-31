@@ -1,0 +1,146 @@
+---
+// src/components/CloudflareDialog.astro
+---
+<div id="cloudflare-dialog-overlay" class="dialog-overlay">
+  <div id="cloudflare-dialog" class="dialog-content">
+    <button id="close-cloudflare-dialog" class="close-button">&times;</button>
+    <h2>Aviso Importante</h2>
+    <p>
+     Durante los días de partido de fútbol hay bloqueos masivos a los servicios de Cloudflare, de los que depende la infraestructura de Inled.
+    </p>
+    <p>Es por ello que es posible que no puedas acceder a las webs de Inled en sus URL habituales.</p>
+    <p>Pero hemos habilitado URLs alternativas que son accesibles durante los partidos y no son bloqueadas.</p>
+    <p>Para conocer más detalles de esta distópica situación que se está dando en España consulta <a href="https://hayahora.futbol/"> hayahora.futbol</a> y comprueba si hay fútbol o también <a href="https://youtu.be/RG8f4H8XYBU?si=0e522doK_y_Qm_i9">este vídeo</a></p>
+    <div class="dialog-actions">
+      <a href="https://bloqueoscloudflare-inled.vercel.app" target="_blank" class="dialog-button" style="color: white;">
+        Ver URLs alternativas
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .dialog-overlay.show {
+    display: flex;
+    opacity: 1;
+  }
+
+  .dialog-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .dialog-overlay.show .dialog-content {
+      transform: scale(1);
+  }
+
+  .dialog-content h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+  }
+
+  .dialog-content p {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .dialog-content a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .dialog-content a:hover {
+    text-decoration: underline;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .close-button:hover {
+    color: #333;
+  }
+
+  .dialog-actions {
+    text-align: right;
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+
+  .dialog-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    display: inline-block;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  }
+
+  .dialog-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialogOverlay = document.getElementById('cloudflare-dialog-overlay');
+    const closeButton = document.getElementById('close-cloudflare-dialog');
+    const storageKey = 'hasSeenCloudflareWarning';
+
+    if (!localStorage.getItem(storageKey)) {
+      setTimeout(() => {
+        dialogOverlay.classList.add('show');
+      }, 500);
+    }
+
+    const closeDialog = () => {
+      dialogOverlay.classList.remove('show');
+      localStorage.setItem(storageKey, 'true');
+    };
+
+    closeButton.addEventListener('click', closeDialog);
+    dialogOverlay.addEventListener('click', (event) => {
+        if (event.target === dialogOverlay) {
+            closeDialog();
+        }
+    });
+  });
+</script>
