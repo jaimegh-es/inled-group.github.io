@@ -23,7 +23,7 @@
   }
   
   .footer-logo {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
   }
   
   .footer-logo img {
@@ -34,7 +34,7 @@
   .footer-text {
     font-size: 0.9rem;
     line-height: 1.6;
-    margin: 0.5rem 0;
+    margin: 0;
   }
   
   .footer-text a {
@@ -52,6 +52,32 @@
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid #333;
+  }
+
+  .footer-social {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .footer-social a {
+    color: #fff;
+    transition: color 0.2s;
+    font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-social a:hover {
+    color: #3bb4fc;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
   
   @media (max-width: 768px) {
@@ -76,14 +102,26 @@
 
 <footer class="simple-footer">
   <div class="footer-content">
-    <div class="footer-logo">
-      <a href="/">
-        <img src={import.meta.env.BASE_URL + "/upload/inled-logo-full.png"} alt="Inled Logo" />
-      </a>
-    </div>
-    
-    <div class="footer-text">
-      <p>Inled Group®.</p>
+    <div class="footer-row">
+      <div class="footer-logo">
+        <a href="/">
+          <img src={import.meta.env.BASE_URL + "/upload/inled-logo-full.png"} alt="Inled Logo" />
+        </a>
+      </div>
+      <div class="footer-text">
+        <p>Inled Group®.</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/Inled-Group" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.012c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.646.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.174 22 16.426 22 12.012 22 6.484 17.523 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@inledgroup" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.8 8.001s-.2-1.429-.8-2.057c-.763-.8-1.617-.803-2.011-.849C16.2 5 12 5 12 5h-.01s-4.2 0-7 .095c-.394.046-1.248.049-2.011.849-.6.628-.8 2.057-.8 2.057S2 9.571 2 11.143v1.714c0 1.572.2 3.142.2 3.142s.2 1.429.8 2.057c.763.8 1.767.775 2.221.86C7.8 19 12 19 12 19s4.2 0 7-.095c.394-.046 1.248-.049 2.011-.849.6-.628.8-2.057.8-2.057s.2-1.57.2-3.142v-1.714c0-1.572-.2-3.142-.2-3.142zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+        </a>
+        <a href="https://sourceforge.net/u/inledgroup/profile/" target="_blank" rel="noopener" aria-label="SourceForge">
+          <img src="https://a.fsdn.com/con/img/sandiego/logo-180x180.png" width="32" height="32" alt="SourceForge Logo" />
+        </a>
+      </div>
     </div>
     
     <div class="footer-license">
