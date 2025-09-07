@@ -376,26 +376,25 @@ input, textarea, select {
   will-change: transform;
 }
 
-/* ===== DARK MODE SUPPORT ===== */
-@media (prefers-color-scheme: light) {
-  /* Ajustes para usuarios que prefieren modo claro */
-  body {
-    background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #dee2e6, #e9ecef);
-  }
-  
-  .project-card {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #333;
-  }
-  
-  .card-title {
-    color: #333;
-  }
-  
-  .card-description {
-    color: rgba(0, 0, 0, 0.7);
-  }
+/* ===== DARK MODE FORZADO ===== */
+/* Modo oscuro permanente - no respetar preferencias del sistema */
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.project-card {
+  background-color: #ffffff00 !important;
+  border: 1px solid #444 !important;
+  color: #ffffff !important;
+}
+
+.card-title {
+  color: #ffffff !important;
+}
+
+.card-description {
+  color: #ffffff !important;
 }
 
 /* ===== PRINT STYLES ===== */
