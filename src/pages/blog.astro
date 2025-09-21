@@ -2,79 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL;
 
 
 // Sección de noticias
 const newsData = [
 {
         id: 1,
-        title: 'Las aplicaciones falsas 2025',
-        summary: 'Hay personas muy aburridas en este mundo...',
+        title: 'Desarrollo con IA responsable: el futuro de la programación',
+        summary: 'Inled, marca pionera en desarrollo con IA desde que nació ChatGPT 3',
         date: '17-6-25',
         category: 'LTL',
-        image: 'definicion-de-hacker.png',
-        slug: 'las-aplicaciones-falsas-2025'
+        image: base + '/upload/nokiamanosrobot.png',
+        slug: 'desarrollo-con-ia-responsable-herramientas'
     },
-    {
-        id: 1,
-        title: 'null',
-        summary: 'null',
-        date: '17-6-25',
-        category: 'LTL',
-        image: '404.png',
-        slug: 'null'
-    },
-    {
-        id: 1,
-        title: 'Aplicaciones gratuitas: cuidado con esto',
-        summary: 'Las aplicaciones gratuitas pueden parecer muy atractivas pero hay que tener esto en cuenta',
-        date: '17-6-25',
-        category: 'LTL',
-        image: '404.png',
-        slug: 'aplicaciones-gratuitas-cuidado-con-esto'
-    },
-    {
-        id: 2,
-        title: '¿Si no descargo un fichero ejecutable puedo entrar en páginas piratas? ¡Lo respondemos!',
-        summary: '¿Será seguro? ¿Pillaremos un virus?',
-        date: '17-6-25',
-        category: 'LTL',
-        image: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024//11/72fb7f02-dc52-4cfe-9c5e-cd57c35252a2.jpeg',
-        slug: 'si-no-descargo-un-fichero-ejecutable-puedo-entrar-en-paginas-piratas'
-    },
-    {
-        id: 2,
-        title: 'Vulnerabilidades: Qué son y cono los piratas informáticos pueden aprovecharlas para atacar tu ordenador',
-        summary: '',
-        date: '17-6-25',
-        category: 'LTL',
-        image: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_500//11/hacked.png',
-        slug: 'vulnerabilidades-que-son-y-como-los-piratas-informaticos-pueden-aprovecharlas-para-atacar-tu-ordenador'
-    },
-    {
-        id: 2,
-        title: 'VPN: ¿Qué son y cuales son sus beneficios?',
-        summary: '',
-        date: '17-6-25',
-        category: 'LTL',
-        image: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024//11/d8dc77ba-4dcf-4cb5-82f4-b1017003d1bb.jpeg',
-        slug: 'vpn-que-son-y-cuales-son-sus-beneficios'
-    },
-    {
-        id: 2,
-        title: 'Vulnerabilidades: Qué son y cono los piratas informáticos pueden aprovecharlas para atacar tu ordenador',
-        summary: '',
-        date: '17-6-25',
-        category: 'LTL',
-        image: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_500//11/hacked.png',
-        slug: 'vulnerabilidades-que-son-y-como-los-piratas-informaticos-pueden-aprovecharlas-para-atacar-tu-ordenador'
-    }
+  
 ];
 ---
 <Layout>
     <Header />
     <title>Blog | Inled Group</title>
-    <meta name="description" content="Tutoriales, noticias y artículos sobre tecnología.">
+    <meta name="description" content="Descubre las novedades de Inled.">
 
     <section id="noticias" class="news">
     <div class="container">

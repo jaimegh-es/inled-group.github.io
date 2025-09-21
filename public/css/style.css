@@ -209,6 +209,8 @@ flex-wrap: wrap;        /* Permite que las tarjetas pasen a la siguiente línea 
 
 /* Estilo base para cada tarjeta de proyecto */
 .project-card {
+text-decoration: none;
+color: inherit;
 background-color: #ffffff00; /* Fondo negro (igual que el body) */
 border: 1px solid #444;    /* Borde gris sutil */
 border-radius: 20px;       /* Esquinas redondeadas */
@@ -1044,3 +1046,4 @@ font-weight: 200;
         z-index: 1;
         border-radius: 15px;
     }
+

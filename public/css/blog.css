@@ -3,11 +3,13 @@
     padding: 6rem 2rem;
     background: #000000;
     color: #ffffff;
+    overflow: visible;
 }
 
 .news .container {
     max-width: 1200px;
     margin: 0 auto;
+    overflow: visible;
 }
 
 .news .section-title {
@@ -28,6 +30,7 @@
     justify-content: center;
     gap: 35px;
     flex-wrap: wrap;
+    overflow: visible;
 }
 
 /* News Cards */
@@ -309,12 +312,32 @@
     padding: 6rem 2rem 4rem;
     min-height: 80vh;
     background: #000000;
+    overflow: visible;
 }
 
 .content-wrapper {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
+    overflow: visible;
+}
+
+.news,
+.news .container,
+.news-grid,
+.markdown-content,
+.content-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.news::-webkit-scrollbar,
+.news .container::-webkit-scrollbar,
+.news-grid::-webkit-scrollbar,
+.markdown-content::-webkit-scrollbar,
+.content-wrapper::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .content-wrapper h1 {

@@ -3,18 +3,40 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from 'astro:assets';
 ---
 <style>
-        .blurry-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        z-index: 1;
-        border-radius: 15px;
+  .blurry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1;
+    border-radius: 15px;
+  }
+
+  .projects-grid .project-card {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    transition-delay: calc(var(--row-index, 0) * 0.18s + var(--col-index, 0) * 0.08s);
+    animation: none !important;
+  }
+
+  .projects-grid .project-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .projects-grid .project-card,
+    .projects-grid .project-card.is-visible {
+      transition: none;
+      transform: none;
+      opacity: 1;
     }
+  }
 </style>
 
 <Layout>
@@ -28,14 +50,12 @@ import { Image } from 'astro:assets';
 </div>
 
 <div class="welcome-container" id="main-content">
-    <h1 class="wemake">We make a better world.</h1>
-    <h2>En Inled creamos proyectos que hacen del mundo y tu día a día un lugar mejor</h2>
     <div style="height: 20vh;"></div>
     <div class="container">
         <div class="projects-grid">
 
             <!-- Proyecto 1: Launch the launcher -->
-            <div class="project-card">
+            <a href="/ltl" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/Launchthelauncher-ytlogo__1_-removebg-preview.png"} alt="Launch the launcher" class="card-icon-img" />
                 </div>
@@ -44,11 +64,11 @@ import { Image } from 'astro:assets';
                     Tutoriales sobre nuevas tecnologías para profesores.
                     Los primeros tutoriales en español acerca de Bytello
                 </p>
-                <a href="/ltl" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 2: DSIGN -->
-            <div class="project-card">
+            <a href="/dsign" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/DSIGN-SIMPLE-WHITE-removebg-preview.png"} alt="DSIGN" class="card-icon-img">
                 </div>
@@ -56,11 +76,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Diseño web
                 </p>
-                <a href="/dsign" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 3: TEA Friendly -->
-            <div class="project-card">
+            <a href="https://teafriendly.es" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/tea-friendly.png"} alt="TEA Friendly Logo" class="card-icon-img">
                 </div>
@@ -69,11 +89,11 @@ import { Image } from 'astro:assets';
                     Certificación para centros educativos que atienden las
                     necesidades de las personas con autismo
                 </p>
-                <a href="https://teafriendly.es" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 4: SwiftInstall -->
-            <div class="project-card">
+            <a href="/swiftinstall" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/swiftinstall-logo.png"} alt="Swiftinstall Logo" class="card-icon-img">
                 </div>
@@ -81,11 +101,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Instala y elimina aplicaciones fuera de la Store de Linux
                 </p>
-                <a href="/swiftinstall" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 5: Start -->
-            <div class="project-card">
+            <a href="/about-start" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/start-simple-blanco-sinfondo.png"} alt="Start Logo" class="card-icon-img">
                 </div>
@@ -93,11 +113,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Busca más rápido, accede al instante. Tu multibuscador y página de inicio
                 </p>
-                <a href="/about-start" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 6: Warp VPN GUI -->
-            <div class="project-card">
+            <a href="/warp" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/warpupscale.png"} alt="Logo 1.1.1.1 Warp VPN" class="card-icon-img">
                 </div>
@@ -105,11 +125,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Interfaz gráfica para la VPN de Cloudflare
                 </p>
-                <a href="/warp" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 7: Start Omnibox -->
-            <div class="project-card">
+            <a href="/startomnibox" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/icon128.png"} alt="Logo Start Omnibox" class="card-icon-img">
                 </div>
@@ -119,8 +139,8 @@ import { Image } from 'astro:assets';
 
                     Ya no tendrá que navegar a cada motor de búsqueda para comenzar a buscar.
                 </p>
-                <a href="/startomnibox" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 8: Inled en Astro -->
             <div class="project-card">
@@ -135,7 +155,7 @@ import { Image } from 'astro:assets';
             </div>
 
             <!-- Proyecto 9: Cruz Cristiana en GNOME -->
-            <div class="project-card">
+            <a href="https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/cruzcristiana-gnome-logo.png"} alt="Logo Cruz Cristiana GNOME" class="card-icon-img">
                 </div>
@@ -143,10 +163,10 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Esta extensión de GNOME muestra la cruz de Cristo en la barra superior de GNOME para que Dios nos acompañe durante el uso del ordenador.
                 </p>
-                <a href="https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
             <!-- Proyecto 10: Memory Warn -->
-            <div class="project-card">
+            <a href="/memorywarn" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/memory-warn-logo.png"} alt="Logo Memory Warn" class="card-icon-img">
                 </div>
@@ -154,11 +174,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Aplicación para Linux basados en Debian que avisa cuando el uso de memoria supera un límite establecido.
                 </p>
-                <a href="/memorywarn" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 11: SongBird -->
-            <div class="project-card">
+            <a href="https://suno.com/@songbird_music" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/pajaro-tomando-el-nectar-de-una-flor-que-resulta-ser-arena.jpeg"} alt="Songbird profile image" class="card-icon-img">
                 </div>
@@ -168,11 +188,11 @@ import { Image } from 'astro:assets';
 
                 Let’s see what AI comes up with for me today.
                 </p>
-                <a href="https://suno.com/@songbird_music" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 12: Yway -->
-            <div class="project-card">
+            <a href="/yway" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/2-1.png"} alt="Yway Logo Simple" class="card-icon-img">
                 </div>
@@ -180,11 +200,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Gestión de dispositivos informáticos
                 </p>
-                <a href="/yway" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 13: Start NTP -->
-            <div class="project-card">
+            <a href="/startntp" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/start.newtabpage.png"} alt="Start NTP Logo" class="card-icon-img">
                 </div>
@@ -192,11 +212,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Experimenta la productividad en estado puro con Start como página de inicio
                 </p>
-                <a href="/startntp" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 14: Domain Info -->
-            <div class="project-card">
+            <a href="https://status.inled.es/ipcheck.html" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/favicon.png"} alt="Inled Cloud" class="card-icon-img">
                 </div>
@@ -204,11 +224,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Obtén información sobre un dominio o dirección IP
                 </p>
-                <a href="https://status.inled.es/ipcheck.html" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 15: Server Status -->
-            <div class="project-card">
+            <a href="https://status.inled.es/index.html" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/favicon.png"} alt="Inled Cloud" class="card-icon-img">
                 </div>
@@ -216,11 +236,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Comprueba el estado de los servicios de Inled en el cloud
                 </p>
-                <a href="https://status.inled.es/index.html" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
              <!-- Proyecto 16: MDPDF -->
-             <div class="project-card">
+             <a href="/mdpdf" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/MDPDF.png"} alt="MDPDF Logo Simple" class="card-icon-img">
                 </div>
@@ -228,11 +248,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Free Markdown Editor and MD to PDF converter
                 </p>
-                <a href="/mdpdf" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 17: inLinked -->
-            <div class="project-card">
+            <a href="/inlinked" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/INLINKED.png"} alt="inLinked Logo" class="card-icon-img">
                 </div>
@@ -240,11 +260,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Formateador de texto para LinkedIN
                 </p>
-                <a href="/inlinked" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
              <!-- Proyecto 19: inMD -->
-            <div class="project-card">
+            <a href="/inmd" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/inMD.png"} alt="Win Error Logo" class="card-icon-img">
                 </div>
@@ -252,11 +272,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     El primer editor visual de markdown de Github
                 </p>
-                <a href="/inmd" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 21: inDOC -->
-             <div class="project-card">
+             <a href="/indoc" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/INDOC.png"} alt="inDOC Logo" class="card-icon-img">
                 </div>
@@ -264,11 +284,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Edita texto enriquecido online, privado y gratuitamente
                 </p>
-                <a href="/indoc" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 18: Windows Error -->
-            <div class="project-card">
+            <a href="/winerror" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/winerror.png"} alt="Win Error Logo" class="card-icon-img">
                 </div>
@@ -276,11 +296,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Disfruta de la ventana de error de Windows XP en tu Mac
                 </p>
-                <a href="/winerror" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 20: Win BSOD -->
-             <div class="project-card">
+             <a href="/winbsod" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/winbsod.png"} alt="WinBSOD Logo" class="card-icon-img">
                 </div>
@@ -288,11 +308,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     La BSOD de Windows en tu Mac
                 </p>
-                <a href="/winbsod" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 21: InSuite -->
-            <div class="project-card">
+            <a href="https://insuite.inled.es" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/insuite.svg"} alt="insuite Logo" class="card-icon-img">
                 </div>
@@ -300,11 +320,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Suite de ofimática libre y con IA
                 </p>
-                 <a href="https://insuite.inled.es" class="card-link">></a>
-            </div>
+                 <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 22: Inled AI -->
-            <div class="project-card">
+            <a href="https://ai.inled.es" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/inledai.svg"} alt="inledai Logo" class="card-icon-img">
                 </div>
@@ -312,11 +332,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Integra IA en tu web sin pagar servidores de super computación
                 </p>
-                 <a href="https://ai.inled.es" class="card-link">></a>
-            </div>
+                 <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 23: Devreka -->
-            <div class="project-card">
+            <a href="https://devreka.inled.es" class="project-card">
                 <div class="card-icon-container">
                     <img src="https://devreka.inled.es/favicon.ico" alt="devreka Logo" class="card-icon-img">
                 </div>
@@ -324,11 +344,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Generador de ideas de negocio para devs
                 </p>
-                 <a href="https://devreka.inled.es" class="card-link">></a>
-            </div>
+                 <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 24: Tabstacker -->
-            <div class="project-card">
+            <a href="/tabstacker" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/tabstacker.png"} alt="tabstacker logo" class="card-icon-img">
                 </div>
@@ -336,11 +356,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                     Gestor de pestañas guardadas
                 </p>
-                <a href="/tabstacker" class="card-link">></a>
-            </div>
+                <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 25: Matrix WWW -->
-            <div class="project-card">
+            <a href="https://matrix-www.inled.es" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/matrixwww.ico"} alt="logo matrix www" class="card-icon-img">
                 </div>
@@ -348,11 +368,11 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                    Sitio web con simulaciones de software de Matrix
                 </p>
-                 <a href="https://matrix-www.inled.es" class="card-link">></a>
-            </div>
+                 <span class="card-link" aria-hidden="true">></span>
+            </a>
 
             <!-- Proyecto 25: Matrix WWW -->
-            <div class="project-card">
+            <a href="/startchat" class="project-card">
                 <div class="card-icon-container">
                     <img src={import.meta.env.BASE_URL + "/upload/startchat.png"} alt="startchat" class="card-icon-img">
                 </div>
@@ -360,15 +380,15 @@ import { Image } from 'astro:assets';
                 <p class="card-description">
                    Chat en la misma red wifi, sin servidores externos
                 </p>
-                 <a href="/startchat" class="card-link">></a>
-            </div>
+                 <span class="card-link" aria-hidden="true">></span>
+            </a>
 
            
 
         </div>
     </div>
 
-    <h1 class="h1init">Próximamente...</h1>
+    <!-- <h1 class="h1init">Próximamente...</h1>
 
     <div class="container" style="position: relative;">
         <div class="blurry-overlay"></div>
@@ -377,7 +397,71 @@ import { Image } from 'astro:assets';
            
             
             
-        </div>
+        </div>-->
     </div>
 </div>
+
+<script is:inline>
+  (() => {
+    const grid = document.querySelector('.welcome-container .projects-grid');
+    if (!grid) {
+      return;
+    }
+
+    const cards = Array.from(grid.querySelectorAll('.project-card'));
+    if (cards.length === 0) {
+      return;
+    }
+
+    let resizeFrame = 0;
+
+    const assignRowMetadata = () => {
+      const rowMap = new Map();
+      cards.forEach((card) => {
+        const top = Math.round(card.offsetTop);
+        const normalizedTop = Math.round(top / 24) * 24;
+        if (!rowMap.has(normalizedTop)) {
+          rowMap.set(normalizedTop, []);
+        }
+        rowMap.get(normalizedTop)?.push(card);
+      });
+
+      const orderedRows = Array.from(rowMap.entries())
+        .sort((a, b) => a[0] - b[0])
+        .map(([, rowCards]) => rowCards);
+
+      orderedRows.forEach((rowCards, rowIndex) => {
+        rowCards.forEach((card, colIndex) => {
+          card.style.setProperty('--row-index', String(rowIndex));
+          card.style.setProperty('--col-index', String(colIndex));
+        });
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.35,
+    });
+
+    const queueResize = () => {
+      if (resizeFrame) {
+        window.cancelAnimationFrame(resizeFrame);
+      }
+      resizeFrame = window.requestAnimationFrame(assignRowMetadata);
+    };
+
+    assignRowMetadata();
+    cards.forEach((card) => observer.observe(card));
+
+    window.addEventListener('resize', queueResize);
+    window.addEventListener('orientationchange', queueResize);
+    window.addEventListener('load', assignRowMetadata, { once: true });
+  })();
+</script>
 </Layout>
