@@ -1,2 +1,2 @@
-# inled-group.github.io
+# InledGroup.github.io
 Página de github de inled group

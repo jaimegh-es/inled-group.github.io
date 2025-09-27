@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://inled-group.github.io',
-    base: 'inled-group.github.io',
+    site: 'https://InledGroup.github.io',
+    base: 'InledGroup.github.io',
 
 });
