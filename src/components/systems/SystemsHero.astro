@@ -1,0 +1,896 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="systems-hero" id="systems-hero">
+  <div class="hero-background">
+    <div class="matrix-rain" id="matrix-rain"></div>
+    <div class="circuit-pattern"></div>
+    <div class="floating-icons">
+      <div class="icon-float icon-1"><i class="fas fa-laptop"></i></div>
+      <div class="icon-float icon-2"><i class="fas fa-wrench"></i></div>
+      <div class="icon-float icon-3"><i class="fas fa-cog"></i></div>
+      <div class="icon-float icon-4"><i class="fas fa-shield-alt"></i></div>
+      <div class="icon-float icon-5"><i class="fas fa-rocket"></i></div>
+    </div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content" data-gsap="fadeInUp">
+      
+
+      <h1 class="hero-title">
+        <span class="title-line">Gestión de</span>
+        <span class="title-highlight gradient-text">ordenadores</span>
+        <span class="title-line">para tí</span>
+      </h1>
+
+      <p class="hero-description">
+        Mantenimiento, revisión, actualización, formateado, backup, restauración...
+      </p>
+
+
+      <div class="hero-actions">
+        <a href="#servicios" class="cta-primary" data-hover="pulse">
+          <span class="cta-icon"><i class="fas fa-search"></i></span>
+          <span>Ver servicios</span>
+          <span class="cta-arrow">↓</span>
+        </a>
+
+      </div>
+
+      
+    </div>
+
+    <div class="hero-visual" data-gsap="fadeInRight">
+      <div class="terminal-container">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-controls">
+              <span class="control red"></span>
+              <span class="control yellow"></span>
+              <span class="control green"></span>
+            </div>
+            <div class="terminal-title">inled@debian-live:~$</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">sudo@debian-inled:~$</span>
+              <span class="command typing">systemctl status --all</span>
+            </div>
+            <div class="terminal-line output">
+              <span class="success">● Active: active (running)</span>
+            </div>
+            <div class="terminal-line output">
+              <span class="info"><i class="fas fa-chart-bar"></i> CPU: 15% | RAM: 2.1GB | Disk: 85%</span>
+            </div>
+            <div class="terminal-line output">
+              <span class="success">✅ Security: All systems secure</span>
+            </div>
+            <div class="terminal-line output">
+              <span class="info">🔄 Last update: 2 hours ago</span>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">sudo@debian-inled:~$</span>
+              <span class="cursor">_</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="monitoring-panel">
+          <div class="panel-header">
+            <h4>Monitor del sistema</h4>
+            <div class="status-light active"></div>
+          </div>
+          <div class="panel-content">
+            <div class="monitor-item">
+              <span class="monitor-label">CPU</span>
+              <div class="progress-bar">
+                <div class="progress-fill cpu-usage"></div>
+              </div>
+              <span class="monitor-value">15%</span>
+            </div>
+            <div class="monitor-item">
+              <span class="monitor-label">RAM</span>
+              <div class="progress-bar">
+                <div class="progress-fill ram-usage"></div>
+              </div>
+              <span class="monitor-value">42%</span>
+            </div>
+            <div class="monitor-item">
+              <span class="monitor-label">Disk</span>
+              <div class="progress-bar">
+                <div class="progress-fill disk-usage"></div>
+              </div>
+              <span class="monitor-value">68%</span>
+            </div>
+            <div class="monitor-item">
+              <span class="monitor-label">Network</span>
+              <div class="progress-bar">
+                <div class="progress-fill network-usage"></div>
+              </div>
+              <span class="monitor-value">23%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" data-gsap="bounce">
+    <div class="scroll-text">Explorar servicios</div>
+    <div class="scroll-arrow-down"></div>
+  </div>
+</section>
+
+<style>
+  .systems-hero {
+    position: relative;
+    min-height: 100vh;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4rem) 0;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .matrix-rain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background:
+      linear-gradient(90deg, transparent 98%, #3bb4fc 100%),
+      linear-gradient(transparent 98%, #3bb4fc 100%);
+    background-size: 20px 20px;
+    animation: matrix-scroll 20s linear infinite;
+  }
+
+  @keyframes matrix-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+  }
+
+  .circuit-pattern {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(59, 180, 252, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(59, 180, 252, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 70%, rgba(59, 180, 252, 0.05) 0%, transparent 50%);
+    opacity: 0.3;
+  }
+
+  .floating-icons {
+    position: absolute;
+    inset: 0;
+  }
+
+  .icon-float {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: iconFloat 15s ease-in-out infinite;
+  }
+
+  .icon-1 { top: 15%; left: 10%; animation-delay: 0s; }
+  .icon-2 { top: 25%; right: 15%; animation-delay: 3s; }
+  .icon-3 { bottom: 30%; left: 20%; animation-delay: 6s; }
+  .icon-4 { top: 60%; right: 25%; animation-delay: 9s; }
+  .icon-5 { bottom: 15%; right: 10%; animation-delay: 12s; }
+
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 8vw, 6rem);
+    align-items: center;
+  }
+
+  .hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 180, 252, 0.1);
+    border: 1px solid rgba(59, 180, 252, 0.3);
+    border-radius: 50px;
+    width: fit-content;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+  }
+
+  .status-dot.active {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .status-text {
+    color: #3bb4fc;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .title-highlight {
+    display: block;
+    margin: 0.2rem 0;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3bb4fc, #00ff00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-description {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .metric-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .metric-item:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .metric-value {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: #3bb4fc;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(59, 180, 252, 0.3);
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(59, 180, 252, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .cta-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .cta-secondary:hover {
+    border-color: #3bb4fc;
+    background: rgba(59, 180, 252, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-primary:hover .cta-arrow {
+    transform: translateY(2px);
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .badge-icon {
+    font-size: 1.1rem;
+  }
+
+  .hero-visual {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  .terminal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .terminal-window {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(59, 180, 252, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .terminal-header {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .terminal-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .control.red { background: #ff5f57; }
+  .control.yellow { background: #ffbd2e; }
+  .control.green { background: #28ca42; }
+
+  .terminal-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .terminal-line {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .prompt {
+    color: #3bb4fc;
+    user-select: none;
+  }
+
+  .command {
+    color: #ffffff;
+  }
+
+  .typing {
+    border-right: 2px solid #3bb4fc;
+    animation: typing 3s steps(20) infinite;
+  }
+
+  @keyframes typing {
+    0%, 50% { border-color: #3bb4fc; }
+    51%, 100% { border-color: transparent; }
+  }
+
+  .output {
+    margin-left: 1rem;
+  }
+
+  .success { color: #00ff00; }
+  .info { color: #3bb4fc; }
+  .cursor {
+    color: #3bb4fc;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .monitoring-panel {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(59, 180, 252, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .panel-header {
+    background: rgba(59, 180, 252, 0.1);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .panel-header h4 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .status-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #888;
+  }
+
+  .status-light.active {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+  }
+
+  .panel-content {
+    padding: 1rem;
+  }
+
+  .monitor-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .monitor-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    min-width: 60px;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 2s ease;
+  }
+
+  .cpu-usage {
+    width: 15%;
+    background: linear-gradient(90deg, #00ff00, #3bb4fc);
+  }
+  .ram-usage {
+    width: 42%;
+    background: linear-gradient(90deg, #3bb4fc, #ffbd2e);
+  }
+  .disk-usage {
+    width: 68%;
+    background: linear-gradient(90deg, #ffbd2e, #ff5f57);
+  }
+  .network-usage {
+    width: 23%;
+    background: linear-gradient(90deg, #00ff00, #3bb4fc);
+  }
+
+  .monitor-value {
+    color: #3bb4fc;
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: right;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    opacity: 0;
+  }
+
+  .scroll-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .scroll-arrow-down {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, #3bb4fc);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .scroll-arrow-down::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #3bb4fc;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-visual {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .metric-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-indicator {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .hero-metrics {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .hero-actions {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+
+    .trust-badges {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .terminal-window {
+      font-size: 0.8rem;
+    }
+
+    .monitoring-panel {
+      margin-top: 1rem;
+    }
+
+    .monitor-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .metric-item {
+      padding: 1rem 0.5rem;
+    }
+
+    .terminal-body {
+      padding: 0.8rem;
+      font-size: 0.7rem;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initSystemsHero = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Hero content animation
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out"
+        });
+
+        // Hero visual animation
+        gsap.fromTo('[data-gsap="fadeInRight"]', {
+          opacity: 0,
+          x: 50
+        }, {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power2.out"
+        });
+
+        // Metrics animation
+        document.querySelectorAll('[data-gsap="slideUp"]').forEach((metric, index) => {
+          const delay = parseFloat(metric.dataset.delay) || 0;
+
+          gsap.fromTo(metric, {
+            opacity: 0,
+            y: 20
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out"
+          });
+
+          // Count animation
+          const valueElement = metric.querySelector('.metric-value');
+          const targetCount = parseFloat(valueElement.dataset.count);
+
+          gsap.fromTo(valueElement, {
+            innerHTML: 0
+          }, {
+            innerHTML: targetCount,
+            duration: 2,
+            delay: delay + 0.5,
+            ease: "power2.out",
+            snap: { innerHTML: 0.1 }
+          });
+        });
+
+        // Scroll indicator animation
+        gsap.fromTo('[data-gsap="bounce"]', {
+          opacity: 0,
+          y: 20
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 1,
+          ease: "power2.out"
+        });
+
+        // Bounce animation for scroll indicator
+        gsap.to('[data-gsap="bounce"]', {
+          y: -10,
+          duration: 1.5,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: 2
+        });
+      } else {
+        // En mobile, simplemente hacer visibles los elementos y establecer valores finales
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="fadeInRight"], [data-gsap="slideUp"], [data-gsap="bounce"]', {
+          opacity: 1,
+          x: 0,
+          y: 0
+        });
+
+        // Para los contadores, establecer directamente el valor final
+        document.querySelectorAll('[data-gsap="slideUp"]').forEach((metric) => {
+          const valueElement = metric.querySelector('.metric-value');
+          const targetCount = parseFloat(valueElement.dataset.count);
+          valueElement.innerHTML = targetCount;
+        });
+      }
+
+      // Terminal typing animation
+      const terminalLines = document.querySelectorAll('.terminal-line');
+      if (terminalLines.length > 0) {
+        gsap.to('.typing', {
+          delay: 2,
+          duration: 0.1,
+          repeat: -1,
+          yoyo: true,
+          ease: "power2.inOut"
+        });
+      }
+
+      // Progress bars animation
+      gsap.fromTo('.progress-fill', {
+        width: '0%'
+      }, {
+        width: (i, el) => {
+          if (el.classList.contains('cpu-usage')) return '15%';
+          if (el.classList.contains('ram-usage')) return '42%';
+          if (el.classList.contains('disk-usage')) return '68%';
+          if (el.classList.contains('network-usage')) return '23%';
+          return '0%';
+        },
+        duration: 2,
+        delay: 1.5,
+        ease: "power2.out",
+        stagger: 0.2
+      });
+
+      // Hover effects
+      document.querySelectorAll('[data-hover="pulse"]').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+          gsap.to(button, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        button.addEventListener('mouseleave', () => {
+          gsap.to(button, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Matrix rain effect
+      const createMatrixRain = () => {
+        const matrixContainer = document.getElementById('matrix-rain');
+        if (!matrixContainer) return;
+
+        const characters = '01';
+        const columns = Math.floor(window.innerWidth / 20);
+
+        for (let i = 0; i < columns; i++) {
+          const drop = document.createElement('div');
+          drop.style.position = 'absolute';
+          drop.style.top = Math.random() * -100 + 'px';
+          drop.style.left = i * 20 + 'px';
+          drop.style.color = '#3bb4fc';
+          drop.style.fontSize = '14px';
+          drop.style.opacity = Math.random();
+          drop.textContent = characters[Math.floor(Math.random() * characters.length)];
+
+          matrixContainer.appendChild(drop);
+
+          gsap.to(drop, {
+            y: window.innerHeight + 100,
+            duration: Math.random() * 3 + 2,
+            ease: "none",
+            repeat: -1,
+            delay: Math.random() * 2
+          });
+        }
+      };
+
+      createMatrixRain();
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSystemsHero);
+    } else {
+      initSystemsHero();
+    }
+  }
+</script>

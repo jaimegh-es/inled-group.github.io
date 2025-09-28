@@ -1,0 +1,777 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const projects = [
+  {
+    title: "Launch the launcher",
+    description: "Tutoriales sobre nuevas tecnologías para profesores. Los primeros tutoriales en español acerca de Bytello",
+    href: "/ltl",
+    image: base + "/upload/Launchthelauncher-ytlogo__1_-removebg-preview.png",
+    category: "Educación"
+  },
+  {
+    title: "TEA Friendly",
+    description: "Certificación para centros educativos que atienden las necesidades de las personas con autismo",
+    href: "https://teafriendly.es",
+    image: base + "/upload/tea-friendly.png",
+    category: "Inclusión"
+  },
+  {
+    title: "Swiftinstall",
+    description: "Instala y elimina aplicaciones fuera de la Store de Linux",
+    href: "/swiftinstall",
+    image: base + "/upload/swiftinstall-logo.png",
+    category: "Herramientas"
+  },
+  {
+    title: "Start",
+    description: "Busca más rápido, accede al instante. Tu multibuscador y página de inicio",
+    href: "/about-start",
+    image: base + "/upload/start-simple-blanco-sinfondo.png",
+    category: "Productividad"
+  },
+  {
+    title: "Warp VPN GUI",
+    description: "Interfaz gráfica para la VPN de Cloudflare",
+    href: "/warp",
+    image: base + "/upload/warpupscale.png",
+    category: "Seguridad"
+  },
+  {
+    title: "Start Omnibox",
+    description: "Escoja el motor de búsqueda que desea desde una ventana junto a la barra de Chrome",
+    href: "/startomnibox",
+    image: base + "/upload/icon128.png",
+    category: "Extensiones"
+  },
+  {
+    title: "Cruz Cristiana GNOME",
+    description: "Esta extensión de GNOME muestra la cruz de Cristo en la barra superior de GNOME",
+    href: "https://extensions.gnome.org/extension/8060/christian-cross-in-gnome-bar/",
+    image: base + "/upload/cruzcristiana-gnome-logo.png",
+    category: "Extensiones"
+  },
+  {
+    title: "Memory Warn",
+    description: "Aplicación para Linux basados en Debian que avisa cuando el uso de memoria supera un límite establecido",
+    href: "/memorywarn",
+    image: base + "/upload/memory-warn-logo.png",
+    category: "Herramientas"
+  },
+  {
+    title: "Songbird",
+    description: "Música creada con IA, títulos hechos por humanos",
+    href: "https://suno.com/@songbird_music",
+    image: base + "/upload/pajaro-tomando-el-nectar-de-una-flor-que-resulta-ser-arena.jpeg",
+    category: "IA"
+  },
+  {
+    title: "MDPDF",
+    description: "Free Markdown Editor and MD to PDF converter",
+    href: "/mdpdf",
+    image: base + "/upload/MDPDF.png",
+    category: "Herramientas"
+  },
+  {
+    title: "inLinked",
+    description: "Formateador de texto para LinkedIn",
+    href: "/inlinked",
+    image: base + "/upload/INLINKED.png",
+    category: "Productividad"
+  },
+  {
+    title: "inMD",
+    description: "El primer editor visual de markdown de Github",
+    href: "/inmd",
+    image: base + "/upload/inMD.png",
+    category: "Herramientas"
+  },
+  {
+    title: "inDOC",
+    description: "Edita texto enriquecido online, privado y gratuitamente",
+    href: "/indoc",
+    image: base + "/upload/INDOC.png",
+    category: "Herramientas"
+  },
+  {
+    title: "Inled AI",
+    description: "Integra IA en tu web sin pagar servidores de super computación",
+    href: "https://ai.inled.es",
+    image: base + "/upload/inledai.svg",
+    category: "IA"
+  },
+  {
+    title: "Inled hecho en Astro",
+    description: "Estamos preparando la nueva web de Inled, que dejará WordPress para pasarse a Astro. Actualmente está disponible una vista previa en Github mientras dure su construcción",
+    href: "#",
+    image: base + "/upload/cropped-INLED_simple-removebg-preview.png",
+    category: "Desarrollo"
+  },
+  {
+    title: "Start New Tab Page",
+    description: "Experimenta la productividad en estado puro con Start como página de inicio",
+    href: "/startntp",
+    image: base + "/upload/start.newtabpage.png",
+    category: "Productividad"
+  },
+  {
+    title: "Domain Info",
+    description: "Obtén información sobre un dominio o dirección IP",
+    href: "https://status.inled.es/ipcheck.html",
+    image: base + "/upload/favicon.png",
+    category: "Herramientas"
+  },
+  {
+    title: "Server Status",
+    description: "Comprueba el estado de los servicios de Inled en el cloud",
+    href: "https://status.inled.es/index.html",
+    image: base + "/upload/favicon.png",
+    category: "Herramientas"
+  },
+  {
+    title: "Windows Error",
+    description: "Disfruta de la ventana de error de Windows XP en tu Mac",
+    href: "/winerror",
+    image: base + "/upload/winerror.png",
+    category: "Entretenimiento"
+  },
+  {
+    title: "Win BSOD",
+    description: "La BSOD de Windows en tu Mac",
+    href: "/winbsod",
+    image: base + "/upload/winbsod.png",
+    category: "Entretenimiento"
+  },
+  {
+    title: "InSuite",
+    description: "Suite de ofimática libre y con IA",
+    href: "https://insuite.inled.es",
+    image: base + "/upload/insuite.svg",
+    category: "Productividad"
+  },
+  {
+    title: "Devreka",
+    description: "Generador de ideas de negocio para devs",
+    href: "https://devreka.inled.es",
+    image: "https://devreka.inled.es/favicon.ico",
+    category: "Herramientas"
+  },
+  {
+    title: "Tabstacker",
+    description: "Gestor de pestañas guardadas",
+    href: "/tabstacker",
+    image: base + "/upload/tabstacker.png",
+    category: "Productividad"
+  },
+  {
+    title: "Matrix WWW",
+    description: "Sitio web con simulaciones de software de Matrix",
+    href: "https://matrix-www.inled.es",
+    image: base + "/upload/matrixwww.ico",
+    category: "Entretenimiento"
+  },
+  {
+    title: "Startchat",
+    description: "Chat en la misma red wifi, sin servidores externos",
+    href: "/startchat",
+    image: base + "/upload/startchat.png",
+    category: "Comunicación"
+  }
+];
+
+const categories = [...new Set(projects.map(p => p.category))];
+---
+
+<section class="projects-section" id="projects">
+  <div class="projects-container">
+    <div class="section-header" data-gsap="fadeInUp">
+      <h2 class="section-title">Nuestros Proyectos</h2>
+      <p class="section-subtitle">
+        Descubre las soluciones innovadoras que hemos creado para mejorar la vida digital de nuestros usuarios
+      </p>
+    </div>
+
+    <div class="filter-tabs" data-gsap="slideInUp">
+      <button class="filter-tab active" data-filter="all">Todos</button>
+      {categories.map(category => (
+        <button class="filter-tab" data-filter={category.toLowerCase()}>{category}</button>
+      ))}
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+      {projects.map((project, index) => (
+        <article
+          class="project-card"
+          data-category={project.category.toLowerCase()}
+          data-gsap="fadeInUp"
+          data-delay={index * 0.05}
+          data-hover-3d
+        >
+          <div class="card-inner">
+            <div class="card-image">
+              <img src={project.image} alt={project.title} loading="lazy" />
+              <div class="image-overlay"></div>
+            </div>
+            <div class="card-content">
+              <span class="card-category">{project.category}</span>
+              <h3 class="card-title">{project.title}</h3>
+              <p class="card-description">{project.description}</p>
+              <a href={project.href} class="card-link" data-hover="glow">
+                <span>Explorar proyecto</span>
+                <span class="link-arrow">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="card-glow-effect"></div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+
+  <div class="section-bg-effects">
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 8vw, 5rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3bb4fc, #2a9de8);
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .filter-tab {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .filter-tab:hover,
+  .filter-tab.active {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    border-color: #3bb4fc;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .project-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .project-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .project-card.hidden {
+    display: none;
+  }
+
+  .card-inner {
+    position: relative;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .card-inner {
+    transform: translateY(-5px);
+  }
+
+  .card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(59, 180, 252, 0.1), rgba(42, 157, 232, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(59, 180, 252, 0.3));
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover .card-image img {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 8px 25px rgba(59, 180, 252, 0.4));
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 180, 252, 0.1) 0%,
+      rgba(42, 157, 232, 0.1) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-card:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-category {
+    display: inline-block;
+    background: rgba(59, 180, 252, 0.2);
+    color: #3bb4fc;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .card-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3bb4fc;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .card-link:hover {
+    background: rgba(59, 180, 252, 0.1);
+    transform: translateX(5px);
+    color: #3bb4fc;
+    text-decoration: none;
+  }
+
+  .link-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .card-link:hover .link-arrow {
+    transform: translateX(3px);
+  }
+
+  .card-glow-effect {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.5), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .project-card:hover .card-glow-effect {
+    opacity: 1;
+  }
+
+  .load-more-container {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(59, 180, 252, 0.3);
+  }
+
+  .load-more-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(59, 180, 252, 0.4);
+  }
+
+  .btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .load-more-btn:hover .btn-icon {
+    transform: rotate(90deg);
+  }
+
+  .section-bg-effects {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  .bg-gradient-1,
+  .bg-gradient-2 {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 180, 252, 0.1), transparent);
+    filter: blur(60px);
+  }
+
+  .bg-gradient-1 {
+    width: 400px;
+    height: 400px;
+    top: 20%;
+    left: -10%;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .bg-gradient-2 {
+    width: 300px;
+    height: 300px;
+    bottom: 20%;
+    right: -10%;
+    animation: float 15s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-40px) translateX(30px);
+    }
+    66% {
+      transform: translateY(20px) translateX(-20px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .filter-tabs {
+      gap: 0.5rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .filter-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .project-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .load-more-container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-image {
+      height: 150px;
+    }
+
+    .card-image img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .card-link {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.5rem;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    const initProjectsAnimations = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section header animation
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Filter tabs animation
+        gsap.fromTo('[data-gsap="slideInUp"]', {
+          opacity: 0,
+          y: 20
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="slideInUp"]',
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Project cards animation
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 30,
+            scale: 0.95
+          }, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            delay: index * 0.05,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            },
+            onComplete: () => {
+              card.classList.add('visible');
+            }
+          });
+        });
+      } else {
+        // En mobile, simplemente hacer visibles los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"]', {
+          opacity: 1,
+          y: 0
+        });
+
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+          gsap.set(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1
+          });
+          card.classList.add('visible');
+        });
+      }
+
+      // 3D hover effect
+      (document.querySelectorAll('[data-hover-3d]') as NodeListOf<HTMLElement>).forEach(card => {
+        card.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / centerY * -8;
+          const rotateY = (x - centerX) / centerX * 8;
+
+          gsap.to(card, {
+            rotateX: rotateX,
+            rotateY: rotateY,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+        });
+      });
+    };
+
+    const initFiltering = () => {
+      const filterTabs = (document.querySelectorAll('.filter-tab') as NodeListOf<HTMLElement>);
+      const projectCards = (document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>);
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.dataset.filter;
+
+          // Update active tab
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // Filter projects
+          projectCards.forEach((card, index) => {
+            const category = card.dataset.category;
+            const shouldShow = filter === 'all' || category === filter;
+
+            if (shouldShow) {
+              card.classList.remove('hidden');
+              gsap.fromTo(card, {
+                opacity: 0,
+                scale: 0.8
+              }, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.out"
+              });
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    };
+
+
+    // Initialize everything
+    const init = () => {
+      initProjectsAnimations();
+      initFiltering();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  }
+</script>

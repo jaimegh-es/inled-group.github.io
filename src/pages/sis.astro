@@ -1,0 +1,700 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import NexusToast from '../components/NexusToast.astro';
+import SystemsHero from '../components/systems/SystemsHero.astro';
+import SystemsServices from '../components/systems/SystemsServices.astro';
+import SystemsDifferentiators from '../components/systems/SystemsDifferentiators.astro';
+---
+
+<Layout>
+    <title>Gestión de Sistemas y Ordenadores | Mantenimiento IT | Inled Group</title>
+    <meta name="description" content="Servicios profesionales de gestión de sistemas, mantenimiento de ordenadores, actualizaciones y soporte técnico 24/7. Expertos en infraestructura IT empresarial.">
+    <meta name="keywords" content="gestión sistemas, mantenimiento ordenadores, soporte técnico, infraestructura IT, actualizaciones sistemas, monitorización, seguridad informática">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gestión Profesional de Sistemas IT | Inled Group">
+    <meta property="og:description" content="Gestión integral de infraestructura IT con soporte 24/7, monitorización avanzada y mantenimiento proactivo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inled.es/gestion-sistemas">
+    <meta property="og:image" content="https://inled.es/upload/systems-og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gestión de Sistemas IT | Inled Group">
+    <meta name="twitter:description" content="Mantenimiento, monitorización y gestión profesional de infraestructura informática.">
+
+    <!-- Mobile Optimizations -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#3bb4fc">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="preload" href="/js/modern-interactions.js" as="script">
+
+	<Header />
+	<SystemsHero />
+	<SystemsServices />
+	<SystemsDifferentiators />
+	<Footer />
+	<CookieBanner />
+	<NexusToast />
+</Layout>
+
+<style is:global>
+	/* Estilos específicos para la página de gestión de sistemas */
+	body {
+		background: #000000;
+		overflow-x: hidden;
+		font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	}
+
+	/* Smooth scrolling optimizado */
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px; /* Para compensar header fijo */
+	}
+
+	/* Custom scrollbar con temática técnica */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #111111;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(135deg, #3bb4fc, #00ff00);
+		border-radius: 4px;
+		transition: background 0.3s ease;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(135deg, #00ff00, #3bb4fc);
+	}
+
+	/* Selección de texto personalizada */
+	::selection {
+		background: rgba(59, 180, 252, 0.3);
+		color: #ffffff;
+	}
+
+	::-moz-selection {
+		background: rgba(59, 180, 252, 0.3);
+		color: #ffffff;
+	}
+
+	/* Focus indicators para accesibilidad */
+	*:focus-visible {
+		outline: 2px solid #3bb4fc;
+		outline-offset: 3px;
+		border-radius: 3px;
+	}
+
+	/* Loading screen mejorado */
+	.systems-loader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #000000, #111111);
+		z-index: 9999;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		opacity: 1;
+		transition: opacity 0.8s ease;
+	}
+
+	.systems-loader.hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.loader-terminal {
+		width: 300px;
+		background: rgba(0, 0, 0, 0.9);
+		border: 1px solid #3bb4fc;
+		border-radius: 8px;
+		padding: 1rem;
+		font-family: 'Courier New', monospace;
+		color: #00ff00;
+		margin-bottom: 2rem;
+	}
+
+	.loader-text {
+		margin-bottom: 0.5rem;
+	}
+
+	.loader-progress {
+		width: 100%;
+		height: 4px;
+		background: rgba(59, 180, 252, 0.2);
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	.loader-bar {
+		height: 100%;
+		background: linear-gradient(90deg, #3bb4fc, #00ff00);
+		width: 0%;
+		animation: loadProgress 3s ease-in-out forwards;
+	}
+
+	@keyframes loadProgress {
+		0% { width: 0%; }
+		50% { width: 70%; }
+		100% { width: 100%; }
+	}
+
+	.loader-spinner {
+		width: 40px;
+		height: 40px;
+		border: 3px solid rgba(59, 180, 252, 0.3);
+		border-radius: 50%;
+		border-top-color: #3bb4fc;
+		border-right-color: #00ff00;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
+
+	/* Mobile-first responsive design */
+	@media (max-width: 768px) {
+		body {
+			font-size: 16px; /* Prevent zoom on iOS */
+		}
+
+		/* Touch targets optimized */
+		button, .btn, a {
+			min-height: 44px;
+			min-width: 44px;
+		}
+
+		/* Improved mobile navigation */
+		.mobile-menu-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.8);
+			z-index: 998;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+		}
+
+		.mobile-menu-overlay.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Mobile performance optimizations */
+		.mobile-optimized {
+			transform: translate3d(0, 0, 0);
+			backface-visibility: hidden;
+			perspective: 1000px;
+		}
+
+		/* Reduced motion for mobile performance */
+		.mobile-reduced-motion * {
+			animation-duration: 0.3s !important;
+			transition-duration: 0.3s !important;
+		}
+	}
+
+	/* Tablet optimizations */
+	@media (min-width: 769px) and (max-width: 1024px) {
+		.tablet-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	/* High DPI displays */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.high-dpi-optimized {
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+		}
+	}
+
+	/* Dark mode support */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+	}
+
+	/* High contrast mode */
+	@media (prefers-contrast: high) {
+		.systems-hero,
+		.systems-services,
+		.systems-differentiators {
+			background: #000000;
+			color: #ffffff;
+		}
+
+		.service-card,
+		.differentiator-card {
+			border: 2px solid #ffffff;
+			background: #000000;
+		}
+
+		button, .btn {
+			border: 2px solid #ffffff;
+		}
+	}
+
+	/* Reduced motion preferences */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+
+		.parallax-disabled {
+			transform: none !important;
+		}
+	}
+
+	/* Print styles */
+	@media print {
+		body {
+			background: white;
+			color: black;
+		}
+
+		.no-print {
+			display: none;
+		}
+
+		.systems-hero,
+		.systems-services,
+		.systems-differentiators {
+			background: white;
+			color: black;
+			box-shadow: none;
+		}
+	}
+
+	/* Landscape mobile optimization */
+	@media (max-height: 480px) and (orientation: landscape) {
+		.landscape-optimized {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		.hero-container {
+			min-height: auto;
+		}
+	}
+
+	/* Safe area insets for notched devices */
+	@supports (padding: max(0px)) {
+		.safe-area-top {
+			padding-top: max(1rem, env(safe-area-inset-top));
+		}
+
+		.safe-area-bottom {
+			padding-bottom: max(1rem, env(safe-area-inset-bottom));
+		}
+	}
+
+	/* Performance optimizations */
+	.gpu-layer {
+		transform: translate3d(0, 0, 0);
+		will-change: transform;
+	}
+
+	.contain-layout {
+		contain: layout style paint;
+	}
+
+	/* Loading states */
+	.skeleton {
+		background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+		background-size: 200% 100%;
+		animation: skeleton-loading 1.5s infinite;
+	}
+
+	@keyframes skeleton-loading {
+		0% { background-position: 200% 0; }
+		100% { background-position: -200% 0; }
+	}
+
+	/* Network status indicators */
+	.offline-indicator {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: #ff5f57;
+		color: white;
+		text-align: center;
+		padding: 0.5rem;
+		transform: translateY(-100%);
+		transition: transform 0.3s ease;
+		z-index: 10000;
+	}
+
+	.offline-indicator.show {
+		transform: translateY(0);
+	}
+
+	/* Accessibility improvements */
+	.skip-link {
+		position: absolute;
+		top: -40px;
+		left: 6px;
+		background: #3bb4fc;
+		color: white;
+		padding: 8px;
+		text-decoration: none;
+		border-radius: 4px;
+		z-index: 10000;
+	}
+
+	.skip-link:focus {
+		top: 6px;
+	}
+
+	/* Keyboard navigation improvements */
+	.keyboard-navigation *:focus {
+		outline: 2px solid #3bb4fc;
+		outline-offset: 2px;
+	}
+
+	/* Motion safe animations */
+	.motion-safe {
+		animation-play-state: running;
+	}
+
+	.motion-reduce {
+		animation-play-state: paused;
+	}
+
+	/* Touch device optimizations */
+	@media (hover: none) and (pointer: coarse) {
+		.touch-optimized:hover {
+			transform: none;
+		}
+
+		.touch-friendly {
+			padding: 0.75rem 1.5rem;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Enhanced JavaScript para la página de gestión de sistemas
+	document.addEventListener('DOMContentLoaded', function() {
+		// Advanced loading screen
+		const createSystemsLoader = () => {
+			const loader = document.createElement('div');
+			loader.className = 'systems-loader';
+			loader.innerHTML = `
+				<div class="loader-terminal">
+					<div class="loader-text">inled@ubuntu-server:~$ ping inled.es/sis</div>
+					<div class="loader-text">Loading system components...</div>
+					<div class="loader-progress">
+						<div class="loader-bar"></div>
+					</div>
+				</div>
+				<div class="loader-spinner"></div>
+			`;
+			document.body.appendChild(loader);
+
+			// Hide loader after page is fully loaded
+			window.addEventListener('load', function() {
+				setTimeout(() => {
+					loader.classList.add('hidden');
+					setTimeout(() => {
+						loader.remove();
+					}, 800);
+				}, 1000);
+			});
+		};
+
+		createSystemsLoader();
+
+		// Mobile detection and optimization
+		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+		const isTablet = /iPad|Android(?!.*Mobile)/i.test(navigator.userAgent);
+
+		if (isMobile) {
+			document.body.classList.add('mobile-device');
+
+			// Disable hover effects on mobile
+			document.querySelectorAll('[data-hover-3d], [data-hover-tilt], [data-hover-glow]').forEach(el => {
+				el.classList.add('touch-optimized');
+			});
+
+			// Optimize animations for mobile
+			if (window.innerWidth < 768) {
+				document.body.classList.add('mobile-reduced-motion');
+			}
+		}
+
+		if (isTablet) {
+			document.body.classList.add('tablet-device');
+		}
+
+		// Performance monitoring
+		const perfObserver = new PerformanceObserver((list) => {
+			for (const entry of list.getEntries()) {
+				if (entry.entryType === 'largest-contentful-paint') {
+					console.log('LCP:', entry.startTime);
+				}
+			}
+		});
+
+		try {
+			perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+		} catch (e) {
+			// Performance Observer not supported
+		}
+
+		// Network status detection
+		const updateNetworkStatus = () => {
+			const indicator = document.querySelector('.offline-indicator') ||
+							  document.createElement('div');
+
+			if (!document.querySelector('.offline-indicator')) {
+				indicator.className = 'offline-indicator';
+				indicator.textContent = 'Sin conexión - Algunas funciones pueden no estar disponibles';
+				document.body.appendChild(indicator);
+			}
+
+			if (navigator.onLine) {
+				indicator.classList.remove('show');
+			} else {
+				indicator.classList.add('show');
+			}
+		};
+
+		window.addEventListener('online', updateNetworkStatus);
+		window.addEventListener('offline', updateNetworkStatus);
+		updateNetworkStatus();
+
+		// Enhanced smooth scrolling with mobile support
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+					const targetPosition = target.offsetTop - headerHeight - 20;
+
+					if (isMobile) {
+						// Simpler scroll for mobile
+						window.scrollTo({
+							top: targetPosition,
+							behavior: 'smooth'
+						});
+					} else {
+						// Enhanced scroll for desktop
+						const startPosition = window.pageYOffset;
+						const distance = targetPosition - startPosition;
+						const duration = Math.min(Math.abs(distance) / 2, 1000);
+						let start = null;
+
+						function animation(currentTime) {
+							if (start === null) start = currentTime;
+							const timeElapsed = currentTime - start;
+							const run = ease(timeElapsed, startPosition, distance, duration);
+							window.scrollTo(0, run);
+							if (timeElapsed < duration) requestAnimationFrame(animation);
+						}
+
+						function ease(t, b, c, d) {
+							t /= d / 2;
+							if (t < 1) return c / 2 * t * t + b;
+							t--;
+							return -c / 2 * (t * (t - 2) - 1) + b;
+						}
+
+						requestAnimationFrame(animation);
+					}
+				}
+			});
+		});
+
+		// Intersection Observer for lazy loading and animations
+		const observerOptions = {
+			threshold: isMobile ? 0.05 : 0.1,
+			rootMargin: isMobile ? '50px 0px' : '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('in-view');
+
+					// Lazy load images
+					const images = entry.target.querySelectorAll('img[data-src]');
+					images.forEach(img => {
+						img.src = img.dataset.src;
+						img.removeAttribute('data-src');
+					});
+				}
+			});
+		}, observerOptions);
+
+		// Observe all sections and lazy-loadable elements
+		document.querySelectorAll('section, [data-lazy]').forEach(el => {
+			observer.observe(el);
+		});
+
+		// Advanced keyboard navigation
+		let isKeyboardNavigating = false;
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Tab') {
+				isKeyboardNavigating = true;
+				document.body.classList.add('keyboard-navigation');
+			}
+
+			// ESC key handlers
+			if (e.key === 'Escape') {
+				// Close any open modals or menus
+				document.querySelectorAll('.modal.active, .menu.active').forEach(el => {
+					el.classList.remove('active');
+				});
+			}
+		});
+
+		document.addEventListener('mousedown', () => {
+			isKeyboardNavigating = false;
+			document.body.classList.remove('keyboard-navigation');
+		});
+
+		// Reduced motion detection
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (prefersReducedMotion) {
+			document.body.classList.add('motion-reduce');
+			// Disable complex animations
+			document.querySelectorAll('.motion-safe').forEach(el => {
+				el.classList.remove('motion-safe');
+			});
+		}
+
+		// Viewport height fix for mobile browsers
+		const setVH = () => {
+			const vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		};
+
+		setVH();
+		window.addEventListener('resize', setVH);
+		window.addEventListener('orientationchange', () => {
+			setTimeout(setVH, 100);
+		});
+
+		// Form validation and UX improvements
+		document.querySelectorAll('form').forEach(form => {
+			form.addEventListener('submit', function(e) {
+				const submitBtn = form.querySelector('[type="submit"]');
+				if (submitBtn) {
+					submitBtn.disabled = true;
+					submitBtn.textContent = 'Enviando...';
+
+					// Re-enable after 3 seconds as fallback
+					setTimeout(() => {
+						submitBtn.disabled = false;
+						submitBtn.textContent = submitBtn.dataset.originalText || 'Enviar';
+					}, 3000);
+				}
+			});
+		});
+
+		// Error handling and user feedback
+		window.addEventListener('error', function(e) {
+			console.error('Error detected:', e.error);
+			// Could send to analytics or show user-friendly message
+		});
+
+		// Touch gesture support for mobile
+		if (isMobile) {
+			let touchStartY = 0;
+			let touchEndY = 0;
+
+			document.addEventListener('touchstart', (e) => {
+				touchStartY = e.changedTouches[0].screenY;
+			});
+
+			document.addEventListener('touchend', (e) => {
+				touchEndY = e.changedTouches[0].screenY;
+				handleSwipe();
+			});
+
+			function handleSwipe() {
+				const swipeThreshold = 50;
+				const diff = touchStartY - touchEndY;
+
+				if (Math.abs(diff) > swipeThreshold) {
+					if (diff > 0) {
+						// Swipe up - could trigger actions
+						console.log('Swipe up detected');
+					} else {
+						// Swipe down - could trigger actions
+						console.log('Swipe down detected');
+					}
+				}
+			}
+		}
+
+		// Analytics tracking (privacy-friendly)
+		const trackPageView = () => {
+			const pageData = {
+				page: 'gestion-sistemas',
+				timestamp: new Date().toISOString(),
+				userAgent: navigator.userAgent,
+				referrer: document.referrer,
+				viewport: `${window.innerWidth}x${window.innerHeight}`
+			};
+
+			// Send to analytics (implement your preferred solution)
+			console.log('Page view:', pageData);
+		};
+
+		trackPageView();
+
+		// Service Worker registration for PWA functionality
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js')
+					.then(registration => {
+						console.log('SW registered: ', registration);
+					})
+					.catch(registrationError => {
+						console.log('SW registration failed: ', registrationError);
+					});
+			});
+		}
+
+		// Skip link for accessibility
+		const skipLink = document.createElement('a');
+		skipLink.href = '#main-content';
+		skipLink.className = 'skip-link';
+		skipLink.textContent = 'Saltar al contenido principal';
+		document.body.insertBefore(skipLink, document.body.firstChild);
+
+		console.log('✅ Systems page initialized with mobile optimizations');
+	});
+</script>

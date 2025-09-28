@@ -1,0 +1,506 @@
+---
+const services = [
+  {
+    icon: 'fas fa-robot',
+    title: 'Diseño y desarrollo web',
+    description: 'Diseñamos y desarrollamos sitios web con las últimas tecnologías y medidas de seguridad.',
+    features: ['Astro', 'Cloudflare', 'SEO'],
+    link: '/diseño'
+  },
+
+  {
+    icon: 'fas fa-tools',
+    title: 'Software a medida',
+    description: 'Desarrollo de software a medida, ya sea un SaaS o una app.',
+    features: ['SaaS', 'Zero-Server', 'Agentic Development'],
+    link: '/diseño'
+  },
+  {
+    icon: 'fas fa-video',
+    title: 'Diseño de vídeos',
+    description: 'Diseñamos vídeos publicitarios para tu campaña.',
+    features: ['Davinci Resolve', 'Clipchamp', 'Canva'],
+    link: '/diseño'
+  },
+  {
+    icon: 'fas fa-file',
+    title: 'Diseño digital',
+    description: 'Ya sea un cartel, un fondo de pantalla, un logotipo o una imagen para un reel.',
+    features: ['Canva', 'DaVinci Resolve'],
+    link: '/diseño'
+  },
+    {
+    icon: 'fa-brands fa-linux',
+    title: 'Mantenimiento de sistemas operativos',
+    description: 'No dejees que un virus te haga una faena.',
+    features: ['Linux', 'Reinstalación', 'Backup'],
+    link: '/sis'
+  },
+    {
+    icon: 'fa-solid fa-rotate',
+    title: 'Actualización de sistemas',
+    description: 'Un sistema operativo actualizado tiene 50% menos de probabilidades de pillar un virus.',
+    features: ['Linux', 'Windows', 'Alternativas libres'],
+    link: '/sis'
+  },
+    {
+    icon: 'fa-solid fa-tv',
+    title: 'Gestión paneles grupo CVTE',
+    description: 'Gestión de paneles del grupo CVTE.',
+    features: ['Maxhub', 'Synetech', 'Seewo', 'Mangosolution'],
+    link: '/sis'
+  }
+];
+---
+
+<section class="services-section" id="services">
+  <div class="services-container">
+    <div class="section-header" data-gsap="fadeInUp">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">
+        Estos servicios se listan únicamente como referencia, no se ofrecen online. Para más info visite <a href="/legal">los términos legales</a>
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <div
+          class="service-card"
+          data-gsap="slideInUp"
+          data-delay={index * 0.1}
+          data-hover-tilt
+        >
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="service-icon"><i class={service.icon}></i></div>
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+              <div class="card-hover-hint">
+                <span>Explorar →</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="service-features">
+                <h4>Tech items:</h4>
+                <ul>
+                  {service.features.map(feature => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <a href={service.link} class="service-cta">
+                Ver más detalles
+              </a>
+            </div>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="floating-bg-elements">
+    <div class="bg-element bg-element-1"></div>
+    <div class="bg-element bg-element-2"></div>
+    <div class="bg-element bg-element-3"></div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 8vw, 5rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3bb4fc, #2a9de8);
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    position: relative;
+    height: 300px;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .service-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    filter: drop-shadow(0 0 10px rgba(59, 180, 252, 0.5));
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .service-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-hover-hint {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .card-hover-hint span {
+    color: #3bb4fc;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .card-hover-hint span {
+    transform: translateX(5px);
+  }
+
+  .service-features h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .service-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .service-features li {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-features li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #3bb4fc;
+  }
+
+  .service-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(59, 180, 252, 0.3);
+  }
+
+  .service-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 180, 252, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.5), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .service-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .floating-bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bg-element {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 180, 252, 0.1), transparent);
+    filter: blur(40px);
+  }
+
+  .bg-element-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .bg-element-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: -5%;
+    animation: float 12s ease-in-out infinite reverse;
+  }
+
+  .bg-element-3 {
+    width: 250px;
+    height: 250px;
+    bottom: 10%;
+    left: 30%;
+    animation: float 10s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-30px) translateX(20px);
+    }
+    66% {
+      transform: translateY(20px) translateX(-15px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      height: 280px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-front,
+    .card-back {
+      padding: 1.5rem;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      height: 260px;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initServicesAnimations = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section header animation
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Service cards animation
+        document.querySelectorAll('[data-gsap="slideInUp"]').forEach((card, index) => {
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 50
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
+      } else {
+        // En mobile, simplemente hacer visibles los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"]', {
+          opacity: 1,
+          y: 0
+        });
+      }
+
+      // Hover tilt effect
+      document.querySelectorAll('[data-hover-tilt]').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / centerY * -10;
+          const rotateY = (x - centerX) / centerX * 10;
+
+          gsap.to(card, {
+            rotateX: rotateX,
+            rotateY: rotateY,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Floating background elements
+      gsap.to('.bg-element', {
+        y: "+=50",
+        x: "+=30",
+        duration: gsap.utils.random(8, 15),
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        stagger: {
+          each: 2,
+          from: "random"
+        }
+      });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initServicesAnimations);
+    } else {
+      initServicesAnimations();
+    }
+  }
+</script>

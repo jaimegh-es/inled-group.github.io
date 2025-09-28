@@ -1,0 +1,470 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import NexusToast from '../components/NexusToast.astro';
+import DesignHero from '../components/design/DesignHero.astro';
+import DesignServices from '../components/design/DesignServices.astro';
+import DesignDifferentiators from '../components/design/DesignDifferentiators.astro';
+---
+
+<Layout>
+    <title>Servicios de Diseño Web, Apps y SaaS | Inled Group</title>
+    <meta name="description" content="Servicios profesionales de diseño web, aplicaciones móviles, SaaS y anuncios digitales. Especialistas en UX/UI, accesibilidad y performance con IA responsable.">
+    <meta name="keywords" content="diseño web, diseño apps, SaaS, anuncios digitales, UX/UI, accesibilidad, Inled Group">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Servicios de Diseño Digital Profesional | Inled Group">
+    <meta property="og:description" content="Transformamos ideas en experiencias digitales excepcionales. Diseño web, apps, SaaS y más con tecnología de vanguardia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inled.es/servicios-diseno">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servicios de Diseño Digital | Inled Group">
+    <meta name="twitter:description" content="Diseño web, apps y SaaS con IA responsable y accesibilidad garantizada.">
+
+	<Header />
+	<DesignHero />
+	<DesignServices />
+	<DesignDifferentiators />
+	<Footer />
+	<CookieBanner />
+	<NexusToast />
+</Layout>
+
+<style is:global>
+	/* Estilos específicos para la página de servicios de diseño */
+	body {
+		background: #000000;
+		overflow-x: hidden;
+	}
+
+	/* Smooth scrolling mejorado */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Custom scrollbar con temática de diseño */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #111111;
+		border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(135deg, #3bb4fc, #ff6b9d);
+		border-radius: 5px;
+		transition: all 0.3s ease;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(135deg, #ff6b9d, #3bb4fc);
+		transform: scale(1.1);
+	}
+
+	/* Selección de texto personalizada */
+	::selection {
+		background: linear-gradient(135deg, rgba(59, 180, 252, 0.3), rgba(255, 107, 157, 0.3));
+		color: #ffffff;
+	}
+
+	/* Indicadores de focus mejorados */
+	*:focus-visible {
+		outline: 3px solid #3bb4fc;
+		outline-offset: 3px;
+		border-radius: 3px;
+	}
+
+	/* Loading animation mejorada */
+	.page-loader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #000000, #111111);
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 1;
+		transition: opacity 0.8s ease;
+	}
+
+	.page-loader.hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.loader-spinner {
+		width: 60px;
+		height: 60px;
+		border: 4px solid rgba(59, 180, 252, 0.2);
+		border-radius: 50%;
+		border-top-color: #3bb4fc;
+		border-right-color: #ff6b9d;
+		animation: spin 1.5s ease-in-out infinite;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	/* Animaciones de entrada para elementos */
+	.fade-in-up {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease;
+	}
+
+	.fade-in-up.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Efectos de cursor personalizados */
+	.design-cursor {
+		cursor: none;
+	}
+
+	.custom-cursor {
+		position: fixed;
+		width: 20px;
+		height: 20px;
+		background: linear-gradient(135deg, #3bb4fc, #ff6b9d);
+		border-radius: 50%;
+		pointer-events: none;
+		z-index: 9998;
+		transition: transform 0.1s ease;
+		opacity: 0;
+	}
+
+	.custom-cursor.visible {
+		opacity: 1;
+	}
+
+	.custom-cursor.hover {
+		transform: scale(2);
+		background: linear-gradient(135deg, #ff6b9d, #3bb4fc);
+	}
+
+	/* Botones y enlaces mejorados */
+	.btn-design {
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.btn-design::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		transition: left 0.5s ease;
+	}
+
+	.btn-design:hover::before {
+		left: 100%;
+	}
+
+	/* Animaciones de glitch para elementos especiales */
+	@keyframes glitch {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translate(-2px, 2px);
+		}
+		40% {
+			transform: translate(-2px, -2px);
+		}
+		60% {
+			transform: translate(2px, 2px);
+		}
+		80% {
+			transform: translate(2px, -2px);
+		}
+		100% {
+			transform: translate(0);
+		}
+	}
+
+	.glitch-effect:hover {
+		animation: glitch 0.3s ease-in-out;
+	}
+
+	/* Gradientes animados para backgrounds */
+	.animated-gradient {
+		background: linear-gradient(45deg, #3bb4fc, #ff6b9d, #a8e6cf, #3bb4fc);
+		background-size: 400% 400%;
+		animation: gradientShift 8s ease infinite;
+	}
+
+	@keyframes gradientShift {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	/* Efectos de parallax suave */
+	.parallax-element {
+		transform: translate3d(0, 0, 0);
+		transition: transform 0.1s ease-out;
+	}
+
+	/* Mejoras de accesibilidad */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+
+		.animated-gradient {
+			background: linear-gradient(45deg, #3bb4fc, #ff6b9d);
+			animation: none;
+		}
+	}
+
+	/* Modo de alto contraste */
+	@media (prefers-contrast: high) {
+		:root {
+			--primary-color: #ffffff;
+			--secondary-color: #000000;
+			--accent-color: #ffff00;
+		}
+
+		.design-hero,
+		.design-services,
+		.design-differentiators {
+			background: #000000;
+			color: #ffffff;
+		}
+
+		.service-card,
+		.differentiator-card {
+			border: 2px solid #ffffff;
+			background: #000000;
+		}
+	}
+
+	/* Responsive design mejorado */
+	@media (max-width: 768px) {
+		.custom-cursor {
+			display: none;
+		}
+
+		body {
+			cursor: auto;
+		}
+	}
+
+	/* Optimizaciones de performance */
+	.gpu-accelerated {
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+		perspective: 1000px;
+	}
+
+	/* Dark mode específico para esta página */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+	}
+</style>
+
+<script is:inline>
+	// Funcionalidades JavaScript mejoradas para la página de servicios
+	document.addEventListener('DOMContentLoaded', function() {
+		// Loader personalizado
+		const loader = document.createElement('div');
+		loader.className = 'page-loader';
+		loader.innerHTML = '<div class="loader-spinner"></div>';
+		document.body.appendChild(loader);
+
+		window.addEventListener('load', function() {
+			setTimeout(() => {
+				loader.classList.add('hidden');
+				setTimeout(() => {
+					loader.remove();
+				}, 800);
+			}, 500);
+		});
+
+		// Cursor personalizado (solo desktop)
+		if (window.innerWidth > 768) {
+			const cursor = document.createElement('div');
+			cursor.className = 'custom-cursor';
+			document.body.appendChild(cursor);
+
+			document.addEventListener('mousemove', (e) => {
+				cursor.style.left = e.clientX - 10 + 'px';
+				cursor.style.top = e.clientY - 10 + 'px';
+				cursor.classList.add('visible');
+			});
+
+			document.addEventListener('mouseleave', () => {
+				cursor.classList.remove('visible');
+			});
+
+			// Efecto hover en elementos interactivos
+			const interactiveElements = document.querySelectorAll('button, a, .service-card, .differentiator-card');
+			interactiveElements.forEach(el => {
+				el.addEventListener('mouseenter', () => {
+					cursor.classList.add('hover');
+				});
+				el.addEventListener('mouseleave', () => {
+					cursor.classList.remove('hover');
+				});
+			});
+		}
+
+		// Smooth scroll mejorado para anclas
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+					const targetPosition = target.offsetTop - headerHeight - 20;
+
+					window.scrollTo({
+						top: targetPosition,
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
+
+		// Intersection Observer para animaciones
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, observerOptions);
+
+		// Observar elementos con animaciones
+		document.querySelectorAll('.fade-in-up, section').forEach(el => {
+			el.classList.add('fade-in-up');
+			observer.observe(el);
+		});
+
+		// Efecto parallax suave en scroll
+		let ticking = false;
+
+		function updateParallax() {
+			const scrolled = window.pageYOffset;
+			const parallaxElements = document.querySelectorAll('.parallax-element');
+
+			parallaxElements.forEach((element, index) => {
+				const speed = 0.5 + (index * 0.1);
+				const yPos = -(scrolled * speed);
+				element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+			});
+
+			ticking = false;
+		}
+
+		window.addEventListener('scroll', () => {
+			if (!ticking) {
+				requestAnimationFrame(updateParallax);
+				ticking = true;
+			}
+		});
+
+		// Mejoras de accesibilidad
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Tab') {
+				document.body.classList.add('keyboard-navigation');
+			}
+		});
+
+		document.addEventListener('mousedown', () => {
+			document.body.classList.remove('keyboard-navigation');
+		});
+
+		// Analytics de interacciones (opcional)
+		const trackInteraction = (action, element) => {
+			console.log(`Interacción: ${action} en ${element}`);
+			// Aquí se podría integrar con Google Analytics, etc.
+		};
+
+		// Rastrear clics en CTAs
+		document.querySelectorAll('.service-cta, .cta-primary, .cta-secondary').forEach(button => {
+			button.addEventListener('click', (e) => {
+				trackInteraction('click', e.target.textContent);
+			});
+		});
+
+		// Optimización de imágenes lazy loading
+		if ('loading' in HTMLImageElement.prototype) {
+			const images = document.querySelectorAll('img[loading="lazy"]');
+			images.forEach(img => {
+				img.src = img.src;
+			});
+		} else {
+			// Fallback para navegadores que no soportan lazy loading nativo
+			const script = document.createElement('script');
+			script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+			document.head.appendChild(script);
+		}
+
+		// Preload de recursos críticos
+		const preloadCriticalResources = () => {
+			const criticalResources = [
+				'/css/style.css',
+				'/js/modern-interactions.js'
+			];
+
+			criticalResources.forEach(resource => {
+				const link = document.createElement('link');
+				link.rel = 'preload';
+				link.href = resource;
+				link.as = resource.endsWith('.css') ? 'style' : 'script';
+				document.head.appendChild(link);
+			});
+		};
+
+		preloadCriticalResources();
+	});
+
+	// Service Worker para PWA (opcional)
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/sw.js')
+				.then(registration => {
+					console.log('SW registrado: ', registration);
+				})
+				.catch(registrationError => {
+					console.log('SW registration failed: ', registrationError);
+				});
+		});
+	}
+</script>

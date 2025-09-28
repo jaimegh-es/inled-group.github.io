@@ -1,0 +1,724 @@
+---
+const differentiators = [
+  {
+    icon: 'fas fa-robot',
+    title: 'Agentic Engineering',
+    description: 'Desarrollamos con agentes de IA de forma que mejoramos en el uso de tecnologías y aceleramos el proceso.',
+    highlight: 'Pioneros en desarrollo con IA',
+    stats: '90% más rápido'
+  },
+  {
+    icon: 'fa-solid fa-cloud-rain',
+    title: 'Brainstorming con IA y humanos',
+    description: 'La IA nos va abriendo caminos y nosotros ahondamos en ellos: así podemos tener ideas de forma más productiva.',
+    highlight: 'IA + Humanos',
+    stats: '70% más ideas'
+  },
+  {
+    icon: 'fa-solid fa-bolt',
+    title: 'Proceso propio de desarrollo',
+    description: 'Con nuetsro propio e innovador proceso de desarrollo podemos ofrecer resultados de calidad en menos tiempo.',
+    highlight: 'Máxima velocidad',
+    stats: '105% más velocidad de entrega'
+  },
+  {
+    icon: 'fas fa-tools',
+    title: 'Ya 3xiste',
+    description: 'Si tu idea ya existe nos basaremos en la existente y haremos que la tuya sea más competitiva.',
+    highlight: 'Mejores resultados',
+    stats: 'Mejores resultados'
+  }
+];
+
+const testimonials = [
+  /*{
+    name: 'María González',
+    company: 'TechStart SL',
+    role: 'CEO',
+    content: 'El equipo de Inled transformó completamente nuestra plataforma. Los resultados han superado todas nuestras expectativas.',
+    rating: 5,
+    image: 'fas fa-user-tie'
+  },
+  {
+    name: 'Carlos Ruiz',
+    company: 'Digital Agency',
+    role: 'Creative Director',
+    content: 'Su enfoque en accesibilidad y performance nos ha ayudado a conseguir clientes que valoran la calidad real.',
+    rating: 5,
+    image: 'fas fa-user-cog'
+  },
+  {
+    name: 'Ana Martín',
+    company: 'E-commerce Plus',
+    role: 'Marketing Manager',
+    content: 'Increíble la mejora en conversiones. El diseño no solo es bonito, funciona de verdad.',
+    rating: 5,
+    image: 'fas fa-user-astronaut'
+  }*/
+];
+---
+
+<section class="design-differentiators" id="diferenciadores">
+  <div class="differentiators-container">
+    <div class="section-header" data-gsap="fadeInUp">
+      <span class="section-badge"><i class="fas fa-star"></i> Qué nos diferencia</span>
+      <h2 class="section-title">
+        No somos lo mismo,
+        <span class="gradient-text">somos pioneros</span>
+      </h2>
+      <p class="section-subtitle">
+        Combinamos tecnologías de IA para desarrollar de forma vanguardista junto con las últimas tecnologías del mercado.
+      </p>
+    </div>
+
+    <div class="differentiators-grid">
+      {differentiators.map((item, index) => (
+        <div
+          class="differentiator-card"
+          data-gsap="slideInUp"
+          data-delay={index * 0.1}
+          data-hover-float
+        >
+          <div class="card-content">
+            <div class="card-icon"><i class={item.icon}></i></div>
+            <div class="card-highlight">{item.highlight}</div>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-description">{item.description}</p>
+            <div class="card-stats">
+              <span class="stats-value">{item.stats}</span>
+            </div>
+          </div>
+          <div class="card-bg-effect"></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="process-section" data-gsap="fadeInUp">
+      <h3 class="process-title">Nuestro proceso de trabajo</h3>
+      <div class="process-timeline">
+        <div class="timeline-item" data-gsap="slideInLeft" data-delay="0.1">
+          <div class="timeline-number">01</div>
+          <div class="timeline-content">
+            <h4>Escuchar</h4>
+            <p>Empaparnos bien de lo que nos quieres transmitir</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-gsap="slideInRight" data-delay="0.2">
+          <div class="timeline-number">02</div>
+          <div class="timeline-content">
+            <h4>Estrategia</h4>
+            <p>Definición de estrategia para superar lo ya creado</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-gsap="slideInLeft" data-delay="0.3">
+          <div class="timeline-number">03</div>
+          <div class="timeline-content">
+            <h4>Desarrollo de la apariencia y diseño</h4>
+            <p>Desarrollamos la estructura principal del sitio o del diseño/anuncio</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-gsap="slideInRight" data-delay="0.4">
+          <div class="timeline-number">04</div>
+          <div class="timeline-content">
+            <h4>Desarrollo web con agentes de IA</h4>
+            <p>Terminamos de mejorar el sitio web con Agentes de IA</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-gsap="slideInLeft" data-delay="0.5">
+          <div class="timeline-number">05</div>
+          <div class="timeline-content">
+            <h4>Brand Assets</h4>
+            <p>Creamos todos los assets de marca</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-gsap="slideInRight" data-delay="0.6">
+          <div class="timeline-number">06</div>
+          <div class="timeline-content">
+            <h4>Lanzamiento</h4>
+            <p>Despliegue guiado tanto del anuncio como del sitio web</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-section" data-gsap="fadeInUp">
+      <h3 class="testimonials-title">Lo que dicen nuestros clientes</h3>
+      <div class="testimonials-carousel">
+        {testimonials.map((testimonial, index) => (
+          <div
+            class="testimonial-card"
+            data-gsap="slideInUp"
+            data-delay={index * 0.2}
+          >
+            <div class="testimonial-content">
+              <div class="testimonial-rating">
+                {Array.from({ length: testimonial.rating }, (_, i) => (
+                  <span class="star"><i class="fas fa-star"></i></span>
+                ))}
+              </div>
+              <p class="testimonial-text">"{testimonial.content}"</p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><i class={testimonial.image}></i></div>
+                <div class="author-info">
+                  <div class="author-name">{testimonial.name}</div>
+                  <div class="author-title">{testimonial.role} en {testimonial.company}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-shapes">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+  </div>
+</section>
+
+<style>
+  .design-differentiators {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .differentiators-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(255, 107, 157, 0.15);
+    color: #ff6b9d;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 107, 157, 0.3);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3bb4fc, #ff6b9d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+  }
+
+  .differentiator-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .differentiator-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 5px 15px rgba(59, 180, 252, 0.3));
+  }
+
+  .card-highlight {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-stats {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(59, 180, 252, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .stats-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3bb4fc;
+  }
+
+  .card-bg-effect {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.2), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .differentiator-card:hover .card-bg-effect {
+    opacity: 1;
+  }
+
+  .process-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .process-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .timeline-item:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateX(10px);
+  }
+
+  .timeline-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .timeline-content h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  .testimonials-section {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .testimonials-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .testimonials-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .testimonial-rating {
+    margin-bottom: 1rem;
+  }
+
+  .star {
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+  }
+
+  .testimonial-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    background: rgba(59, 180, 252, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .author-name {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .author-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .floating-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(59, 180, 252, 0.1);
+    filter: blur(40px);
+  }
+
+  .shape-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+    animation: float 20s ease-in-out infinite reverse;
+  }
+
+  .shape-3 {
+    width: 180px;
+    height: 180px;
+    bottom: 20%;
+    left: 15%;
+    animation: float 18s ease-in-out infinite;
+  }
+
+  .shape-4 {
+    width: 120px;
+    height: 120px;
+    top: 70%;
+    right: 25%;
+    animation: float 12s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-30px) translateX(20px);
+    }
+    66% {
+      transform: translateY(20px) translateX(-15px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .differentiators-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .differentiator-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .process-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .testimonials-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .testimonial-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonials-carousel {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initDifferentiators = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section header animation
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Differentiator cards animation
+        document.querySelectorAll('[data-gsap="slideInUp"]').forEach((card, index) => {
+          const delay = parseFloat(card.dataset.delay) || 0;
+
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
+
+        // Timeline items animation
+        document.querySelectorAll('[data-gsap="slideInLeft"]').forEach((item, index) => {
+          const delay = parseFloat(item.dataset.delay) || 0;
+
+          gsap.fromTo(item, {
+            opacity: 0,
+            x: -50
+          }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
+
+        document.querySelectorAll('[data-gsap="slideInRight"]').forEach((item, index) => {
+          const delay = parseFloat(item.dataset.delay) || 0;
+
+          gsap.fromTo(item, {
+            opacity: 0,
+            x: 50
+          }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
+      } else {
+        // En mobile, simplemente hacer visibles todos los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"], [data-gsap="slideInLeft"], [data-gsap="slideInRight"]', {
+          opacity: 1,
+          x: 0,
+          y: 0
+        });
+      }
+
+      // Float hover effect
+      document.querySelectorAll('[data-hover-float]').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            y: -5,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Floating shapes animation
+      gsap.to('.floating-shape', {
+        y: "+=30",
+        x: "+=20",
+        rotation: "+=45",
+        duration: gsap.utils.random(10, 20),
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        stagger: {
+          each: 3,
+          from: "random"
+        }
+      });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDifferentiators);
+    } else {
+      initDifferentiators();
+    }
+  }
+</script>

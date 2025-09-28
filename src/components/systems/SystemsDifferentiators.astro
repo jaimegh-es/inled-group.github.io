@@ -1,0 +1,1637 @@
+---
+
+
+const successStories = [
+/*  {
+    company: 'TechCorp Solutions',
+    industry: 'Desarrollo Software',
+    challenge: 'Sistemas lentos y caídas frecuentes',
+    solution: 'Migración a infraestructura optimizada',
+    results: ['90% mejora en rendimiento', '99.9% uptime conseguido', '60% reducción costes IT'],
+    testimonial: 'Inled transformó completamente nuestra infraestructura. Ahora trabajamos sin interrupciones.',
+    avatar: '<i class="fa-solid fa-user-tie"></i>'
+  },
+  {
+    company: 'MedicalData Inc',
+    industry: 'Sector Sanitario',
+    challenge: 'Cumplimiento normativo y seguridad',
+    solution: 'Implementación ISO 27001 y HIPAA',
+    results: ['100% cumplimiento normativo', 'Certificación ISO obtenida', '0 incidentes de seguridad'],
+    testimonial: 'La seguridad de los datos de nuestros pacientes está garantizada gracias a Inled.',
+    avatar: '<i class="fa-solid fa-user-doctor"></i>'
+  },
+  {
+    company: 'EcoManufacturing',
+    industry: 'Industria',
+    challenge: 'Sistemas obsoletos y falta de integración',
+    solution: 'Modernización integral y IoT',
+    results: ['70% reducción tiempo inactivo', 'Integración total sistemas', 'ROI 300% primer año'],
+    testimonial: 'Nuestra planta ahora es completamente digital y eficiente.',
+    avatar: '<i class="fa-solid fa-helmet-safety"></i>'
+  }*/
+];
+---
+
+<section class="systems-differentiators" id="diferenciadores">
+  <div class="differentiators-container">
+    <div class="section-header" data-gsap="fadeInUp">
+      <span class="section-badge"><i class="fa-solid fa-rocket"></i> Qué nos diferencia</span>
+      <h2 class="section-title">
+        Mirando por las
+        <span class="gradient-text">personas</span>
+      </h2>
+      <p class="section-subtitle">
+        Todo lo que hacemos es para mejorar la experiencia de los usuarios al usar los sistemas que administramos
+      </p>
+    </div>
+
+   
+    <div class="methodology-section" data-gsap="fadeInUp">
+      <h3 class="methodology-title">Nuestra metodología de trabajo</h3>
+      <div class="methodology-flow">
+        <div class="flow-step" data-gsap="slideInLeft" data-delay="0.1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h4>Visión general</h4>
+            <p>Evaluación completa de tu infraestructura actual</p>
+          </div>
+        </div>
+
+        <div class="flow-step" data-gsap="slideInRight" data-delay="0.2">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h4>Planificación & Diseño</h4>
+            <p>Diseño de la solución óptima para tí</p>
+          </div>
+        </div>
+
+        <div class="flow-step" data-gsap="slideInLeft" data-delay="0.3">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h4>Implementación</h4>
+            <p>De la solución</p>
+          </div>
+        </div>
+
+        <div class="flow-step" data-gsap="slideInRight" data-delay="0.4">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h4>Documentación y asistencia</h4>
+            <p>Para mejorar la experiencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+    <div class="success-stories" data-gsap="fadeInUp">
+      <!--  <h3 class="stories-title">Casos de éxito reales</h3>-->
+      <div class="stories-grid">
+        {successStories.map((story, index) => (
+          <div
+            class="story-card"
+            data-gsap="slideInUp"
+            data-delay={index * 0.2}
+          >
+            <div class="story-header">
+              <div class="company-info">
+                <h4 class="company-name">{story.company}</h4>
+                <span class="company-industry">{story.industry}</span>
+              </div>
+              <div class="story-avatar" set:html={story.avatar}></div>
+            </div>
+
+            <div class="story-content">
+              <div class="challenge">
+                <h5>Desafío:</h5>
+                <p>{story.challenge}</p>
+              </div>
+
+              <div class="solution">
+                <h5>Solución:</h5>
+                <p>{story.solution}</p>
+              </div>
+
+              <div class="results">
+                <h5>Resultados:</h5>
+                <ul>
+                  {story.results.map(result => (
+                    <li><i class="fa-solid fa-check"></i> {result}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="testimonial">
+                <blockquote>"{story.testimonial}"</blockquote>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="background-tech">
+    <div class="tech-grid"></div>
+    <div class="floating-circuits">
+      <div class="circuit circuit-1"></div>
+      <div class="circuit circuit-2"></div>
+      <div class="circuit circuit-3"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .systems-differentiators {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .differentiators-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(0, 255, 0, 0.15);
+    color: #00ff00;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3bb4fc, #00ff00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+  }
+
+  .differentiator-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .differentiator-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .differentiator-card.color-blue:hover { border-color: rgba(59, 180, 252, 0.6); }
+  .differentiator-card.color-yellow:hover { border-color: rgba(255, 189, 46, 0.6); }
+  .differentiator-card.color-red:hover { border-color: rgba(255, 95, 87, 0.6); }
+  .differentiator-card.color-purple:hover { border-color: rgba(147, 51, 234, 0.6); }
+  .differentiator-card.color-green:hover { border-color: rgba(0, 255, 0, 0.6); }
+  .differentiator-card.color-cyan:hover { border-color: rgba(6, 182, 212, 0.6); }
+
+  .card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 5px 15px rgba(59, 180, 252, 0.3));
+  }
+
+  .card-highlight {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .card-stats {
+    background: rgba(59, 180, 252, 0.1);
+    border: 1px solid rgba(59, 180, 252, 0.3);
+    border-radius: 15px;
+    padding: 1rem;
+  }
+
+  .stats-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3bb4fc;
+  }
+
+  .card-glow-effect {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.3), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .differentiator-card:hover .card-glow-effect {
+    opacity: 1;
+  }
+
+  .technologies-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .tech-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-5px);
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .tech-logo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .certified-badge {
+    background: linear-gradient(135deg, #00ff00, #3bb4fc);
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .methodology-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .methodology-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .methodology-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .flow-step:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateX(10px);
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .step-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .step-content li {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .step-content li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #3bb4fc;
+  }
+
+  .certifications-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .cert-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .cert-item:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateY(-3px);
+  }
+
+  .cert-item .cert-icon {
+    font-size: 1.5rem;
+  }
+
+  .cert-name {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .success-stories {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .stories-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .story-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .story-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .company-name {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .company-industry {
+    color: #3bb4fc;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .story-avatar {
+    width: 50px;
+    height: 50px;
+    background: rgba(59, 180, 252, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .story-content h5 {
+    color: #3bb4fc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .story-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .results li {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .results li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00ff00;
+    font-weight: bold;
+  }
+
+  .testimonial blockquote {
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(59, 180, 252, 0.1);
+    border-left: 4px solid #3bb4fc;
+    border-radius: 8px;
+  }
+
+  .background-tech {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .tech-grid {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 98%, rgba(59, 180, 252, 0.05) 100%),
+      linear-gradient(transparent 98%, rgba(59, 180, 252, 0.05) 100%);
+    background-size: 60px 60px;
+    opacity: 0.3;
+  }
+
+  .floating-circuits {
+    position: absolute;
+    inset: 0;
+  }
+
+  .circuit {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(59, 180, 252, 0.2);
+    border-radius: 10px;
+    opacity: 0.3;
+  }
+
+  .circuit-1 {
+    top: 10%;
+    left: 5%;
+    animation: circuitFloat 25s ease-in-out infinite;
+  }
+
+  .circuit-2 {
+    bottom: 20%;
+    right: 10%;
+    animation: circuitFloat 30s ease-in-out infinite reverse;
+  }
+
+  .circuit-3 {
+    top: 60%;
+    left: 30%;
+    animation: circuitFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes circuitFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-40px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(20px) rotate(240deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .differentiators-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .differentiator-card {
+      padding: 2rem 1.5rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .technologies-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tech-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .methodology-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .flow-step {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .certifications-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .success-stories {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .technologies-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .flow-step:hover {
+      transform: translateY(-5px);
+    }
+
+    .certifications-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initSystemsDifferentiators = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section animations
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Staggered card animations
+        document.querySelectorAll('[data-gsap="slideInUp"]').forEach((card, index) => {
+          const delay = parseFloat(card.dataset.delay) || 0;
+
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      // Flow step animations
+      document.querySelectorAll('[data-gsap="slideInLeft"]').forEach((step, index) => {
+        const delay = parseFloat(step.dataset.delay) || 0;
+
+        gsap.fromTo(step, {
+          opacity: 0,
+          x: -50
+        }, {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="slideInRight"]').forEach((step, index) => {
+        const delay = parseFloat(step.dataset.delay) || 0;
+
+        gsap.fromTo(step, {
+          opacity: 0,
+          x: 50
+        }, {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+      } else {
+        // En mobile, simplemente hacer visibles todos los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"], [data-gsap="slideInLeft"], [data-gsap="slideInRight"]', {
+          opacity: 1,
+          x: 0,
+          y: 0
+        });
+      }
+
+      // Glow hover effect
+      document.querySelectorAll('[data-hover-glow]').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card.querySelector('.card-glow-effect'), {
+            opacity: 1,
+            duration: 0.3
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card.querySelector('.card-glow-effect'), {
+            opacity: 0,
+            duration: 0.3
+          });
+        });
+      });
+
+      // Floating circuits animation
+      gsap.to('.circuit', {
+        rotation: 360,
+        duration: gsap.utils.random(20, 30),
+        ease: "none",
+        repeat: -1,
+        stagger: {
+          each: 5,
+          from: "random"
+        }
+      });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSystemsDifferentiators);
+    } else {
+      initSystemsDifferentiators();
+    }
+  }
+</script>
+
+<style>
+  .systems-differentiators {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .differentiators-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(0, 255, 0, 0.15);
+    color: #00ff00;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3bb4fc, #00ff00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+  }
+
+  .differentiator-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .differentiator-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .differentiator-card.color-blue:hover { border-color: rgba(59, 180, 252, 0.6); }
+  .differentiator-card.color-yellow:hover { border-color: rgba(255, 189, 46, 0.6); }
+  .differentiator-card.color-red:hover { border-color: rgba(255, 95, 87, 0.6); }
+  .differentiator-card.color-purple:hover { border-color: rgba(147, 51, 234, 0.6); }
+  .differentiator-card.color-green:hover { border-color: rgba(0, 255, 0, 0.6); }
+  .differentiator-card.color-cyan:hover { border-color: rgba(6, 182, 212, 0.6); }
+
+  .card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 5px 15px rgba(59, 180, 252, 0.3));
+  }
+
+  .card-highlight {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .card-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .card-stats {
+    background: rgba(59, 180, 252, 0.1);
+    border: 1px solid rgba(59, 180, 252, 0.3);
+    border-radius: 15px;
+    padding: 1rem;
+  }
+
+  .stats-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3bb4fc;
+  }
+
+  .card-glow-effect {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.3), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .differentiator-card:hover .card-glow-effect {
+    opacity: 1;
+  }
+
+  .technologies-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .tech-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-5px);
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .tech-logo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .certified-badge {
+    background: linear-gradient(135deg, #00ff00, #3bb4fc);
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .methodology-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .methodology-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .methodology-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .flow-step:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateX(10px);
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .step-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .step-content li {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .step-content li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #3bb4fc;
+  }
+
+  .certifications-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .cert-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .cert-item:hover {
+    background: rgba(59, 180, 252, 0.1);
+    border-color: rgba(59, 180, 252, 0.3);
+    transform: translateY(-3px);
+  }
+
+  .cert-item .cert-icon {
+    font-size: 1.5rem;
+  }
+
+  .cert-name {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .success-stories {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .stories-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .story-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .story-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .company-name {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .company-industry {
+    color: #3bb4fc;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .story-avatar {
+    width: 50px;
+    height: 50px;
+    background: rgba(59, 180, 252, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .story-content h5 {
+    color: #3bb4fc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .story-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .results li {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .results li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00ff00;
+    font-weight: bold;
+  }
+
+  .testimonial blockquote {
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(59, 180, 252, 0.1);
+    border-left: 4px solid #3bb4fc;
+    border-radius: 8px;
+  }
+
+  .background-tech {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .tech-grid {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 98%, rgba(59, 180, 252, 0.05) 100%),
+      linear-gradient(transparent 98%, rgba(59, 180, 252, 0.05) 100%);
+    background-size: 60px 60px;
+    opacity: 0.3;
+  }
+
+  .floating-circuits {
+    position: absolute;
+    inset: 0;
+  }
+
+  .circuit {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(59, 180, 252, 0.2);
+    border-radius: 10px;
+    opacity: 0.3;
+  }
+
+  .circuit-1 {
+    top: 10%;
+    left: 5%;
+    animation: circuitFloat 25s ease-in-out infinite;
+  }
+
+  .circuit-2 {
+    bottom: 20%;
+    right: 10%;
+    animation: circuitFloat 30s ease-in-out infinite reverse;
+  }
+
+  .circuit-3 {
+    top: 60%;
+    left: 30%;
+    animation: circuitFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes circuitFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-40px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(20px) rotate(240deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .differentiators-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .differentiator-card {
+      padding: 2rem 1.5rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .technologies-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tech-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .methodology-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .flow-step {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .certifications-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .success-stories {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .technologies-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .flow-step:hover {
+      transform: translateY(-5px);
+    }
+
+    .certifications-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initSystemsDifferentiators = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section animations
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Staggered card animations
+        document.querySelectorAll('[data-gsap="slideInUp"]').forEach((card, index) => {
+          const delay = parseFloat(card.dataset.delay) || 0;
+
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      // Flow step animations
+      document.querySelectorAll('[data-gsap="slideInLeft"]').forEach((step, index) => {
+        const delay = parseFloat(step.dataset.delay) || 0;
+
+        gsap.fromTo(step, {
+          opacity: 0,
+          x: -50
+        }, {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-gsap="slideInRight"]').forEach((step, index) => {
+        const delay = parseFloat(step.dataset.delay) || 0;
+
+        gsap.fromTo(step, {
+          opacity: 0,
+          x: 50
+        }, {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+      } else {
+        // En mobile, simplemente hacer visibles todos los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"], [data-gsap="slideInLeft"], [data-gsap="slideInRight"]', {
+          opacity: 1,
+          x: 0,
+          y: 0
+        });
+      }
+
+      // Glow hover effect
+      document.querySelectorAll('[data-hover-glow]').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card.querySelector('.card-glow-effect'), {
+            opacity: 1,
+            duration: 0.3
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card.querySelector('.card-glow-effect'), {
+            opacity: 0,
+            duration: 0.3
+          });
+        });
+      });
+
+      // Floating circuits animation
+      gsap.to('.circuit', {
+        rotation: 360,
+        duration: gsap.utils.random(20, 30),
+        ease: "none",
+        repeat: -1,
+        stagger: {
+          each: 5,
+          from: "random"
+        }
+      });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSystemsDifferentiators);
+    } else {
+      initSystemsDifferentiators();
+    }
+  }
+</script>

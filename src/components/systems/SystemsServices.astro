@@ -1,0 +1,889 @@
+---
+const services = [
+  {
+    icon: '<i class="fa-solid fa-desktop"></i>',
+    title: 'Instalación a medida',
+    description: 'Instalación de sistemas operativos a medida.',
+    features: ['Linux', 'Windows', 'Personalización completa'],
+    sla: '100% satisfacción',
+    popular: true,
+    color: 'blue'
+  },
+  {
+    icon: '<i class="fa-solid fa-sync"></i>',
+    title: 'Actualizaciones y Parches',
+    description: 'Actualización de dispositivos.',
+    features: ['Actualizaciones', 'Parches de seguridad'],
+    sla: 'Rápido como la bala',
+    popular: true,
+    color: 'green'
+  },
+  {
+    icon: '<i class="fa-solid fa-shield-halved"></i>',
+    title: 'Limpieza de virus',
+    description: 'Limpieza y protección contra virus y malware.',
+    features: ['Limpieza rápida', 'Backup', 'Revisión de alcance'],
+    sla: 'Limpieza total',
+    popular: false,
+    color: 'red'
+  },
+  {
+    icon: '<i class="fa-solid fa-palette"></i>',
+    title: 'Personalización de Linux y Windows',
+    description: '¿Tus empleados no se sienten a gusto con Linux o Windows les parece malo?.',
+    features: ['Linux como Windows', 'Optimización de Windows', 'Linux completamente personalizado'],
+    sla: 'Trend',
+    popular: false,
+    color: 'purple'
+  },
+  {
+    icon: '<i class="fa-solid fa-rocket"></i>',
+    title: 'Imagen corporativa',
+    description: 'Convierte tu ordenador, TPV o teléfono en tu dispositivo con diseño corporativo.',
+    features: ['GRUB personalizada', 'Marca de distro personalizada', 'Fondo de pantalla a medida', 'Tema de GNOME/Plasma/GTK personalizado', 'Colores corporativos'],
+    sla: 'Marca',
+    popular: false,
+    color: 'orange'
+  },
+  {
+    icon: '<i class="fa-solid fa-phone"></i>',
+    title: 'Ayuda',
+    description: '¿El ordenador se ha colgado?¿Le has vuelto a meter un virus?¿No tienes espacio?¿Te cuesta usarlo?.',
+    features: ['Ayuda semanal', 'Correo electrónico', 'Documentación', 'Mejora del sistema'],
+    sla: 'Exclusivo clientes',
+    popular: false,
+    color: 'cyan'
+  }
+];
+
+---
+
+<section class="systems-services" id="servicios">
+  <div class="services-container">
+    <div class="section-header" data-gsap="fadeInUp">
+      <span class="section-badge"><i class="fa-solid fa-cogs"></i> Nuestros Servicios</span>
+      <h2 class="section-title">
+        Gestión de
+        <span class="gradient-text">calidad</span>
+      </h2>
+      <p class="section-subtitle">
+        Ofrecemos servicios completos de gestión, mantenimiento y optimización
+        de sistemas informáticos con tecnología de vanguardia y soporte.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <div
+          class={`service-card ${service.popular ? 'popular' : ''} color-${service.color}`}
+          data-gsap="slideInUp"
+          data-delay={index * 0.1}
+          data-hover-tilt
+        >
+          {service.popular && (
+            <div class="popular-badge">
+              <span><i class="fa-solid fa-star"></i> Popular</span>
+            </div>
+          )}
+
+          <div class="card-header">
+            <div class="service-icon" set:html={service.icon}></div>
+            <div class="service-meta">
+              <h3 class="service-title">{service.title}</h3>
+              <div class="service-sla">{service.sla}</div>
+            </div>
+          </div>
+
+          <p class="service-description">{service.description}</p>
+
+          <div class="service-features">
+            <h4>Incluye:</h4>
+            <ul>
+              {service.features.map(feature => (
+                <li>
+                  <span class="feature-check"><i class="fa-solid fa-check"></i></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+
+          <div class="card-glow"></div>
+        </div>
+      ))}
+    </div>
+
+
+
+  </div>
+
+  <div class="background-elements">
+    <div class="tech-pattern"></div>
+    <div class="floating-tech">
+      <div class="tech-element tech-1"><i class="fa-solid fa-cog"></i></div>
+      <div class="tech-element tech-2"><i class="fa-solid fa-wrench"></i></div>
+      <div class="tech-element tech-3"><i class="fa-solid fa-laptop"></i></div>
+      <div class="tech-element tech-4"><i class="fa-solid fa-shield-halved"></i></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .systems-services {
+    background: #000000;
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: rgba(59, 180, 252, 0.15);
+    color: #3bb4fc;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(59, 180, 252, 0.3);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #3bb4fc, #00ff00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+  }
+
+  .service-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .service-card.popular {
+    border-color: rgba(59, 180, 252, 0.5);
+    background: rgba(59, 180, 252, 0.08);
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .service-card.color-blue:hover { border-color: rgba(59, 180, 252, 0.6); }
+  .service-card.color-green:hover { border-color: rgba(0, 255, 0, 0.6); }
+  .service-card.color-red:hover { border-color: rgba(255, 95, 87, 0.6); }
+  .service-card.color-purple:hover { border-color: rgba(147, 51, 234, 0.6); }
+  .service-card.color-orange:hover { border-color: rgba(255, 189, 46, 0.6); }
+  .service-card.color-cyan:hover { border-color: rgba(6, 182, 212, 0.6); }
+
+  .popular-badge {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 0 0 15px 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(59, 180, 252, 0.3);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    line-height: 1;
+    filter: drop-shadow(0 5px 15px rgba(59, 180, 252, 0.3));
+  }
+
+  .service-meta {
+    flex: 1;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-sla {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    display: inline-block;
+  }
+
+  .service-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features h4 {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .service-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+  }
+
+  .feature-check {
+    color: #3bb4fc;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .service-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+  }
+
+  .service-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3bb4fc;
+  }
+
+  .service-cta {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 5px 15px rgba(59, 180, 252, 0.3);
+  }
+
+  .service-cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(59, 180, 252, 0.4);
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .service-cta:hover .cta-arrow {
+    transform: translateX(3px);
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, transparent, rgba(59, 180, 252, 0.5), transparent);
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .service-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .plans-section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .plans-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .plans-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .plan-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .plan-card.popular {
+    border-color: rgba(59, 180, 252, 0.5);
+    background: rgba(59, 180, 252, 0.1);
+    transform: scale(1.05);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(59, 180, 252, 0.3);
+  }
+
+  .plan-card.popular:hover {
+    transform: translateY(-5px) scale(1.07);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 0 0 15px 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .plan-header {
+    margin-bottom: 2rem;
+  }
+
+  .plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .plan-price {
+    margin-bottom: 1rem;
+  }
+
+  .price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3bb4fc;
+  }
+
+  .price-period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .plan-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  .plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .plan-check {
+    color: #3bb4fc;
+    font-weight: bold;
+  }
+
+  .plan-cta {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .plan-cta.primary {
+    background: linear-gradient(135deg, #3bb4fc, #2a9de8);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(59, 180, 252, 0.3);
+  }
+
+  .plan-cta.secondary {
+    background: transparent;
+    color: #3bb4fc;
+    border: 2px solid #3bb4fc;
+  }
+
+  .plan-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .plan-cta.primary:hover {
+    box-shadow: 0 12px 25px rgba(59, 180, 252, 0.4);
+  }
+
+  .plan-cta.secondary:hover {
+    background: rgba(59, 180, 252, 0.1);
+  }
+
+  .emergency-support {
+    background: rgba(255, 95, 87, 0.1);
+    border: 1px solid rgba(255, 95, 87, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .emergency-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .emergency-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .emergency-info {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .emergency-info h4 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .emergency-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  .emergency-contact {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .emergency-phone,
+  .emergency-email {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .emergency-phone {
+    background: linear-gradient(135deg, #ff5f57, #ff3b30);
+    color: #ffffff;
+  }
+
+  .emergency-email {
+    background: transparent;
+    color: #ff5f57;
+    border: 2px solid #ff5f57;
+  }
+
+  .emergency-phone:hover,
+  .emergency-email:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .emergency-phone:hover {
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(255, 95, 87, 0.4);
+  }
+
+  .emergency-email:hover {
+    background: rgba(255, 95, 87, 0.1);
+    color: #ff5f57;
+  }
+
+  .background-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .tech-pattern {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, transparent 98%, rgba(59, 180, 252, 0.1) 100%),
+      linear-gradient(transparent 98%, rgba(59, 180, 252, 0.1) 100%);
+    background-size: 50px 50px;
+    opacity: 0.3;
+  }
+
+  .floating-tech {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tech-element {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: techFloat 20s ease-in-out infinite;
+  }
+
+  .tech-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+
+  .tech-2 {
+    top: 70%;
+    right: 10%;
+    animation-delay: 5s;
+  }
+
+  .tech-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 10s;
+  }
+
+  .tech-4 {
+    top: 40%;
+    right: 20%;
+    animation-delay: 15s;
+  }
+
+  @keyframes techFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-30px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-40px) rotate(270deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card {
+      padding: 1.5rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .plans-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .plan-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .emergency-support {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .service-footer {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .plans-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .plan-card.popular {
+      transform: none;
+    }
+
+    .plan-card.popular:hover {
+      transform: translateY(-5px);
+    }
+
+    .emergency-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .emergency-contact {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .emergency-phone,
+    .emergency-email {
+      flex: 1;
+      justify-content: center;
+      min-width: 140px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .emergency-contact {
+      flex-direction: column;
+    }
+
+    .emergency-phone,
+    .emergency-email {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const initSystemsServices = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Section header animation
+        gsap.fromTo('[data-gsap="fadeInUp"]', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '[data-gsap="fadeInUp"]',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Service cards animation
+        document.querySelectorAll('[data-gsap="slideInUp"]').forEach((card, index) => {
+          const delay = parseFloat(card.dataset.delay) || 0;
+
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 30
+          }, {
+            opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+      } else {
+        // En mobile, simplemente hacer visibles todos los elementos
+        gsap.set('[data-gsap="fadeInUp"], [data-gsap="slideInUp"]', {
+          opacity: 1,
+          y: 0
+        });
+      }
+
+      // Tilt hover effect
+      document.querySelectorAll('[data-hover-tilt]').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / centerY * -5;
+          const rotateY = (x - centerX) / centerX * 5;
+
+          gsap.to(card, {
+            rotateX: rotateX,
+            rotateY: rotateY,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Service CTA functionality
+      document.querySelectorAll('.service-cta').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const service = e.currentTarget.dataset.service;
+          const message = `Hola, me interesa contratar el servicio de ${service}. ¿Podrían enviarme más información?`;
+          const whatsappUrl = `https://wa.me/34123456789?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        });
+      });
+
+      // Plan CTA functionality
+      document.querySelectorAll('.plan-cta').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const plan = e.currentTarget.dataset.plan;
+          const message = `Hola, me interesa el plan ${plan} de gestión de sistemas. ¿Podrían contactar conmigo?`;
+          const whatsappUrl = `https://wa.me/34123456789?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        });
+      });
+
+      // Floating tech elements animation
+      gsap.to('.tech-element', {
+        y: "+=30",
+        rotation: "+=360",
+        duration: gsap.utils.random(15, 25),
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+        stagger: {
+          each: 3,
+          from: "random"
+        }
+      });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSystemsServices);
+    } else {
+      initSystemsServices();
+    }
+  }
+</script>
