@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<Layout>
+  <title>Cleany | Inled Group</title>
+    <meta name="description" content="La extensión que limpia los datos personales de tu navegador cuando lo abres.">
+  <Header />
+<h1 class="wemake-start">Cleany</h1>
+<div class="descargar">
+  <div class="content-descargar">
+    <h1 class="h1-descargar">Limpia el navegador de datos personales</h1>
+    <p class="p-descargar">Una extensión perfecta para ordenadores públicos o compartidos.
+    </p>
+    <div class="buttons">
+      <a href="https://github.com/InledGroup/cleany/archive/refs/heads/main.zip" class="btn-descargar">Descargar</a>
+      <a href="https://github.com/InledGroup/cleany" class="btn-codigo">Código</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src={import.meta.env.BASE_URL + "/upload/cleany.png"} alt="Imagen cleany inled">
+  </div>
+</div>
+
+<h1 class="h1init">Diseñada para su finalidad</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/comemierda.gif"} alt="Privacidad 100%">
+    <h2>Borra los datos</h2>
+    <p>Si te paras a ver el código de la extensión puedes observar que borra cookies, contraseñas guardadas, sesiones, historial, etc...</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/ordenadorpublico.gif"} alt="Rápido">
+    <h2>Perfecto para PC's públicos</h2>
+    <p>Cleany es perfecta para ordenadores públicos ya que hace una limpieza total.</p>
+  </div>
+</div>
+
+<h1 class="h1init">Instalación</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-desde-2025-04-16-14-50-33.png"} alt="Carpeta con el nombre de start-chrome con estilo de icono MacOS">
+    <h2>Descargue el zip y descomprímalo</h2>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/startomnibox-instalacion-1.png"} alt="Imagen en la que se está cargando la extensión descomprimida a un navegador basado en Chromium">
+    <h2>Habilite el modo Desarrollador y suba la extensión</h2>
+    <p>En la esquina superior derecha en la sección Extensiones de su navegador active el modo desarrollador y después pulse en «Cargar descomprimida» en el desplegable que le aparecerá</p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/startomnibox-instalacion-2.png"} alt="Se está activando la extensión Start Omnibox en el navegador">
+    <h2>Active la extensión</h2>
+    <p>Para finalizar pulse en el switch dentro del recuadro de la extensión y actívela.</p>
+  </div>
+</div>
+
+<Footer />
+</Layout>
