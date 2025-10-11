@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<Layout>
+  <title>InShare| Comparte archivos por red local | Inled Group</title>
+    <meta name="description" content="Perfecto para compartir archivos por red local gracias a NodeJS.">
+  <Header />
+<h1 class="wemake-start">InShare</h1>
+<div class="descargar">
+  <div class="content-descargar">
+    <h1 class="h1-descargar">Comparte archivos en la red local</h1>
+    <p class="p-descargar">Es privado y seguro, tú eres dueño de lo que envías.
+    </p>
+    <div class="buttons">
+      <a href="https://github.com/InledGroup/inshare/archive/refs/heads/main.zip" class="btn-descargar">Descargar</a>
+      <a href="https://github.com/InledGroup/inshare" class="btn-codigo">Código</a>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src={import.meta.env.BASE_URL + "/upload/inshare.capture.png"} alt="Imagen inshare inled">
+  </div>
+</div>
+<h1 class="h1init">Requerimientos</h1>
+<p>Se requiere NodeJS y NPM instalados para poder ejecutar el programa.</p>
+
+<h1 class="h1init">Preparada para el uso</h1>
+
+<div class="card-section-instalables">
+
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/comemierda.gif"} alt="borrar">
+    <h2>Se borran una vez descargados</h2>
+    <p>Los archivos enviados se borran una vez descargados.</p>
+  </div>
+</div>
+
+<h1 class="h1init">Instalación</h1>
+
+<div class="card-section-instalables">
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/Captura-desde-2025-04-16-14-50-33.png"} alt="Carpeta con el nombre de start-chrome con estilo de icono MacOS">
+    <h2>Descargue el zip y descomprímalo</h2>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/nodejs.install.png"} alt="se está instalando nodejs">
+    <h2>Instale NodeJS y NPM en su dispositivo</h2>
+    <p>Una vez instalados ejecute <code>npm install</code></p>
+  </div>
+  <div class="card-instalables">
+    <img src={import.meta.env.BASE_URL + "/upload/inshare.png"} alt="terminal con inshare">
+    <h2>Un comando y listo</h2>
+    <p>Ahora navegue por terminal hacia la carpeta de InShare y dentro de ella ejecute <code>node server.js</code> y pinche en uno de los enlaces que le da el servidor.</p>
+  </div>
+</div>
+
+<Footer />
+</Layout>
