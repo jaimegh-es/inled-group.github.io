@@ -1,0 +1,173 @@
+---
+// FloatingChatButton.astro
+---
+
+<div class="floating-chat-container">
+  <!-- Botón flotante -->
+  <button id="chat-toggle-btn" class="chat-button" aria-label="Abrir chat">
+    <img src="https://ai.inled.es/inledai.svg" alt="Chat" />
+  </button>
+
+  <!-- Popup del chat -->
+  <div id="chat-popup" class="chat-popup hidden">
+    <div class="chat-popup-header">
+      <span>Chat</span>
+      <button id="chat-close-btn" class="close-button" aria-label="Cerrar chat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <iframe
+      src="https://inled.page.gd/talk/4lreudbz/"
+      class="chat-iframe"
+      title="Chat"
+      allow="storage-access *; cookies *"
+    ></iframe>
+  </div>
+</div>
+
+<style>
+  .floating-chat-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+  }
+
+  .chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 12px;
+  }
+
+  .chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .chat-button:active {
+    transform: scale(0.95);
+  }
+
+  .chat-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .chat-popup {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 800px;
+    height: 700px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 2px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .chat-popup.hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+  }
+
+  .chat-popup-header {
+    background: white;
+    color: #1f2937;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .close-button {
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .close-button:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+  }
+
+  .chat-iframe {
+    flex: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .chat-popup {
+      width: calc(100vw - 32px);
+      height: calc(100vh - 140px);
+      bottom: 80px;
+      right: -8px;
+    }
+
+    .floating-chat-container {
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .chat-button {
+      width: 56px;
+      height: 56px;
+    }
+  }
+</style>
+
+<script>
+  const chatButton = document.getElementById('chat-toggle-btn');
+  const chatPopup = document.getElementById('chat-popup');
+  const closeButton = document.getElementById('chat-close-btn');
+
+  function toggleChat() {
+    chatPopup?.classList.toggle('hidden');
+  }
+
+  function closeChat() {
+    chatPopup?.classList.add('hidden');
+  }
+
+  chatButton?.addEventListener('click', toggleChat);
+  closeButton?.addEventListener('click', closeChat);
+
+  // Cerrar al hacer click fuera del popup
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const container = document.querySelector('.floating-chat-container');
+
+    if (container && !container.contains(target)) {
+      closeChat();
+    }
+  });
+</script>
